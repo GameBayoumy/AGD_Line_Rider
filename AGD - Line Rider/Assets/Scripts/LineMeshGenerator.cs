@@ -12,11 +12,13 @@ public class LineMeshGenerator: MonoBehaviour
     public float widthEnd = 1.0f;                   // Ending width of the trail
     public float vertexDistanceMin = 0.10f;         // Minimum distance between the center positions
     public Vector3 renderDirection = new Vector3(0, 0, -1); // Direction that the mesh of the trail will be rendered towards
+    public bool colliderEnabled = true;             // Determines if the collider is enabled. Changing this during runtime will have no effect.
     public bool pausing = false;                    // Determines if the trail is pausing, that is neither creating nor destroying vertices
 
     // Private variables
 
     private Mesh mesh;
+    private new PolygonCollider2D collider;
     private LinkedList<Vector3> centerPositions;    //the previous positions of the object this script is attached to
     private LinkedList<Vertex> leftVertices;        //the left vertices derived from the center positions
     private LinkedList<Vertex> rightVertices;       //the right vertices derived from the center positions
@@ -35,6 +37,15 @@ public class LineMeshGenerator: MonoBehaviour
         trailMaterial = material;
     }
 
+    /// <summary>
+    /// Changes if the collider is enabled or not during runtime.
+    /// </summary>
+    public void ChangeColliderEnabled(bool enabled)
+    {
+        colliderEnabled = enabled;
+        collider.enabled = enabled;
+    }
+
     //************
     //
     // Private Unity Methods
@@ -48,6 +59,10 @@ public class LineMeshGenerator: MonoBehaviour
         mesh = trail.GetComponent<MeshFilter>().mesh = new Mesh();
         trail.GetComponent<Renderer>().material = trailMaterial;
 
+        // Get and set the polygon collider on this trail.
+        collider = trail.GetComponent<PolygonCollider2D>();
+        collider.SetPath(0, null);
+
         // Set the first center position as the current position
         centerPositions = new LinkedList<Vector3>();
         centerPositions.AddFirst(transform.position);
@@ -60,7 +75,7 @@ public class LineMeshGenerator: MonoBehaviour
     {
         if (!pausing)
         {
-            // Set the mesh and adjust widths if vertices were addedre
+            // Set the mesh and adjust widths if vertices were added or removed
             if (TryAddVertices())
             {
 
@@ -131,7 +146,7 @@ public class LineMeshGenerator: MonoBehaviour
             if (leftVert.TimeAlive > changeTime)
             {
                 // Calculate the new width of the trail based on the amount of time the vertex has been alive
-                float width = widthStart - (widthDelta * ((leftVert.TimeAlive - changeTime)));
+                float width = widthStart - (widthDelta * (leftVert.TimeAlive - changeTime));
 
                 // Each vertex is half of the calculated trail width from the center
                 float halfWidth = width * 0.5f;
@@ -211,6 +226,11 @@ public class LineMeshGenerator: MonoBehaviour
         mesh.vertices = vertices;
         mesh.uv = uvs;
         mesh.triangles = triangles;
+
+        if (colliderEnabled)
+        {
+            collider.SetPath(0, colliderPath);
+        }
     }
 
     //************
