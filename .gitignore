@@ -25,12 +25,18 @@ sysinfo.txt
 *.unityproj
 *.user
 *.userprefs
+*.csproj
 *.pidb
-.DS_Store
+*.suo
+*.sln
+*.user
+*.unityproj
+*.booproj
 
-###
-# OS generated
-###
+
+============
+OS generated
+============
 .DS_Store
 .DS_Store?
 ._*
