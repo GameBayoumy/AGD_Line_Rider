@@ -393,54 +393,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!1 &1043104160
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1043104161}
-  - component: {fileID: 1043104162}
-  m_Layer: 0
-  m_Name: Line Mesh Generator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1043104161
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1043104160}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1043104162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1043104160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b39a4ad923227948b21254c9955060c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trailMaterial: {fileID: 2100000, guid: 9da39d2c358e12945b783f916084f7d1, type: 2}
-  changeTime: 0.5
-  widthStart: 1
-  widthEnd: 1
-  vertexDistanceMin: 0.1
-  renderDirection: {x: 0, y: 0, z: -1}
-  colliderEnabled: 1
-  pausing: 0
 --- !u!1 &1058091839
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,7 +473,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1245153328
 Prefab:
@@ -560,7 +512,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4168630830058000, guid: ca8e4c819011c8548839bf15d3b18cde, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca8e4c819011c8548839bf15d3b18cde, type: 2}
@@ -679,7 +631,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c27f9c446c91f144bb953dfa59f7483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineRend: {fileID: 1043104160}
+  meshGeneratorPrefab: {fileID: 1069403433397932, guid: d6c661907cfdefc41a87eb3a5533c129,
+    type: 2}
+  currentMeshGenerator: {fileID: 0}
 --- !u!1 &1756846881
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,5 +759,5 @@ Transform:
   - {fileID: 530760452}
   - {fileID: 659572791}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

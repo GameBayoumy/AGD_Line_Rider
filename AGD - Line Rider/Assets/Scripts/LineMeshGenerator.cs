@@ -56,6 +56,7 @@ public class LineMeshGenerator: MonoBehaviour
     {
         // Create an object and mesh for the trail
         GameObject trail = new GameObject("Trail", new[] { typeof(MeshRenderer), typeof(MeshFilter), typeof(PolygonCollider2D) });
+        transform.SetParent(trail.transform);
         mesh = trail.GetComponent<MeshFilter>().mesh = new Mesh();
         trail.GetComponent<Renderer>().material = trailMaterial;
 
