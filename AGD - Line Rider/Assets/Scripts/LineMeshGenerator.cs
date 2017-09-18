@@ -78,12 +78,6 @@ public class LineMeshGenerator: MonoBehaviour
             // Set the mesh and adjust widths if vertices were added or removed
             if (TryAddVertices())
             {
-
-                if (widthStart != widthEnd)
-                {
-                    SetVertexWidths();
-                }
-
                 SetMesh();
             }
         }
@@ -127,42 +121,6 @@ public class LineMeshGenerator: MonoBehaviour
     }
 
     /// <summary>
-    /// Recalculates the widths of the vertices based on the amount of time they have been alive.  
-    /// </summary>
-    private void SetVertexWidths()
-    {
-        LinkedListNode<Vertex> leftVertNode = leftVertices.First;
-        LinkedListNode<Vertex> rightVertNode = rightVertices.First;
-
-        float widthDelta = widthStart - widthEnd;
-
-        // Iterate through all the left and right vertex pairs
-        while (leftVertNode != null)
-        {
-            Vertex leftVert = leftVertNode.Value;
-            Vertex rightVert = rightVertNode.Value;
-
-            // If the alive time of this vertex pair is greater than the specified time to begin changing width
-            if (leftVert.TimeAlive > changeTime)
-            {
-                // Calculate the new width of the trail based on the amount of time the vertex has been alive
-                float width = widthStart - (widthDelta * (leftVert.TimeAlive - changeTime));
-
-                // Each vertex is half of the calculated trail width from the center
-                float halfWidth = width * 0.5f;
-
-                // Since the left and right vertices were created at the same time, the new width is the same for both vertices
-                leftVert.AdjustWidth(halfWidth);
-                rightVert.AdjustWidth(halfWidth);
-            }
-
-            // Increment the left and right vertex nodes
-            leftVertNode = leftVertNode.Next;
-            rightVertNode = rightVertNode.Next;
-        }
-    }
-
-    /// <summary>
     /// Sets the mesh and the polygon collider of the mesh.
     /// </summary>
     private void SetMesh()
@@ -181,10 +139,7 @@ public class LineMeshGenerator: MonoBehaviour
 
         LinkedListNode<Vertex> leftVertNode = leftVertices.First;
         LinkedListNode<Vertex> rightVertNode = rightVertices.First;
-
-        // Get the change in time between the first and last pair of vertices
-        float timeDelta = leftVertices.Last.Value.TimeAlive - leftVertices.First.Value.TimeAlive;
-
+        
         // Iterate through all the pairs of vertices (left + right)
         for (int i = 0; i < leftVertices.Count; ++i)
         {
@@ -201,9 +156,8 @@ public class LineMeshGenerator: MonoBehaviour
             colliderPath[colliderPath.Length - (i + 1)] = rightVert.Position;
 
             // Trail uvs
-            float uvValue = leftVert.TimeAlive / timeDelta;
-            uvs[vertIndex] = new Vector2(uvValue, 0);
-            uvs[vertIndex + 1] = new Vector2(uvValue, 1);
+            uvs[vertIndex] = new Vector2(0, 0);
+            uvs[vertIndex + 1] = new Vector2(1, 1);
 
             // Trail triangles
             if (i > 0)
