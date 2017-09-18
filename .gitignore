@@ -1,23 +1,38 @@
-=============== 
-Unity generated
-===============
-Temp/
-Library/
+###
+# Unity folders and files
+###
+[Aa]ssets/AssetStoreTools*
+[Bb]uild/
+[Ll]ibrary/
+[Ll]ocal[Cc]ache/
+[Oo]bj/
+[Tt]emp/
+[Uu]nityGenerated/
+# file on crash reports
+sysinfo.txt
+# Unity3D generated meta files
+*.pidb.meta
 
-=====================================
-Visual Studio / MonoDevelop generated
-=====================================
-ExportedObj/
-obj/
+###
+# VS/MD solution and project files
+###
+[Ee]xportedObj/
+*.booproj
+*.csproj
+*.sln
+*.suo
 *.svd
+*.unityproj
+*.user
 *.userprefs
-/*.csproj
+*.csproj
 *.pidb
 *.suo
-/*.sln
+*.sln
 *.user
 *.unityproj
 *.booproj
+
 
 ============
 OS generated
@@ -27,5 +42,6 @@ OS generated
 ._*
 .Spotlight-V100
 .Trashes
+Icon?
 ehthumbs.db
 Thumbs.db
