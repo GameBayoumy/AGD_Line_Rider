@@ -8,21 +8,29 @@ public class SpawnManager : MonoBehaviour
 	public ObjectPoolScript pickupPool;
 	public ObjectPoolScript obstaclePool;
     public ObjectPoolScript enemyPool;
+    public ObjectPoolScript enemywallPool;
 
 	public GameObject Player;
 	public GameObject enemyBasic;
 
+    public GameObject enemyWall;
+
 	// Spawn range
 	public Transform minSpawnPos, maxSpawnPos;
 	Vector3 spawnPosition;
+    private int minSpawnPosY = -7;
+    private int maxSpawnPosY = 7;
 
 	//Timers
 	float pickupTimer = 0;
 	float obstacleTimer = 0;
     float enemyTimer = 0;
+    float enemywallTimer = 0;
+
 	float pickUpSpawnInterval = 11f;
 	float obstacleSpawnInterval = 5f;
     float enemySpawnInterval = 5f;
+    float enemywallSpawnInterval = 5f;
 	float estimatedPlaytime = 300f;
 
 	//Mathf.Lerp
@@ -34,6 +42,10 @@ public class SpawnManager : MonoBehaviour
 
 	float enemyStartTime = 5f;
 	float enemyEndTime = 1f;
+
+	float enemywallStartTime = 10f;
+	float enemywallEndTime = 1f;
+
 
 	// Update is called once per frame
 	void Update()
@@ -72,12 +84,32 @@ public class SpawnManager : MonoBehaviour
 			//Increase level difficulty by decreasing the spawn interval time
 			enemySpawnInterval = Mathf.Lerp(enemyStartTime, enemyEndTime, Time.timeSinceLevelLoad / estimatedPlaytime);
 		}
+
+		if (enemywallTimer < enemywallSpawnInterval)
+		{
+			enemywallTimer += Time.deltaTime;
+		}
+		else
+		{
+			enemywallTimer = 0;
+			SpawnWallObstacle(enemywallPool);
+			//Increase level difficulty by decreasing the spawn interval time
+			enemywallSpawnInterval = Mathf.Lerp(enemywallStartTime, enemywallEndTime, Time.timeSinceLevelLoad / estimatedPlaytime);
+		}
 	}
 
-	//Retrieves object from the pool and spawns it on a random y location
 	void SpawnObject(ObjectPoolScript pool)
 	{
 		spawnPosition = new Vector3(Player.transform.position.x + 10, enemyBasic.transform.position.y, enemyBasic.transform.position.z);
+		GameObject newItem = pool.GetPooledObject();
+		newItem.transform.position = spawnPosition;
+		newItem.transform.rotation = transform.rotation;
+		newItem.SetActive(true);
+	}
+	void SpawnWallObstacle(ObjectPoolScript pool)
+	{
+
+		spawnPosition = new Vector3(Player.transform.position.x + 30, Random.Range(minSpawnPosY, maxSpawnPosY), enemyWall.transform.position.z);
 		GameObject newItem = pool.GetPooledObject();
 		newItem.transform.position = spawnPosition;
 		newItem.transform.rotation = transform.rotation;

@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
---- !u!58 &339368997
+--- !u!58 &339368994
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -139,7 +139,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.1
 --- !u!1 &530760448
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,8 +780,10 @@ MonoBehaviour:
   pickupPool: {fileID: 0}
   obstaclePool: {fileID: 0}
   enemyPool: {fileID: 1376114943}
+  enemywallPool: {fileID: 1717508350}
   Player: {fileID: 339368991}
   enemyBasic: {fileID: 1647216973548200, guid: b1f19018088164af7b67b6e6865e98af, type: 2}
+  enemyWall: {fileID: 1647216973548200, guid: bc12f157c4d80468d868767595360c5e, type: 2}
   minSpawnPos: {fileID: 0}
   maxSpawnPos: {fileID: 0}
 --- !u!4 &1653127273
@@ -796,6 +798,49 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1717508349
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1717508351}
+  - component: {fileID: 1717508350}
+  m_Layer: 0
+  m_Name: ObjectPoolerWall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1717508350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1717508349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0782a2a38867146d494aea6caebd2b1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObject: {fileID: 1647216973548200, guid: bc12f157c4d80468d868767595360c5e,
+    type: 2}
+  pooledAmount: 5
+--- !u!4 &1717508351
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1717508349}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.8200002, y: -9.199998, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1756846881
 GameObject:
