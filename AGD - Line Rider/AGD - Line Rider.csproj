@@ -157,7 +157,10 @@
     <Compile Include="Assets\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
     <Compile Include="Assets\Scripts\_.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\EnemyBasic.cs" />
     <Compile Include="Assets\Scripts\LineMeshGenerator.cs" />
+    <Compile Include="Assets\Scripts\ObjectPoolScript.cs" />
+    <Compile Include="Assets\Scripts\SpawnManager.cs" />
     <Compile Include="Assets\Scripts\WallMesh.cs" />
   </ItemGroup>
   <ItemGroup>
