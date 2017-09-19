@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4358197166176724}
   - component: {fileID: 212844883570576514}
-  - component: {fileID: 61850360711226606}
   - component: {fileID: 50965588671878378}
   - component: {fileID: 114745698227192028}
+  - component: {fileID: 61723777189366586}
   m_Layer: 0
   m_Name: enemyBasic
   m_TagString: Untagged
@@ -63,7 +63,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61850360711226606
+--- !u!61 &61723777189366586
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
