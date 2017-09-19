@@ -77,7 +77,7 @@ public class SpawnManager : MonoBehaviour
 	//Retrieves object from the pool and spawns it on a random y location
 	void SpawnObject(ObjectPoolScript pool)
 	{
-		spawnPosition = new Vector3(Player.transform.position.x, enemyBasic.transform.position.y, enemyBasic.transform.position.z);
+		spawnPosition = new Vector3(Player.transform.position.x + 10, enemyBasic.transform.position.y, enemyBasic.transform.position.z);
 		GameObject newItem = pool.GetPooledObject();
 		newItem.transform.position = spawnPosition;
 		newItem.transform.rotation = transform.rotation;
