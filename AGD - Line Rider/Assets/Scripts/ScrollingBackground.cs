@@ -7,16 +7,16 @@ public class ScrollingBackground : MonoBehaviour {
     public List<GameObject> backgroundSprites;
     public Transform resetPosition;
 
-    public float offset = 30;
+    public float offset = 40;
 
     // Update is called once per frame
     void Update()
     {
         for (int i = 0; i < backgroundSprites.Count; i++)
         {
-            if (backgroundSprites[i].transform.position.z < resetPosition.position.z)
+            if (backgroundSprites[i].transform.position.x < resetPosition.position.x)
             {
-                backgroundSprites[i].transform.position = new Vector3(backgroundSprites[0].transform.position.x, backgroundSprites[0].transform.position.y, backgroundSprites[i].transform.localPosition.z + offset);
+                backgroundSprites[i].transform.position = new Vector3(backgroundSprites[i].transform.localPosition.x + offset, backgroundSprites[0].transform.position.y, backgroundSprites[0].transform.position.z);
             }
         }
     }
