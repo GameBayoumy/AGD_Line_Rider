@@ -100,11 +100,14 @@ public class SpawnManager : MonoBehaviour
 
 	void SpawnObject(ObjectPoolScript pool)
 	{
-		spawnPosition = new Vector3(Player.transform.position.x + 10, enemyBasic.transform.position.y, enemyBasic.transform.position.z);
-		GameObject newItem = pool.GetPooledObject();
-		newItem.transform.position = spawnPosition;
-		newItem.transform.rotation = transform.rotation;
-		newItem.SetActive(true);
+        if (pool != null)
+        {
+            spawnPosition = new Vector3(Player.transform.position.x + 10, enemyBasic.transform.position.y, enemyBasic.transform.position.z);
+            GameObject newItem = pool.GetPooledObject();
+            newItem.transform.position = spawnPosition;
+            newItem.transform.rotation = transform.rotation;
+            newItem.SetActive(true);
+        }
 	}
 	void SpawnWallObstacle(ObjectPoolScript pool)
 	{
