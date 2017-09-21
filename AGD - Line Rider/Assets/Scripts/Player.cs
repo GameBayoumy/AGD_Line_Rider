@@ -26,7 +26,6 @@ public class Player : MonoBehaviour
 		float moveVertical = 0;
 
 		Vector2 movement = new Vector2(moveHorizontal, moveVertical);
-        Debug.Log(speed);
 		rb2d.AddForce(movement * speed);
 
 		if (rb2d.velocity.x > 10)
