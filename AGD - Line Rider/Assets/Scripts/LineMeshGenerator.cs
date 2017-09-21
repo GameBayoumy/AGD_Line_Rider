@@ -7,6 +7,7 @@ public class LineMeshGenerator: MonoBehaviour
     // Public variables
 
     public Material trailMaterial;                  // Material of the trail.  Changing this during runtime will have no effect.
+    public float lifeTime = 1.0f;                   // Life time of the trail
     public float changeTime = 0.5f;                 // Time point when the trail begins changing its width (if widthStart != widthEnd)
     public float widthStart = 1.0f;                 // Starting width of the trail
     public float widthEnd = 1.0f;                   // Ending width of the trail
@@ -18,6 +19,8 @@ public class LineMeshGenerator: MonoBehaviour
     // Private variables
 
     private Mesh mesh;
+    [SerializeField]
+    private float meshLength;                        // Length of the mesh
     private new PolygonCollider2D collider;
     private LinkedList<Vector3> centerPositions;    //the previous positions of the object this script is attached to
     private LinkedList<Vertex> leftVertices;        //the left vertices derived from the center positions
@@ -35,15 +38,6 @@ public class LineMeshGenerator: MonoBehaviour
     public void ChangeTrailMaterial(Material material)
     {
         trailMaterial = material;
-    }
-
-    /// <summary>
-    /// Changes if the collider is enabled or not during runtime.
-    /// </summary>
-    public void ChangeColliderEnabled(bool enabled)
-    {
-        colliderEnabled = enabled;
-        collider.enabled = enabled;
     }
 
     //************
@@ -77,9 +71,10 @@ public class LineMeshGenerator: MonoBehaviour
         if (!pausing)
         {
             // Set the mesh and adjust widths if vertices were added or removed
-            if (TryAddVertices())
+            if (TryAddVertices() | TryRemoveVertices())
             {
                 SetMesh();
+                meshLength++;
             }
         }
     }
@@ -122,6 +117,33 @@ public class LineMeshGenerator: MonoBehaviour
     }
 
     /// <summary>
+    /// Removes any pair of vertices that have been alive longer than the specified lifespan.
+    /// If a pair of vertices have been removed, this method returns true.
+    /// </summary>
+    private bool TryRemoveVertices()
+    {
+        bool vertsRemoved = false;
+        LinkedListNode<Vertex> leftVertNode = leftVertices.Last;
+
+        // Continue looking at the last left vertex 1) while one exists and 2) while the last left vertex is older than its lifeTime
+        while (leftVertNode != null && leftVertNode.Value.TimeAlive > lifeTime)
+        {
+            // Remove the left vertex from the collection
+            leftVertices.RemoveLast();
+            leftVertNode = leftVertices.Last;
+
+            // Remove its partnered right vertex from the collection since they were created at the same time.
+            rightVertices.RemoveLast();
+
+            // Remove the center position that the two vertices were derived from
+            centerPositions.RemoveLast();
+            vertsRemoved = true;
+        }
+
+        return vertsRemoved;
+    }
+
+    /// <summary>
     /// Sets the mesh and the polygon collider of the mesh.
     /// </summary>
     private void SetMesh()
@@ -140,7 +162,7 @@ public class LineMeshGenerator: MonoBehaviour
 
         LinkedListNode<Vertex> leftVertNode = leftVertices.First;
         LinkedListNode<Vertex> rightVertNode = rightVertices.First;
-        
+
         // Iterate through all the pairs of vertices (left + right)
         for (int i = 0; i < leftVertices.Count; ++i)
         {
@@ -186,6 +208,14 @@ public class LineMeshGenerator: MonoBehaviour
         {
             collider.SetPath(0, colliderPath);
         }
+    }
+
+    /// <summary>
+    /// Gets the length of the mesh.
+    /// </summary>
+    public float GetLength()
+    {
+        return meshLength;
     }
 
     //************

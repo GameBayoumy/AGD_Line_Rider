@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
 	public float speed;
+    public float maxResource;
 	public Rigidbody2D rb2d;
+    public Touch touch;
+
+    [SerializeField]
+    private float drawResource = 1000;
 
 	// Use this for initialization
 	void Start()
@@ -17,7 +21,17 @@ public class Player : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-        
+        if (touch.isDrawing)
+        {
+            drawResource--;
+            touch.canDraw = true;
+        }
+        else
+        {
+            if(drawResource <= maxResource)
+                drawResource++;
+            touch.canDraw = false;
+        }
 	}
 
 	private void FixedUpdate()
@@ -32,6 +46,5 @@ public class Player : MonoBehaviour
 		{
 			rb2d.velocity = rb2d.velocity.normalized * 10;
 		}
-
 	}
 }
