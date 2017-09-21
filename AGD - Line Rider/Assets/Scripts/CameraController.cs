@@ -28,7 +28,6 @@ public class CameraController : MonoBehaviour {
         if (Player.GetComponent<Rigidbody2D>().velocity.x <= 8){
             offset += new Vector3(0.02f,0,0);
 
-            Debug.Log(offset);
         }
 
         if (offset.x >= 23){
