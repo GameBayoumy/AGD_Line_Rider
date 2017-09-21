@@ -108,6 +108,34 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &167473594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 167473595}
+  m_Layer: 0
+  m_Name: deletePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &167473595
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 167473594}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -39.8, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1511892460}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &339368991 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1880750458544924, guid: ca8e4c819011c8548839bf15d3b18cde,
@@ -669,7 +697,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 167473595}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -738,15 +767,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7e6a99760c7496ca85295b69f2b2a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupPool: {fileID: 0}
-  obstaclePool: {fileID: 0}
   enemyPool: {fileID: 1376114943}
   enemywallPool: {fileID: 1717508350}
   Player: {fileID: 339368991}
   enemyBasic: {fileID: 1647216973548200, guid: b1f19018088164af7b67b6e6865e98af, type: 2}
   enemyWall: {fileID: 1647216973548200, guid: bc12f157c4d80468d868767595360c5e, type: 2}
-  minSpawnPos: {fileID: 0}
-  maxSpawnPos: {fileID: 0}
 --- !u!4 &1653127273
 Transform:
   m_ObjectHideFlags: 0
