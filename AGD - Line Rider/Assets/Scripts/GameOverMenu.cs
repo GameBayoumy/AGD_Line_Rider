@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameOverMenu : MonoBehaviour {
+
+	public Button pauseButton;
 
 	public Transform gameOverScreen;
 	public Transform controls;
@@ -31,9 +34,15 @@ public class GameOverMenu : MonoBehaviour {
 			controls.GetComponent<Touch> ().enabled = false;
 			//Scrolling background is frozen
 			background.GetComponent<scroll> ().enabled = false;
+			//Disable the Pause Button
+			DisableButtonOnClick ();
 		}
 	}
 
+	public void DisableButtonOnClick() { 
+		pauseButton.interactable = false; 
+	}
+		
 	//Resume is needed to be called before loading a scene,
 	//so that all variables and Time are brought back to normal
 	public void Resume(){
