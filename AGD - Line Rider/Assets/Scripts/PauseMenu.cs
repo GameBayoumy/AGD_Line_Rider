@@ -8,13 +8,6 @@ public class PauseMenu : MonoBehaviour {
 	public Transform canvas;
 	public Transform controls;
 	public Transform background;
-	
-	// Update is called once per frame
-	void Update () {
-		if (Input.GetKeyDown (KeyCode.Escape)) {
-			Pause ();
-		}
-	}
 
 	public void Pause(){
 		if (canvas.gameObject.activeInHierarchy == false) {
