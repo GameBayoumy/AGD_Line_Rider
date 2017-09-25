@@ -19,9 +19,6 @@ public class GameOverMenu : MonoBehaviour {
 	public void Update () {
 		if (gameOverState == true) {
 			Freeze ();
-		} else {
-//			Resume ();
-//			gameOverScreen.gameObject.SetActive(false)
 		}
 	}
 
@@ -40,6 +37,7 @@ public class GameOverMenu : MonoBehaviour {
 	//Resume is needed to be called before loading a scene,
 	//so that all variables and Time are brought back to normal
 	public void Resume(){
+		gameOverState = false;
 		gameOverScreen.gameObject.SetActive (false);
 		Time.timeScale = 1;
 		controls.GetComponent<Touch> ().enabled = true;
@@ -47,19 +45,18 @@ public class GameOverMenu : MonoBehaviour {
 	}
 
 	public void Retry(){
-		gameOverState = false;
 		Resume();
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 
 	public void MainMenu(){
-		gameOverState = false;
+		Resume ();
 		SceneManager.LoadScene("Scene_StartMenu");
 	}
 
 	public void Quit()
 	{			
-		gameOverState = false;
+		Resume ();
 		Application.Quit();
 	}
 }
