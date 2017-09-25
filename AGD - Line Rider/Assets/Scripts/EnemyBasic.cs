@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 public class EnemyBasic : SpawnableGameObject {
    
    
-   
-
 	//// Use this for initialization
 	//void Start () {
 	////	GetComponent<ObjectPoolScript>();
@@ -18,13 +16,25 @@ public class EnemyBasic : SpawnableGameObject {
 	//	//SpawnObject(EnemyBasicPool);
 	//}
 
+	//These are essential for calling the GameOverMenu script
+	public GameOverMenu gameOverCall;
+	public GameObject gameOverCaller;
+
+	void Awake(){
+		//Calls the GameController which hosts the GameOverMenu script
+		GameObject gameOverCaller = GameObject.Find("GameController");     
+		gameOverCall = gameOverCaller.GetComponent<GameOverMenu>();  
+	}
+
+
 	private void OnCollisionEnter2D(Collision2D collision)
 	{   
 
 
 		if (collision.gameObject.tag == "Player")
 		{
-			SceneManager.LoadScene("LineMeshTest");
+//			SceneManager.LoadScene("LineMeshTest");
+			gameOverCall.gameOverState = true;
 		}
 	}
 }
