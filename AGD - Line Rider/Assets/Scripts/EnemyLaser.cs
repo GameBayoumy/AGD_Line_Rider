@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class EnemyLaser : MonoBehaviour {
 
     public bool laserHit = false;
+    public bool laserBoundary = false;
 
 	// Use this for initialization
 	void Start () {
@@ -28,7 +29,7 @@ public class EnemyLaser : MonoBehaviour {
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Trail")
+        if (collision.gameObject.name == "Trail" || collision.gameObject.tag == "Wall" )
         {
             foreach (ContactPoint2D contact in collision.contacts)
             {
@@ -39,9 +40,10 @@ public class EnemyLaser : MonoBehaviour {
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if(collision.gameObject.name == "Trail")
+        if(collision.gameObject.name == "Trail" || collision.gameObject.tag == "Wall")
         {
             laserHit = false;
         }
     }
+
 }

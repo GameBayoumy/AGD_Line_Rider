@@ -111,7 +111,7 @@ public class SpawnManager : MonoBehaviour
 	void SpawnLaserObstacle(ObjectPoolScript pool)
 	{
 
-		spawnPosition = new Vector3(Player.transform.position.x + 40, 0, enemyLaser.transform.position.z);
+		spawnPosition = new Vector3(0, 8, 0);
 		GameObject newItem = pool.GetPooledObject();
 		newItem.transform.position = spawnPosition;
 		newItem.transform.rotation = transform.rotation;
