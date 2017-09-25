@@ -14,27 +14,18 @@ public class LaserBehaviour : MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
-		
-	}
+    }
 	
 	// Update is called once per frame
-	void Update () {
-
-        if (GameObjectLaser.transform.localScale.y <= 0.2f){
-            GameObjectLaser.transform.localScale = new Vector3(1, 1f, 1);
-        }
-
-
-        if (EnemyLaser.laserHit == true){
-            Debug.Log(EnemyLaser.laserHit);
+	void Update ()
+    {
+        if (EnemyLaser.laserHit == true)
+        {
             GameObjectLaser.transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y - 0.02f,transform.localScale.z);
         }
-
-        if (EnemyLaser.laserHit == false){
-			GameObjectLaser.transform.localScale = new Vector3(1, 1, 1);
+        else
+        {
+            GameObjectLaser.transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y + 0.02f, transform.localScale.z);
         }
-
-
-		
 	}
 }

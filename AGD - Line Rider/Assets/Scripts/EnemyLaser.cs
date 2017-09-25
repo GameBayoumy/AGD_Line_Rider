@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class EnemyLaser : MonoBehaviour {
 
-    public bool laserHit;
+    public bool laserHit = false;
 
 	// Use this for initialization
 	void Start () {
@@ -20,8 +20,6 @@ public class EnemyLaser : MonoBehaviour {
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-
-
         if (collision.gameObject.tag == "Player")
         {
             SceneManager.LoadScene("LineMeshTest");
@@ -30,14 +28,20 @@ public class EnemyLaser : MonoBehaviour {
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-		foreach (ContactPoint2D contact in collision.contacts)
-		{
-            laserHit = true;
-		} 
+        if (collision.gameObject.name == "Trail")
+        {
+            foreach (ContactPoint2D contact in collision.contacts)
+            {
+                laserHit = true;
+            }
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        laserHit = false;
+        if(collision.gameObject.name == "Trail")
+        {
+            laserHit = false;
+        }
     }
 }
