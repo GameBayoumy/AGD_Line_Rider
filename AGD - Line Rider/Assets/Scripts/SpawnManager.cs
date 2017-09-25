@@ -7,10 +7,11 @@ public class SpawnManager : MonoBehaviour
 	//Object Poolers
     public ObjectPoolScript enemyPool;
     public ObjectPoolScript enemywallPool;
+    public ObjectPoolScript enemyLaserPool;
 
 	public GameObject Player;
 	public GameObject enemyBasic;
-
+    public GameObject enemyLaser;
     public GameObject enemyWall;
 
 	// Spawn range
@@ -22,10 +23,12 @@ public class SpawnManager : MonoBehaviour
 
     float enemyTimer = 0;
     float enemywallTimer = 0;
+    float enemylaserTimer = 0;
 
 
     float enemySpawnInterval = 5f;
     float enemywallSpawnInterval = 5f;
+    float enemylaserSpawnInterval = 10f;
 	float estimatedPlaytime = 300f;
 
 	//Mathf.Lerp
@@ -36,6 +39,9 @@ public class SpawnManager : MonoBehaviour
 
 	float enemywallStartTime = 10f;
 	float enemywallEndTime = 1f;
+
+    float enemylaserStartTime = 12f;
+    float enemylaserEndTime = 1f;
 
 
 
@@ -66,6 +72,18 @@ public class SpawnManager : MonoBehaviour
 			//Increase level difficulty by decreasing the spawn interval time
 			enemywallSpawnInterval = Mathf.Lerp(enemywallStartTime, enemywallEndTime, Time.timeSinceLevelLoad / estimatedPlaytime);
 		}
+
+		if (enemylaserTimer < enemylaserSpawnInterval)
+		{
+			enemylaserTimer += Time.deltaTime;
+		}
+		else
+		{
+			enemylaserTimer = 0;
+			SpawnLaserObstacle(enemyLaserPool);
+			//Increase level difficulty by decreasing the spawn interval time
+			enemylaserSpawnInterval = Mathf.Lerp(enemylaserStartTime, enemylaserEndTime, Time.timeSinceLevelLoad / estimatedPlaytime);
+		}
 	}
 
     // Spawns the enemy object
@@ -84,6 +102,16 @@ public class SpawnManager : MonoBehaviour
 	{
 
 		spawnPosition = new Vector3(Player.transform.position.x + 30, Random.Range(minSpawnPosY, maxSpawnPosY), enemyWall.transform.position.z);
+		GameObject newItem = pool.GetPooledObject();
+		newItem.transform.position = spawnPosition;
+		newItem.transform.rotation = transform.rotation;
+		newItem.SetActive(true);
+	}
+
+	void SpawnLaserObstacle(ObjectPoolScript pool)
+	{
+
+		spawnPosition = new Vector3(Player.transform.position.x + 40, 0, enemyLaser.transform.position.z);
 		GameObject newItem = pool.GetPooledObject();
 		newItem.transform.position = spawnPosition;
 		newItem.transform.rotation = transform.rotation;
