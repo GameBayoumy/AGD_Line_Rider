@@ -8,6 +8,7 @@ public class HighScore : MonoBehaviour {
 
 	public float timeScore;
 	public Text timerText;
+	public Text resultText;
 
 	// Update is called once per frame
 	void Update () {
@@ -20,5 +21,6 @@ public class HighScore : MonoBehaviour {
 //			}
 		timeScore += Time.deltaTime;
 		timerText.text = timeScore.ToString("Score: 0");
+		resultText.text = timeScore.ToString ("Your Score: 0");
 	}
 }
