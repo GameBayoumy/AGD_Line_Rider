@@ -16,6 +16,8 @@ public class SpawnManager : MonoBehaviour
 
 	// Spawn range
 	Vector3 spawnPosition;
+    Vector3 spawnRotation;
+    float spawnRangeRotation = 14;
     private int minSpawnPosY = -7;
     private int maxSpawnPosY = 7;
 
@@ -26,7 +28,7 @@ public class SpawnManager : MonoBehaviour
     float enemylaserTimer = 0;
 
 
-    float enemySpawnInterval = 5f;
+    float enemySpawnInterval = 10f;
     float enemywallSpawnInterval = 5f;
     float enemylaserSpawnInterval = 10f;
 	float estimatedPlaytime = 300f;
@@ -111,10 +113,11 @@ public class SpawnManager : MonoBehaviour
 	void SpawnLaserObstacle(ObjectPoolScript pool)
 	{
 
-		spawnPosition = new Vector3(0, 8, 0);
+		spawnPosition = new Vector3(Player.transform.position.x + 40, 7.8f, 0);
+        spawnRotation = new Vector3(0, 0, Random.Range(-spawnRangeRotation, spawnRangeRotation));
 		GameObject newItem = pool.GetPooledObject();
 		newItem.transform.position = spawnPosition;
-		newItem.transform.rotation = transform.rotation;
+        newItem.transform.eulerAngles = spawnRotation;
 		newItem.SetActive(true);
 	}
 }
