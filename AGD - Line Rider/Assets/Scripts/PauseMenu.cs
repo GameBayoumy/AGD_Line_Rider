@@ -37,8 +37,16 @@ public class PauseMenu : MonoBehaviour {
 		controls.GetComponent<Touch> ().enabled = true;
 		background.GetComponent<scroll> ().enabled = true;
 	}
+
+	public void Retry(){
+		//Resume is needed to be called before loading a scene,
+		//so that all variables and Time are brought back to normal
+		Resume();
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+	}
 	
 	public void MainMenu(){
+		Resume();
 		SceneManager.LoadScene(0);
 	}
 
@@ -46,5 +54,4 @@ public class PauseMenu : MonoBehaviour {
 	{			
 		Application.Quit();
 	}
-
 }
