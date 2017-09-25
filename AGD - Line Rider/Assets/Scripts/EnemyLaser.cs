@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class EnemyLaser : MonoBehaviour {
 
+    public bool laserHit;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -20,15 +22,22 @@ public class EnemyLaser : MonoBehaviour {
 	{
 
 
-		if (collision.gameObject.tag == "Player")
-		{
-			SceneManager.LoadScene("LineMeshTest");
-		}
+        if (collision.gameObject.tag == "Player")
+        {
+            SceneManager.LoadScene("LineMeshTest");
+        }
+	}
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
 		foreach (ContactPoint2D contact in collision.contacts)
 		{
-			Debug.DrawRay(contact.point, contact.normal, Color.white);
-            Debug.Log(contact.point);
-		}
-	}
+            laserHit = true;
+		} 
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        laserHit = false;
+    }
 }

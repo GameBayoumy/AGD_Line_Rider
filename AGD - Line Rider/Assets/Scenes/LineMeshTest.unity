@@ -288,6 +288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObjectLaser: {fileID: 479330288}
   extendLaser: {x: 0, y: 0, z: 0}
+  EnemyLaser: {fileID: 841126341}
 --- !u!4 &479330290
 Transform:
   m_ObjectHideFlags: 0
@@ -716,6 +717,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4358197166176724, guid: 67caba73d04ef4dbeb86ec5b1830c47a,
     type: 2}
   m_PrefabInternal: {fileID: 2069478698}
+--- !u!114 &841126341 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114561167415650570, guid: 67caba73d04ef4dbeb86ec5b1830c47a,
+    type: 2}
+  m_PrefabInternal: {fileID: 2069478698}
+  m_Script: {fileID: 11500000, guid: d8c7fa88be6754638be68528f8d14f7a, type: 3}
 --- !u!1 &1058091839
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,6 +1334,26 @@ Prefab:
     - target: {fileID: 4358197166176724, guid: 67caba73d04ef4dbeb86ec5b1830c47a, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50965588671878378, guid: 67caba73d04ef4dbeb86ec5b1830c47a,
+        type: 2}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50965588671878378, guid: 67caba73d04ef4dbeb86ec5b1830c47a,
+        type: 2}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212844883570576514, guid: 67caba73d04ef4dbeb86ec5b1830c47a,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50965588671878378, guid: 67caba73d04ef4dbeb86ec5b1830c47a,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 67caba73d04ef4dbeb86ec5b1830c47a, type: 2}
