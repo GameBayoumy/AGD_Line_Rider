@@ -10,6 +10,8 @@ public class HighScore : MonoBehaviour {
 	public Text timerText;
 	public Text resultText;
 
+	public Transform playerPosition;
+
 	public GameOverMenu gameOverCall;
 	public GameObject gameOverCaller;
 
@@ -29,7 +31,7 @@ public class HighScore : MonoBehaviour {
 //				rb.AddForce(0, jumpPower, 0);
 //			}
 
-		timeScore += Time.deltaTime;
+		timeScore = playerPosition.transform.position.x;
 		timerText.text = timeScore.ToString("Score: 0");
 		resultText.text = timeScore.ToString ("Your Score: 0");
 
