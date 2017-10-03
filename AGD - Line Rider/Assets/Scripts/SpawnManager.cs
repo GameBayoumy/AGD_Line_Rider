@@ -28,8 +28,8 @@ public class SpawnManager : MonoBehaviour
     float enemylaserTimer = 0;
 
 
-    float enemySpawnInterval = 10f;
-    float enemywallSpawnInterval = 5f;
+    float enemySpawnInterval = 1f;
+    float enemywallSpawnInterval = 2f;
     float enemylaserSpawnInterval = 10f;
 	float estimatedPlaytime = 300f;
 

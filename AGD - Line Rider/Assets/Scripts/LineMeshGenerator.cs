@@ -8,7 +8,7 @@ public class LineMeshGenerator: MonoBehaviour
 
     public Material trailMaterial;                  // Material of the trail.  Changing this during runtime will have no effect.
     public float lifeTime = 1.0f;                   // Life time of the trail
-    public float changeTime = 0.5f;                 // Time point when the trail begins changing its width (if widthStart != widthEnd)
+    public float changeTime = 2f;                 // Time point when the trail begins changing its width (if widthStart != widthEnd)
     public float widthStart = 1.0f;                 // Starting width of the trail
     public float widthEnd = 1.0f;                   // Ending width of the trail
     public float vertexDistanceMin = 0.10f;         // Minimum distance between the center positions
