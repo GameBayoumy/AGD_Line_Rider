@@ -29,7 +29,8 @@ public class PauseMenu : MonoBehaviour {
 		Time.timeScale = 1;
 		controls.GetComponent<Touch> ().enabled = true;
 		background.GetComponent<scroll> ().enabled = true;
-	}
+        PlayGamesScript.LogIn();
+    }
 
 	public void Retry(){
 		//Resume is needed to be called before loading a scene,
