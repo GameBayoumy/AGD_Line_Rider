@@ -12,20 +12,14 @@ public class SpawnableGameObject : MonoBehaviour {
 	}
 
     protected virtual void Update () {
-        Debug.Log("BLEEEEEEEEEEEEEEEEEEEEEEEEE");
         DisableGameObject();
 		
 	}
     protected virtual void DisableGameObject()
     {
-        if (transform.position.x > deletePoint.transform.position.x)
-        {
-            Debug.Log("BLUUUH");
-        }
             if (transform.position.x < deletePoint.transform.position.x)
         {
             gameObject.SetActive(false);
-            Debug.Log("Activated!");
         }
     }
 }
