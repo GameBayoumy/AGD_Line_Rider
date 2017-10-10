@@ -5,10 +5,6 @@ using UnityEngine;
 public class Currency : MonoBehaviour {
 
     public int CurrencyPoints;
-
-
-
-
     //USAGE: use this code in any class to change the currency.
     //GameObject CurrencyHandler = GameObject.Find("CurrencyHandler");
     //Currency currency = CurrencyHandler.GetComponent<Currency>();
@@ -19,10 +15,5 @@ public class Currency : MonoBehaviour {
 	void Start () {
         CurrencyPoints = PlayerPrefs.GetInt("Player Currency");
         PlayerPrefs.SetInt("Player Currency", CurrencyPoints);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        //print(CurrencyPoints);
 	}
 }
