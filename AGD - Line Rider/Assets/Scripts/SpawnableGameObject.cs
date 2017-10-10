@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class SpawnableGameObject : MonoBehaviour {
 
+    //Removes objects when they are outside the screen
+
     protected GameObject deletePoint;
-	// Use this for initialization
-	void Awake () {
+    protected virtual void Awake () {
         deletePoint = GameObject.Find("deletePoint");
 	}
-	
-	// Update is called once per frame
-	protected void Update () {
+
+    protected virtual void Update () {
         DisableGameObject();
 		
 	}
-    protected void DisableGameObject()
+    protected virtual void DisableGameObject()
     {
-        if (transform.position.x < deletePoint.transform.position.x)
+            if (transform.position.x < deletePoint.transform.position.x)
         {
             gameObject.SetActive(false);
         }
