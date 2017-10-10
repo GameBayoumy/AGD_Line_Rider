@@ -28,10 +28,10 @@ public class SpawnManager : MonoBehaviour
     float enemylaserTimer = 0;
 
 
-    float enemySpawnInterval = 10f;
-    float enemywallSpawnInterval = 5f;
-    float enemylaserSpawnInterval = 10f;
-	float estimatedPlaytime = 300f;
+    float enemySpawnInterval = 15f;
+    float enemywallSpawnInterval = 20f;
+    float enemylaserSpawnInterval = 30f;
+	float estimatedPlaytime = 1500f;
 
 	//Mathf.Lerp
 
@@ -42,7 +42,7 @@ public class SpawnManager : MonoBehaviour
 	float enemywallStartTime = 10f;
 	float enemywallEndTime = 1f;
 
-    float enemylaserStartTime = 12f;
+    float enemylaserStartTime = 15f;
     float enemylaserEndTime = 1f;
 
 
@@ -54,13 +54,17 @@ public class SpawnManager : MonoBehaviour
 		if (enemyTimer < enemySpawnInterval)
 		{
 			enemyTimer += Time.deltaTime;
+
+           
 		}
 		else
 		{
 			enemyTimer = 0;
 			SpawnObject(enemyPool);
-			//Increase level difficulty by decreasing the spawn interval time
-			enemySpawnInterval = Mathf.Lerp(enemyStartTime, enemyEndTime, Time.timeSinceLevelLoad / estimatedPlaytime);
+            Debug.Log(enemySpawnInterval);
+            //Increase level difficulty by decreasing the spawn interval time
+            //enemySpawnInterval = Mathf.Lerp(enemyStartTime, enemyEndTime, Time.timeSinceLevelLoad / estimatedPlaytime);
+            enemySpawnInterval--;
 		}
 
 		if (enemywallTimer < enemywallSpawnInterval)
@@ -71,8 +75,9 @@ public class SpawnManager : MonoBehaviour
 		{
 			enemywallTimer = 0;
 			SpawnWallObstacle(enemywallPool);
-			//Increase level difficulty by decreasing the spawn interval time
-			enemywallSpawnInterval = Mathf.Lerp(enemywallStartTime, enemywallEndTime, Time.timeSinceLevelLoad / estimatedPlaytime);
+            //Increase level difficulty by decreasing the spawn interval time
+            //enemywallSpawnInterval = Mathf.Lerp(enemywallStartTime, enemywallEndTime, Time.timeSinceLevelLoad / estimatedPlaytime);
+            enemywallSpawnInterval--;
 		}
 
 		if (enemylaserTimer < enemylaserSpawnInterval)
@@ -83,8 +88,9 @@ public class SpawnManager : MonoBehaviour
 		{
 			enemylaserTimer = 0;
 			SpawnLaserObstacle(enemyLaserPool);
-			//Increase level difficulty by decreasing the spawn interval time
-			enemylaserSpawnInterval = Mathf.Lerp(enemylaserStartTime, enemylaserEndTime, Time.timeSinceLevelLoad / estimatedPlaytime);
+            //Increase level difficulty by decreasing the spawn interval time
+            //enemylaserSpawnInterval = Mathf.Lerp(enemylaserStartTime, enemylaserEndTime, Time.timeSinceLevelLoad / estimatedPlaytime);
+            enemylaserSpawnInterval--;
 		}
 	}
 

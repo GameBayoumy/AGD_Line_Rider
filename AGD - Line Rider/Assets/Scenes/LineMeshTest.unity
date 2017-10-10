@@ -794,6 +794,11 @@ Prefab:
       propertyPath: touch
       value: 
       objectReference: {fileID: 1511892462}
+    - target: {fileID: 114050877662508092, guid: ca8e4c819011c8548839bf15d3b18cde,
+        type: 2}
+      propertyPath: maxResource
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca8e4c819011c8548839bf15d3b18cde, type: 2}
   m_IsPrefabParent: 0
