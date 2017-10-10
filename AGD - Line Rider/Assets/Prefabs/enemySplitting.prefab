@@ -100,8 +100,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  EnemySplittingSmallUp: {fileID: 0}
-  EnemySplittingSmallDown: {fileID: 0}
+  EnemySplittingSmallUp: {fileID: 1647216973548200, guid: 63679375b55dd4c56a9ad5aa16692ba8,
+    type: 2}
+  EnemySplittingSmallDown: {fileID: 1647216973548200, guid: 908817eea499a43e2b4a85c4eaef79af,
+    type: 2}
+  Up: {fileID: 0}
+  Down: {fileID: 0}
   gameOverCall: {fileID: 0}
   gameOverCaller: {fileID: 0}
 --- !u!212 &212844883570576514
