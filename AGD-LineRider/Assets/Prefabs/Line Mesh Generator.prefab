@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trailMaterial: {fileID: 2100000, guid: 9da39d2c358e12945b783f916084f7d1, type: 2}
+  lifeTime: 3
   changeTime: 0.5
   widthStart: 0.5
   widthEnd: 0.5
@@ -59,3 +60,4 @@ MonoBehaviour:
   renderDirection: {x: 0, y: 0, z: -1}
   colliderEnabled: 1
   pausing: 0
+  meshLength: 0
