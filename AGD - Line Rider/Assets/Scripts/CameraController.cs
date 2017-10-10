@@ -9,11 +9,16 @@ public class CameraController : MonoBehaviour {
 	public GameObject Player;       //Public variable to store a reference to the player game object
 	public Vector3 offset;         //Private variable to store the offset distance between the player and camera
 
-
+	//These are essential for calling the GameOverMenu script
+	public GameOverMenu gameOverCall;
+	public GameObject gameOverCaller;
 
 	private void Awake()
 	{
 		Player = GameObject.FindGameObjectWithTag("Player");
+		//Calls the GameController which hosts the GameOverMenu script
+		GameObject gameOverCaller = GameObject.Find("GameController");     
+		gameOverCall = gameOverCaller.GetComponent<GameOverMenu>();  
 	}
 
 
@@ -27,11 +32,11 @@ public class CameraController : MonoBehaviour {
 	void Update () {
         if (Player.GetComponent<Rigidbody2D>().velocity.x <= 8){
             offset += new Vector3(0.02f,0,0);
-
         }
-
+		//If the scrolling screen catches on with the player, a Game Over results
         if (offset.x >= 23){
-            SceneManager.LoadScene("LineMeshTest");
+//            SceneManager.LoadScene("LineMeshTest");
+			gameOverCall.gameOverState = true;
         }
 
         if(Player.GetComponent<Rigidbody2D>().velocity.x >= 8){
