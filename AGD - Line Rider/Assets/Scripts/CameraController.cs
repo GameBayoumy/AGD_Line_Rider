@@ -31,7 +31,7 @@ public class CameraController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (Player.GetComponent<Rigidbody2D>().velocity.x <= 8){
-            offset += new Vector3(0.02f,0,0);
+			offset += new Vector3(0.02f * Time.timeScale,0,0);
         }
 		//If the scrolling screen catches on with the player, a Game Over results
         if (offset.x >= 23){
@@ -40,11 +40,11 @@ public class CameraController : MonoBehaviour {
         }
 
         if(Player.GetComponent<Rigidbody2D>().velocity.x >= 8){
-            offset -= new Vector3(0.02f, 0, 0);
+			offset -= new Vector3(0.02f * Time.timeScale, 0, 0);
         }
 
         if (offset.x <= 0){
-            offset = new Vector3(0, 0, -10);
+			offset = new Vector3(0, 0, -10 * Time.timeScale);
         }
 	}
 

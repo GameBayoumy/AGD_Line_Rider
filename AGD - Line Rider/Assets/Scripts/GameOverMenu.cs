@@ -9,6 +9,7 @@ public class GameOverMenu : MonoBehaviour {
 	public Button pauseButton;
 
 	public Transform gameOverScreen;
+	public Transform playerActivity;
 	public Transform controls;
 	public Transform background;
 
@@ -30,6 +31,8 @@ public class GameOverMenu : MonoBehaviour {
 			gameOverScreen.gameObject.SetActive (true);
 			//Causes the game to freeze in place (pausing)
 			Time.timeScale = 0;
+			//Player is turned off
+			playerActivity.GetComponent<Player>().enabled = false;
 			//Touch gameplay is turned off
 			controls.GetComponent<Touch> ().enabled = false;
 			//Scrolling background is frozen
@@ -49,6 +52,7 @@ public class GameOverMenu : MonoBehaviour {
 		gameOverState = false;
 		gameOverScreen.gameObject.SetActive (false);
 		Time.timeScale = 1;
+		playerActivity.GetComponent<Player> ().enabled = true;
 		controls.GetComponent<Touch> ().enabled = true;
 		background.GetComponent<scroll> ().enabled = true;
 	}
