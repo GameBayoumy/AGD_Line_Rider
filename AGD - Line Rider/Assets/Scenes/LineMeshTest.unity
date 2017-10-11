@@ -1004,8 +1004,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 422690748}
-  controls: {fileID: 1511892460}
-  background: {fileID: 243790676}
+  playerActivity: {fileID: 339368992}
+  touchControls: {fileID: 1511892460}
+  scrollingBackground: {fileID: 243790676}
 --- !u!114 &964198273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1019,6 +1020,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseButton: {fileID: 1938048242}
   gameOverScreen: {fileID: 479554489}
+  playerActivity: {fileID: 339368992}
   controls: {fileID: 1511892460}
   background: {fileID: 243790676}
   gameOverState: 0
@@ -1404,7 +1406,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -13, y: -17.96}
+  m_AnchoredPosition: {x: -13, y: -17.960022}
   m_SizeDelta: {x: 412.85, y: 262.23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1511892455
