@@ -12,17 +12,28 @@ public class EnemyLaser : MonoBehaviour {
     public Transform laserStart;
     public Transform laserEnd;
 
-    private Transform currentHeight;
+    private Vector3 currentHeight;
 
 	// Use this for initialization
 	void Start () {
+        currentHeight = new Vector3(0, -19f, 0);
         SetPos(laserStart.position, laserEnd.position);
-	}
+    }
 
     private void Update()
     {
         SetPos(laserStart.position, laserEnd.position);
-        laserEnd.TransformDirection(laserEnd.localPosition.x, laserEnd.localPosition.y * ( 5 * Time.deltaTime), laserEnd.localPosition.z);
+
+        if (laserHit)
+        {
+            laserEnd.position = new Vector3(laserEnd.position.x, currentHeight.y, 0);
+            laserEnd.localPosition = new Vector3(0, laserEnd.localPosition.y, 0);
+        }
+        else
+        {
+            laserEnd.position = new Vector3(laserEnd.position.x, laserEnd.position.y - (5 * Time.deltaTime), 0);
+            laserEnd.localPosition = new Vector3(0, laserEnd.localPosition.y, 0);
+        }
     }
 
     void SetPos(Vector3 start, Vector3 end)
@@ -46,25 +57,17 @@ public class EnemyLaser : MonoBehaviour {
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Trail" || collision.gameObject.tag == "Wall")
+        if (collision.gameObject.name == "Trail")
         {
-            Transform otherTransform;
-            if (collision.gameObject.name == "Trail")
-                otherTransform = collision.gameObject.transform.GetChild(0).transform;
-            else
-                otherTransform = collision.gameObject.transform;
-
+            Vector3 contactPoint = new Vector3(collision.contacts[0].point.x, collision.contacts[0].point.y, 0);
+            
             laserHit = true;
             if (currentHeight == null)
-                currentHeight = otherTransform;
+                currentHeight = contactPoint;
 
-            if (otherTransform.position.y > currentHeight.transform.position.y)
-                currentHeight = otherTransform;
-
-            if (laserEnd.transform.position.y < currentHeight.position.y)
+            if (contactPoint.y > currentHeight.y)
             {
-                Vector3 newPosition = new Vector3(laserEnd.localPosition.x, laserEnd.InverseTransformPoint(currentHeight.position).y, laserEnd.localPosition.z);
-                laserEnd.localPosition = newPosition;
+                currentHeight = contactPoint;
             }
         }
     }
@@ -74,7 +77,7 @@ public class EnemyLaser : MonoBehaviour {
         if(collision.gameObject.name == "Trail" || collision.gameObject.tag == "Wall")
         {
             laserHit = false;
-            currentHeight = null;
+            currentHeight = new Vector3(0, -19f, 0);
         }
     }
 
