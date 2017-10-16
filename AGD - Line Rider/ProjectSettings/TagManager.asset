@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Laser
+  - Line
   layers:
   - Default
   - TransparentFX
