@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Bumper : MonoBehaviour {
 
-
-    public float targetTime;
+    public float targetTime = 0.1f;
     private bool hit = false;
 	// Use this for initialization
 	void Start () {
@@ -19,24 +18,20 @@ public class Bumper : MonoBehaviour {
             targetTime -= Time.deltaTime;
         }
 
-
         if (targetTime <= 0.0f && hit == true)
         {
-            transform.localScale -= new Vector3(0.05f, 0.05f, 0);
+            transform.localScale = new Vector3(transform.localScale.x / 1.20f, transform.localScale.y / 1.20f, transform.localScale.z * 1.0f);
             hit = false;
-            targetTime = 0.2f;
+            targetTime = 0.1f;
         }
-		
 	}
 
    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            transform.localScale += new Vector3(0.05f, 0.05f, 0);
+            transform.localScale = new Vector3(transform.localScale.x * 1.20f, transform.localScale.y * 1.20f, transform.localScale.z * 1.0f);
             hit = true;
-
         }
-
     }
 }
