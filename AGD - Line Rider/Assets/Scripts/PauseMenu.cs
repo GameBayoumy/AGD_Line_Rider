@@ -33,19 +33,12 @@ public class PauseMenu : MonoBehaviour {
 	public void Resume(){
 		canvas.gameObject.SetActive (false);
 		Time.timeScale = 1;
-<<<<<<< HEAD
-		controls.GetComponent<Touch> ().enabled = true;
-		background.GetComponent<scroll> ().enabled = true;
-        PlayGamesScript.LogIn();
-    }
-=======
 		playerActivity.GetComponent<Player> ().enabled = true;
 		touchControls.GetComponent<Touch> ().isDrawing = true;
 		touchControls.GetComponent<Touch>().isTouching = true;
 		touchControls.GetComponent<Touch> ().enabled = true;
 		scrollingBackground.GetComponent<scroll> ().enabled = true;
 	}
->>>>>>> origin/UI
 
 	public void Retry(){
 		//Resume is needed to be called before loading a scene,
