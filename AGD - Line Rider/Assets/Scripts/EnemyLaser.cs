@@ -57,7 +57,7 @@ public class EnemyLaser : MonoBehaviour {
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Trail")
+        if (collision.gameObject.name == "Trail" || collision.gameObject.name == "blockingWall")
         {
             Vector3 contactPoint = new Vector3(collision.contacts[0].point.x, collision.contacts[0].point.y, 0);
             

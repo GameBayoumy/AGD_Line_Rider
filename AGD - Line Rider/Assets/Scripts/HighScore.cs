@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class HighScore : MonoBehaviour {
 
 	public float timeScore;
+    public int currentDifficulty;
 	public Text timerText;
 	public Text resultText;
 
@@ -40,5 +41,18 @@ public class HighScore : MonoBehaviour {
 				PlayerPrefs.SetFloat ("Highscore", timeScore);
 			}
 		}
+
+        if (timeScore < 150)
+        {
+            currentDifficulty = 1; ;
+        }
+        else if (timeScore >= 150 && timeScore < 299)
+        {
+            currentDifficulty = 2;
+        }
+        else
+        {
+            currentDifficulty = 3;
+        }
 	}
 }
