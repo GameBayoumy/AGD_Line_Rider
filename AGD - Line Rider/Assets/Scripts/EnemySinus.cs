@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySinus : EnemyBasic {
 
-    private int SinusMovement = 20;
+    private int SinusMovement = -20;
 
    
 	// Use this for initialization
