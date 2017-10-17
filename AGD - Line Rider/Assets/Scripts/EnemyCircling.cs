@@ -35,8 +35,12 @@ public class EnemyCircling : EnemyBasic {
     {
         if (collision.gameObject.name == "Trail")
         {
-            // HasCollision = true;
             CollisionCount = 1;
+        }
+
+        if (collision.gameObject.tag == "Player")
+        {
+            gameOverCall.gameOverState = true;
         }
     }
 
