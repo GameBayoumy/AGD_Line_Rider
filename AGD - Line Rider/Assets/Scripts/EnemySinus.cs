@@ -18,11 +18,15 @@ public class EnemySinus : EnemyBasic {
 		
 	}
 
-
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         SinusMovement *= -1;
+
+        if (collision.gameObject.tag == "Player")
+        {
+            gameOverCall.gameOverState = true;
+        }
+
     }
 
 }
