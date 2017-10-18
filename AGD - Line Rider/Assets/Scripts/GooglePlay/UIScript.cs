@@ -10,6 +10,7 @@ public class UIScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Instance = this;
+        PlayGamesScript.LogIn();
 	}
 
     [SerializeField]
