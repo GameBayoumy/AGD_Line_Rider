@@ -6,18 +6,24 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour {
 
 	public Transform canvas;
-	public Transform controls;
-	public Transform background;
+	public Transform playerActivity;
+	public Transform touchControls;
+	public Transform scrollingBackground;
 
 	public void Pause(){
 		if (canvas.gameObject.activeInHierarchy == false) {
 			canvas.gameObject.SetActive (true);
 			//Causes the game to freeze in place (pausing)
 			Time.timeScale = 0;
+			//Player is turned off
+			playerActivity.GetComponent<Player>().enabled = false;
 			//Touch gameplay is turned off
-			controls.GetComponent<Touch>().enabled = false;
+			touchControls.GetComponent<Touch>().canDraw = false;
+			touchControls.GetComponent<Touch>().isDrawing = false;
+			touchControls.GetComponent<Touch>().isTouching = false;
+			touchControls.GetComponent<Touch>().enabled = false;
 			//Scrolling background is frozen
-			background.GetComponent<scroll>().enabled = false;
+			scrollingBackground.GetComponent<scroll>().enabled = false;
 			} else {
 			//Everything resumes once more
 			Resume();
@@ -27,10 +33,12 @@ public class PauseMenu : MonoBehaviour {
 	public void Resume(){
 		canvas.gameObject.SetActive (false);
 		Time.timeScale = 1;
-		controls.GetComponent<Touch> ().enabled = true;
-		background.GetComponent<scroll> ().enabled = true;
-        PlayGamesScript.LogIn();
-    }
+		playerActivity.GetComponent<Player> ().enabled = true;
+		touchControls.GetComponent<Touch> ().isDrawing = true;
+		touchControls.GetComponent<Touch>().isTouching = true;
+		touchControls.GetComponent<Touch> ().enabled = true;
+		scrollingBackground.GetComponent<scroll> ().enabled = true;
+	}
 
 	public void Retry(){
 		//Resume is needed to be called before loading a scene,
