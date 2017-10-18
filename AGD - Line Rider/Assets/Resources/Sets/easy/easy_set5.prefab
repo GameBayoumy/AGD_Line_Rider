@@ -586,7 +586,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laserHit: 0
   laserBoundary: 0
-  horizontal: 0
   laserSpeed: 1
   factor: 1
   laserStart: {fileID: 4935031622066626}
@@ -604,7 +603,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laserHit: 0
   laserBoundary: 0
-  horizontal: 0
   laserSpeed: 1
   factor: 1
   laserStart: {fileID: 4796861751388620}
