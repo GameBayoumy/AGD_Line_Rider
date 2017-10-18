@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Touch : MonoBehaviour
 {
@@ -23,19 +24,22 @@ public class Touch : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            isTouching = true; // Set touching to true to track player input
-            if (canDraw)
+            if (!IsPointerOverUIObject())
             {
-                isDrawing = true;
-                pos.z = 0;
+                isTouching = true; // Set touching to true to track player input
+                if (canDraw)
+                {
+                    isDrawing = true;
+                    pos.z = 0;
 
-                // Instantiate and set the current mesh generator on button down
-                currentMeshGenerator = Instantiate(meshGeneratorPrefab, new Vector3(pos.x, pos.y, pos.z), Quaternion.identity);
-                lineRend = currentMeshGenerator.transform;
-            }
-            else
-            {
-                isTouching = false; // Stop drawing lines when player cant draw
+                    // Instantiate and set the current mesh generator on button down
+                    currentMeshGenerator = Instantiate(meshGeneratorPrefab, new Vector3(pos.x, pos.y, pos.z), Quaternion.identity);
+                    lineRend = currentMeshGenerator.transform;
+                }
+                else
+                {
+                    isTouching = false; // Stop drawing lines when player cant draw
+                }
             }
         }
 
@@ -61,5 +65,18 @@ public class Touch : MonoBehaviour
             isTouching = false;
             isDrawing = false;
         }
+    }
+
+    private bool IsPointerOverUIObject()
+    {
+        // Gather touch point events
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        List<RaycastResult> results = new List<RaycastResult>();
+        // Cast a raycast on UI elements
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+
+        // Return value if touch input is over UI element
+        return results.Count > 0;
     }
 }
