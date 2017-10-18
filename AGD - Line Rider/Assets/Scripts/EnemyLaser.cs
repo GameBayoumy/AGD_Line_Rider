@@ -62,8 +62,6 @@ public class EnemyLaser : MonoBehaviour {
             Vector3 contactPoint = new Vector3(collision.contacts[0].point.x, collision.contacts[0].point.y, 0);
             
             laserHit = true;
-            if (currentHeight == null)
-                currentHeight = contactPoint;
 
             if (contactPoint.y > currentHeight.y)
             {
