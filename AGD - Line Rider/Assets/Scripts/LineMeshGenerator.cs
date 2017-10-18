@@ -20,11 +20,12 @@ public class LineMeshGenerator: MonoBehaviour
 
     private Mesh mesh;
     [SerializeField]
-    private float meshLength;                        // Length of the mesh
+    private float meshLength;                       // Length of the mesh
     private new PolygonCollider2D collider;
-    private LinkedList<Vector3> centerPositions;    //the previous positions of the object this script is attached to
-    private LinkedList<Vertex> leftVertices;        //the left vertices derived from the center positions
-    private LinkedList<Vertex> rightVertices;       //the right vertices derived from the center positions
+    private LinkedList<Vector3> centerPositions;    // The previous positions of the object this script is attached to
+    private LinkedList<Vertex> leftVertices;        // The left vertices derived from the center positions
+    private LinkedList<Vertex> rightVertices;       // The right vertices derived from the center positions
+    private Player player;                          // The player
 
     //************
     //
@@ -50,6 +51,7 @@ public class LineMeshGenerator: MonoBehaviour
     {
         // Create an object and mesh for the trail
         GameObject trail = new GameObject("Trail", new[] { typeof(MeshRenderer), typeof(MeshFilter), typeof(PolygonCollider2D) });
+        player = GameObject.Find("Player").GetComponent<Player>();
         transform.SetParent(trail.transform);
         mesh = trail.GetComponent<MeshFilter>().mesh = new Mesh();
         trail.GetComponent<Renderer>().material = trailMaterial;
@@ -74,7 +76,6 @@ public class LineMeshGenerator: MonoBehaviour
             if (TryAddVertices() | TryRemoveVertices())
             {
                 SetMesh();
-                meshLength++;
             }
         }
     }
@@ -98,6 +99,7 @@ public class LineMeshGenerator: MonoBehaviour
         {
             // Calculate the normalized direction from the 1) most recent position of vertex creation to the 2) current position
             Vector3 dirToCurrentPos = (transform.position - centerPositions.First.Value).normalized;
+            meshLength = Vector3.Distance(transform.position, centerPositions.First.Value);
 
             // Calculate the positions of the left and right vertices --> they are perpendicular to 'dirToCurrentPos' and 'renderDirection'
             Vector3 cross = Vector3.Cross(renderDirection, dirToCurrentPos);
@@ -111,6 +113,9 @@ public class LineMeshGenerator: MonoBehaviour
             // Add the current position as the most recent center position
             centerPositions.AddFirst(transform.position);
             vertsAdded = true;
+
+            // Decrease draw resource with length of the mesh
+            player.drawResource -= meshLength;
         }
 
         return vertsAdded;
@@ -128,6 +133,9 @@ public class LineMeshGenerator: MonoBehaviour
         // Continue looking at the last left vertex 1) while one exists and 2) while the last left vertex is older than its lifeTime
         while (leftVertNode != null && leftVertNode.Value.TimeAlive > lifeTime)
         {
+            // Position of last vert before it's removed
+            Vector3 removedVertPos = centerPositions.Last.Value;
+
             // Remove the left vertex from the collection
             leftVertices.RemoveLast();
             leftVertNode = leftVertices.Last;
@@ -138,6 +146,11 @@ public class LineMeshGenerator: MonoBehaviour
             // Remove the center position that the two vertices were derived from
             centerPositions.RemoveLast();
             vertsRemoved = true;
+
+            float returnMeshLength = Vector3.Distance(removedVertPos, centerPositions.Last.Value);
+
+            // Return draw resource with the length of the removed verticies
+            player.drawResource += returnMeshLength;
         }
 
         return vertsRemoved;
