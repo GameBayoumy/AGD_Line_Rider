@@ -39,4 +39,10 @@ public class Player : MonoBehaviour
 			rb2d.velocity = rb2d.velocity.normalized * 10;
 		}
 	}
+
+    public void CanDraw(bool value)
+    {
+        if(touch != null)
+            touch.canDraw = value;
+    }
 }

@@ -19,9 +19,6 @@ public class PauseMenu : MonoBehaviour {
 			playerActivity.GetComponent<Player>().enabled = false;
 			//Touch gameplay is turned off
 			touchControls.GetComponent<Touch>().canDraw = false;
-			touchControls.GetComponent<Touch>().isDrawing = false;
-			touchControls.GetComponent<Touch>().isTouching = false;
-			touchControls.GetComponent<Touch>().enabled = false;
 			//Scrolling background is frozen
 			scrollingBackground.GetComponent<scroll>().enabled = false;
 			} else {
