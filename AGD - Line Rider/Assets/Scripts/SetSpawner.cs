@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class SetSpawner : MonoBehaviour {
 
-    //Object pools
-    //Easy objectpool
-    //Normal objectpool
-    //Hard objectpool
-
     public bool canSpawn;
-    public Transform spawnPosition;
+    //public Transform spawnTransform;
     private HighScore difficultySetter;
+    private SetObjectPools objectPool;
 
     private float _easyChance;
     private float _normalChance;
@@ -24,77 +20,113 @@ public class SetSpawner : MonoBehaviour {
     private float _hardSpawnChance;
 
     private float _randomValue;
-    private float _endOfSet;
+    private Vector3 _endOfSet;
+    private GameObject _spawnObject;
+    private int _previousDifficulty;
     
 
-    private void Awake()
+    void Awake()
     {
         difficultySetter = GameObject.Find("GameController").GetComponent<HighScore>();
+        objectPool = GameObject.Find("SetObjectPooler").GetComponent<SetObjectPools>();
+        _spawnObject = GameObject.Find("spawnPoint");
+        canSpawn = true;
+
+        UpdateSpawnChances();
+        _previousDifficulty = difficultySetter.currentDifficulty;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        if (_endOfSet < spawnPosition.position.x)
+        if (_spawnObject.transform.position.x > _endOfSet.x)
         {
             canSpawn = true;
+            //Debug.Log("_endofSet.x :" + _endOfSet.x + ", spawnPosition.x:" + _spawnObject.transform.position.x);
+        }
+        else {
+            //Debug.Log(" in_spawnPosition, should NOT BE 86 FFS" + _spawnObject.transform.position);
+        }
+
+        if (_previousDifficulty != difficultySetter.currentDifficulty)
+        {
+            _previousDifficulty = difficultySetter.currentDifficulty;
+            UpdateSpawnChances();
         }
 
         if (canSpawn)
         {
-            switch (difficultySetter.currentDifficulty)
-            {
-                case 0: //easy
-                    _easyChance = 100;
-                    _normalChance = 0;
-                    _hardChance = 0;
-                    break;
-                case 1: // normal
-                    _easyChance = 100;
-                    _normalChance = 500;
-                    _hardChance = 0;
-                    break;
-                case 2: // hard
-                    _easyChance = 100;
-                    _normalChance = 500;
-                    _hardChance = 1500;
-                    break;
-            }
-
-            _totalChance = _easyChance + _normalChance + _hardChance;
-            _easySpawnChance = _easyChance / _totalChance;
-            _normalSpawnChance = _normalChance / _totalChance;
-            _hardSpawnChance = _hardChance / _totalChance;
-
+            // Spawns the set based on a random value and the spawn percentages. 
             _randomValue = Random.value;
             if (_randomValue <= _easySpawnChance)
             {
-                SpawnSet(); // easy pool
+                objectPool.chosenSets = objectPool.easySets;
+                SpawnSet();
+                return;
             }
-            _randomValue -= _easySpawnChance;
 
+            _randomValue -= _easySpawnChance;
             if (_randomValue <= _normalSpawnChance)
             {
-                SpawnSet(); // normal pool
+                objectPool.chosenSets = objectPool.normalSets;
+                SpawnSet();
+                return;
             }
-            _randomValue -= _normalSpawnChance;
 
+            _randomValue -= _normalSpawnChance;
             if (_randomValue <= _hardSpawnChance)
             {
-                SpawnSet(); // hard pool
+                objectPool.chosenSets = objectPool.hardSets;
+                SpawnSet();
+                return;
             }
 
         }
     }
 
-    void SpawnSet()// object pool inside method 
+    void UpdateSpawnChances()
     {
-        //GameObject newItem = pool.GetPooledObject();
-        //newItem.transform.position = spawnPosition;
-        //newItem.transform.rotation = transform.rotation;
-        //newItem.SetActive(true);
-        //_endOfSet = newItem.transform.GetChild(0) // assuming its the first child...? plox? i dont even know if this works.
+        switch (difficultySetter.currentDifficulty)
+        {
+            case 0: //easy
+                _easyChance = 100;
+                _normalChance = 0;
+                _hardChance = 0;
+                break;
+            case 1: // normal
+                _easyChance = 100;
+                _normalChance = 500;
+                _hardChance = 0;
+                break;
+            case 2: // hard
+                _easyChance = 100;
+                _normalChance = 500;
+                _hardChance = 1500;
+                break;
+        }
 
+        // Calculate percentages 
+        _totalChance = _easyChance + _normalChance + _hardChance;
+        _easySpawnChance = _easyChance / _totalChance;
+        _normalSpawnChance = _normalChance / _totalChance;
+        _hardSpawnChance = _hardChance / _totalChance;
+
+    }
+    void SpawnSet()
+    {
+        canSpawn = false;
+
+        GameObject set = objectPool.GetPooledSet();
+        if (set == null)
+        {
+            return;
+        }
+        set.transform.position = new Vector3( _spawnObject.transform.position.x, 0, 0);
+        Debug.Log(set.transform.position + "position set");
+        //newItem.transform.rotation = transform.rotation;
+        set.SetActive(true);
+        _endOfSet = set.gameObject.transform.GetChild(0).position;
+        
     }
 }
