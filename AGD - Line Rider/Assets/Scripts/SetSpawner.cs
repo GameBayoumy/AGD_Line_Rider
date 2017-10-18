@@ -11,6 +11,7 @@ public class SetSpawner : MonoBehaviour {
 
     public bool canSpawn;
     public Transform spawnPosition;
+    private HighScore difficultySetter;
 
     private float _easyChance;
     private float _normalChance;
@@ -24,7 +25,12 @@ public class SetSpawner : MonoBehaviour {
 
     private float _randomValue;
     private float _endOfSet;
-    // Use this for initialization
+    
+
+    private void Awake()
+    {
+        difficultySetter = GameObject.Find("GameController").GetComponent<HighScore>();
+    }
 
 
     // Update is called once per frame
@@ -37,7 +43,7 @@ public class SetSpawner : MonoBehaviour {
 
         if (canSpawn)
         {
-            switch (/*SetDifficulty.difficulty*/ )
+            switch (difficultySetter.currentDifficulty)
             {
                 case 0: //easy
                     _easyChance = 100;
@@ -74,7 +80,7 @@ public class SetSpawner : MonoBehaviour {
             }
             _randomValue -= _normalSpawnChance;
 
-            if (_randomValue<= _hardSpawnChance)
+            if (_randomValue <= _hardSpawnChance)
             {
                 SpawnSet(); // hard pool
             }
