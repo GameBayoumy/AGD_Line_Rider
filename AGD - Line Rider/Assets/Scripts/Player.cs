@@ -19,18 +19,6 @@ public class Player : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-        // Only changes resources within the min and max range
-        if (touch.isDrawing)
-        {
-            if(drawResource > 0)
-                drawResource--;
-        }
-        else if(!touch.isDrawing)
-        {
-            if(drawResource < maxResource)
-                drawResource++;
-        }
-
         // Stop drawing when resource is empty
         if(drawResource <= 0)
             touch.canDraw = false;

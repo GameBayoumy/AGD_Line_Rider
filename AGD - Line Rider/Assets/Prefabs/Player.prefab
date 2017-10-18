@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  maxResource: 500
+  maxResource: 100
   drawResource: 0
   touch: {fileID: 0}
 --- !u!212 &212106174952846546
