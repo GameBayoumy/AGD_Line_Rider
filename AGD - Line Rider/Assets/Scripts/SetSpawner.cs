@@ -53,8 +53,8 @@ public class SetSpawner : MonoBehaviour {
         {
             _previousDifficulty = difficultySetter.currentDifficulty;
             UpdateSpawnChances();
+            
         }
-
         if (canSpawn)
         {
             // Spawns the set based on a random value and the spawn percentages. 
@@ -89,17 +89,17 @@ public class SetSpawner : MonoBehaviour {
     {
         switch (difficultySetter.currentDifficulty)
         {
-            case 0: //easy
+            case 1: //easy
                 _easyChance = 100;
                 _normalChance = 0;
                 _hardChance = 0;
                 break;
-            case 1: // normal
+            case 2: // normal
                 _easyChance = 100;
                 _normalChance = 500;
                 _hardChance = 0;
                 break;
-            case 2: // hard
+            case 3: // hard
                 _easyChance = 100;
                 _normalChance = 500;
                 _hardChance = 1500;
