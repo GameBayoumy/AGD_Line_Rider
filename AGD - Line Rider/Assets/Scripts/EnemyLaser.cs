@@ -5,18 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class EnemyLaser : MonoBehaviour {
 
-    public bool laserHit = false;
-    public bool laserBoundary = false;
     public float laserSpeed = 1.0f;
     public float factor = 1.0f;
+    public bool isHorizontal = false;
     public Transform laserStart;
     public Transform laserEnd;
 
-    private Vector3 currentHeight;
+    private Vector3 currentLength;
+    private bool laserHit = false;
 
 	// Use this for initialization
 	void Start () {
-        currentHeight = new Vector3(0, -19f, 0);
+        currentLength = new Vector3(0, -19f, 0);
         SetPos(laserStart.position, laserEnd.position);
     }
 
@@ -26,12 +26,18 @@ public class EnemyLaser : MonoBehaviour {
 
         if (laserHit)
         {
-            laserEnd.position = new Vector3(laserEnd.position.x, currentHeight.y, 0);
+            if (!isHorizontal)
+                laserEnd.position = new Vector3(laserEnd.position.x, currentLength.y, 0);
+            else if (isHorizontal)
+                laserEnd.position = new Vector3(currentLength.x, laserEnd.position.y, 0);
             laserEnd.localPosition = new Vector3(0, laserEnd.localPosition.y, 0);
         }
         else
         {
-            laserEnd.position = new Vector3(laserEnd.position.x, laserEnd.position.y - (5 * Time.deltaTime), 0);
+            if(!isHorizontal)
+                laserEnd.position = new Vector3(laserEnd.position.x, laserEnd.position.y - ((5 * invertDirNumber) * Time.deltaTime), 0);
+            else if (isHorizontal)
+                laserEnd.position = new Vector3(laserEnd.position.x - (5 * invertDirNumber * Time.deltaTime) * invertDirNumber, laserEnd.position.y, 0);
             laserEnd.localPosition = new Vector3(0, laserEnd.localPosition.y, 0);
         }
     }
@@ -63,9 +69,9 @@ public class EnemyLaser : MonoBehaviour {
             
             laserHit = true;
 
-            if (contactPoint.y > currentHeight.y)
+            if (contactPoint.y > currentLength.y)
             {
-                currentHeight = contactPoint;
+                currentLength = contactPoint;
             }
         }
     }
@@ -75,7 +81,7 @@ public class EnemyLaser : MonoBehaviour {
         if(collision.gameObject.name == "Trail" || collision.gameObject.tag == "Wall")
         {
             laserHit = false;
-            currentHeight = new Vector3(0, -19f, 0);
+            currentLength = new Vector3(0, -19f, 0);
         }
     }
 
