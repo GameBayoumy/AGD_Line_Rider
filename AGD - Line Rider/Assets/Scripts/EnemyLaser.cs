@@ -8,11 +8,13 @@ public class EnemyLaser : MonoBehaviour {
     public float laserSpeed = 1.0f;
     public float factor = 1.0f;
     public bool isHorizontal = false;
+    public bool invertDirection = false;
     public Transform laserStart;
     public Transform laserEnd;
 
     private Vector3 currentLength;
     private bool laserHit = false;
+    private float invertDirNumber = 1f;
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +24,9 @@ public class EnemyLaser : MonoBehaviour {
 
     private void Update()
     {
+        if (invertDirection == true)
+            invertDirNumber = -1f;
+
         SetPos(laserStart.position, laserEnd.position);
 
         if (laserHit)
