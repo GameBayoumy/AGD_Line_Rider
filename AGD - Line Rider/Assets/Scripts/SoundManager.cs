@@ -165,4 +165,105 @@ public class SoundManager : MonoBehaviour {
         sfxSources.Remove(sfxSource);
         Destroy(sfxSource);
     }
+
+    /// 
+    /// SFX functions
+    ///
+    public static void PlaySFX(AudioClip sfxClip)
+    {
+        SoundManager soundMan = GetInstance();
+        AudioSource source = soundMan.GetSFXSource();
+        source.volume = GetSFXVolume();
+        source.clip = sfxClip;
+        source.Play();
+        soundMan.StartCoroutine(soundMan.RemoveSFXSource(source));
+    }
+
+    public static void PlaySFXRandomized(AudioClip sfxClip)
+    {
+        SoundManager soundMan = GetInstance();
+        AudioSource source = soundMan.GetSFXSource();
+        source.volume = GetSFXVolume();
+        source.clip = sfxClip;
+        source.pitch = Random.Range(0.85f, 1.2f);
+        source.Play();
+        soundMan.StartCoroutine(soundMan.RemoveSFXSource(source));
+    }
+
+    public static void PlaySFXFixedDuration(AudioClip sfxClip, float duration, float volumeMultiplier = 1.0f)
+    {
+        SoundManager soundMan = GetInstance();
+        AudioSource source = soundMan.GetSFXSource();
+        source.volume = GetSFXVolume() * volumeMultiplier;
+        source.clip = sfxClip;
+        source.loop = true;
+        source.Play();
+        soundMan.StartCoroutine(soundMan.RemoveSFXSourceFixedLength(source, duration));
+    }
+
+    /// 
+    /// Volume Control functions
+    ///
+    public static void DisableSoundImmediate()
+    {
+        SoundManager soundMan = GetInstance();
+        soundMan.StopAllCoroutines();
+        if (soundMan.sfxSources != null)
+        {
+            foreach (AudioSource source in soundMan.sfxSources)
+            {
+                source.volume = 0;
+            }
+        }
+        soundMan.bgmSource.volume = 0f;
+        isMuted = true;
+    }
+
+    public static void EnableSoundImmediate()
+    {
+        SoundManager soundMan = GetInstance();
+        if (soundMan.sfxSources != null)
+        {
+            foreach (AudioSource source in soundMan.sfxSources)
+            {
+                source.volume = GetSFXVolume();
+            }
+        }
+        soundMan.bgmSource.volume = GetBGMVolume();
+        isMuted = false;
+    }
+
+    public static void SetGlobalVolume(float newVolume)
+    {
+        CurrentVolumeNormalized_BGM = newVolume;
+        CurrentVolumeNormalized_SFX = newVolume;
+        AdjustSoundImmediate();
+    }
+
+    public static void SetSFXVolume(float newVolume)
+    {
+        CurrentVolumeNormalized_SFX = newVolume;
+        AdjustSoundImmediate();
+    }
+
+    public static void SetBGMVolume(float newVolume)
+    {
+        CurrentVolumeNormalized_BGM = newVolume;
+        AdjustSoundImmediate();
+    }
+
+    public static void AdjustSoundImmediate()
+    {
+        SoundManager soundMan = GetInstance();
+        if (soundMan.sfxSources != null)
+        {
+            foreach (AudioSource source in soundMan.sfxSources)
+            {
+                source.volume = GetSFXVolume();
+            }
+        }
+        Debug.Log("BGM Volume: " + GetBGMVolume());
+        soundMan.bgmSource.volume = GetBGMVolume();
+        Debug.Log("BGM Volume is now: " + GetBGMVolume());
+    }
 }
