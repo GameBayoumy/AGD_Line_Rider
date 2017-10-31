@@ -10,8 +10,12 @@ public class UIScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Instance = this;
-        PlayGamesScript.LogIn();
 	}
+
+    void Awake()
+    {
+        PlayGamesScript.LogIn();
+    }
 
     [SerializeField]
 
@@ -22,8 +26,7 @@ public class UIScript : MonoBehaviour {
 
     public void RevealAchievementsUI()
     {
-        GameObject.Find("Username").GetComponent<Text>().text = Social.localUser.userName;
-        Social.ShowAchievementsUI();
+        PlayGamesScript.ShowAchievementsUI();
     }
 
     public void Increment()
