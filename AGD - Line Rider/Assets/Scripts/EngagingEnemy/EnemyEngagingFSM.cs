@@ -83,7 +83,20 @@ public class EnemyEngagingFSM : FSMEngaging {
 
         PlayerPosition = Player.transform.position;
 
-        this.transform.position = new Vector3(Player.transform.position.x + 18, this.transform.position.y, this.transform.position.z);
+        if ((this.transform.position.x - Player.transform.position.x) <= 18){
+            this.transform.position = new Vector3(Player.transform.position.x + 18, this.transform.position.y, this.transform.position.z);
+        }
+
+       // this.transform.position = new Vector3(Player.transform.position.x + 18, this.transform.position.y, this.transform.position.z);
+
+
+        //EnemyEngagingPosition = new Vector3(Player.transform.position.x + 18, this.transform.position.y, this.transform.position.z);
+
+        //if (this.transform.position.x <= Player.transform.position.x + 20)
+        //{
+        //    this.transform.position = Vector3.Lerp(transform.position, EnemyEngagingPosition, speedRotation);
+        //}
+
 
         if ((int)score.timeScore == 30)
         {
@@ -117,5 +130,7 @@ public class EnemyEngagingFSM : FSMEngaging {
     {
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(transform.rotation.x, transform.rotation.x, -360f), speedRotation);
     }
+
+
 
 }
