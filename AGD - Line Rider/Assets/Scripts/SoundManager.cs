@@ -6,40 +6,40 @@ using UnityEngine.Audio;
 public class SoundManager : MonoBehaviour {
     
     // Static variables
-    static SoundManager instance;
-    static float CurrentVolumeNormalized_BGM = 1f;
-    static float CurrentVolumeNormalized_SFX = 1f;
-    static bool isMuted = false;
+    static SoundManager _instance;
+    static float _currentVolumeNormalizedBGM = 1f;
+    static float _currentVolumeNormalizedSFX = 1f;
+    static bool _isMuted = false;
 
     // Const variables
-    const float MaxVolume_BGM = 1f;
-    const float MaxVolume_SFX = 1f;
+    const float _maxVolumeBGM = 1f;
+    const float _maxVolumeSFX = 1f;
 
     // Private variables
-    List<AudioSource> sfxSources;
-    AudioSource bgmSource;
-    AudioMixer audioMixer;
+    List<AudioSource> _sfxSources;
+    AudioSource _bgmSource;
+    AudioMixer _audioMixer;
 
     public static SoundManager GetInstance()
     {
-        if (!instance)
+        if (!_instance)
         {
             GameObject soundManager = new GameObject("SoundManager");
-            instance = soundManager.AddComponent<SoundManager>();
-            instance.Initialize();
+            _instance = soundManager.AddComponent<SoundManager>();
+            _instance.Initialize();
         }
-        return instance;
+        return _instance;
     }
 
     void Initialize()
     {
         // Add bgm sound source
-        bgmSource = gameObject.AddComponent<AudioSource>();
-        GetInstance().audioMixer = Resources.Load("AudioMixer") as AudioMixer;
-        bgmSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups("BGM")[0];
-        bgmSource.loop = true;
-        bgmSource.playOnAwake = false;
-        bgmSource.volume = GetBGMVolume();
+        _bgmSource = gameObject.AddComponent<AudioSource>();
+        GetInstance()._audioMixer = Resources.Load("AudioMixer") as AudioMixer;
+        _bgmSource.outputAudioMixerGroup = _audioMixer.FindMatchingGroups("BGM")[0];
+        _bgmSource.loop = true;
+        _bgmSource.playOnAwake = false;
+        _bgmSource.volume = GetBGMVolume();
         DontDestroyOnLoad(gameObject);
     }
 
@@ -48,12 +48,12 @@ public class SoundManager : MonoBehaviour {
     ///
     static float GetBGMVolume()
     {
-        return isMuted ? 0f : MaxVolume_BGM * CurrentVolumeNormalized_BGM;
+        return _isMuted ? 0f : _maxVolumeBGM * _currentVolumeNormalizedBGM;
     }
 
     public static float GetSFXVolume()
     {
-        return isMuted ? 0f : MaxVolume_SFX * CurrentVolumeNormalized_SFX;
+        return _isMuted ? 0f : _maxVolumeSFX * _currentVolumeNormalizedSFX;
     }
 
     /// 
@@ -64,7 +64,7 @@ public class SoundManager : MonoBehaviour {
         SoundManager soundMan = GetInstance();
         if (fade)
         {
-            if (soundMan.bgmSource.isPlaying)
+            if (soundMan._bgmSource.isPlaying)
             {
                 // Fade out, then switch and fade in
                 soundMan.FadeBGMOut(fadeDuration / 2);
@@ -80,16 +80,16 @@ public class SoundManager : MonoBehaviour {
         else
         {
             // Play music
-            soundMan.bgmSource.volume = GetBGMVolume();
-            soundMan.bgmSource.clip = bgmClip;
-            soundMan.bgmSource.Play();
+            soundMan._bgmSource.volume = GetBGMVolume();
+            soundMan._bgmSource.clip = bgmClip;
+            soundMan._bgmSource.Play();
         }
     }
 
     public static void StopBGM(bool fade, float fadeDuration)
     {
         SoundManager soundMan = GetInstance();
-        if (soundMan.bgmSource.isPlaying)
+        if (soundMan._bgmSource.isPlaying)
         {
             // Fade out, then switch and fade in
             if (fade)
@@ -98,7 +98,7 @@ public class SoundManager : MonoBehaviour {
             }
             else
             {
-                soundMan.bgmSource.Stop();
+                soundMan._bgmSource.Stop();
             }
         }
     }
@@ -116,8 +116,8 @@ public class SoundManager : MonoBehaviour {
     void FadeBGMIn(AudioClip bgmClip, float delay, float fadeDuration)
     {
         SoundManager soundMan = GetInstance();
-        soundMan.bgmSource.clip = bgmClip;
-        soundMan.bgmSource.Play();
+        soundMan._bgmSource.clip = bgmClip;
+        soundMan._bgmSource.Play();
         float toVolume = GetBGMVolume();
         StartCoroutine(FadeBGM(toVolume, delay, fadeDuration));
     }
@@ -130,8 +130,8 @@ public class SoundManager : MonoBehaviour {
         while (duration > 0)
         {
             float t = (elapsed / duration);
-            float volume = Mathf.Lerp(0f, fadeToVolume * CurrentVolumeNormalized_BGM, t);
-            soundMan.bgmSource.volume = volume;
+            float volume = Mathf.Lerp(0f, fadeToVolume * _currentVolumeNormalizedBGM, t);
+            soundMan._bgmSource.volume = volume;
             elapsed += Time.deltaTime;
             yield return 0;
         }
@@ -147,25 +147,25 @@ public class SoundManager : MonoBehaviour {
         sfxSource.loop = false;
         sfxSource.playOnAwake = false;
         sfxSource.volume = GetSFXVolume();
-        if (sfxSources == null)
+        if (_sfxSources == null)
         {
-            sfxSources = new List<AudioSource>();
+            _sfxSources = new List<AudioSource>();
         }
-        sfxSources.Add(sfxSource);
+        _sfxSources.Add(sfxSource);
         return sfxSource;
     }
 
     IEnumerator RemoveSFXSource(AudioSource sfxSource)
     {
         yield return new WaitForSeconds(sfxSource.clip.length);
-        sfxSources.Remove(sfxSource);
+        _sfxSources.Remove(sfxSource);
         Destroy(sfxSource);
     }
 
     IEnumerator RemoveSFXSourceFixedLength(AudioSource sfxSource, float length)
     {
         yield return new WaitForSeconds(length);
-        sfxSources.Remove(sfxSource);
+        _sfxSources.Remove(sfxSource);
         Destroy(sfxSource);
     }
 
@@ -217,62 +217,62 @@ public class SoundManager : MonoBehaviour {
     {
         SoundManager soundMan = GetInstance();
         soundMan.StopAllCoroutines();
-        if (soundMan.sfxSources != null)
+        if (soundMan._sfxSources != null)
         {
-            foreach (AudioSource source in soundMan.sfxSources)
+            foreach (AudioSource source in soundMan._sfxSources)
             {
                 source.volume = 0;
             }
         }
-        soundMan.bgmSource.volume = 0f;
-        isMuted = true;
+        soundMan._bgmSource.volume = 0f;
+        _isMuted = true;
     }
 
     public static void EnableSoundImmediate()
     {
         SoundManager soundMan = GetInstance();
-        if (soundMan.sfxSources != null)
+        if (soundMan._sfxSources != null)
         {
-            foreach (AudioSource source in soundMan.sfxSources)
+            foreach (AudioSource source in soundMan._sfxSources)
             {
                 source.volume = GetSFXVolume();
             }
         }
-        soundMan.bgmSource.volume = GetBGMVolume();
-        isMuted = false;
+        soundMan._bgmSource.volume = GetBGMVolume();
+        _isMuted = false;
     }
 
     public static void SetGlobalVolume(float newVolume)
     {
-        CurrentVolumeNormalized_BGM = newVolume;
-        CurrentVolumeNormalized_SFX = newVolume;
+        _currentVolumeNormalizedBGM = newVolume;
+        _currentVolumeNormalizedSFX = newVolume;
         AdjustSoundImmediate();
     }
 
     public static void SetSFXVolume(float newVolume)
     {
-        CurrentVolumeNormalized_SFX = newVolume;
+        _currentVolumeNormalizedSFX = newVolume;
         AdjustSoundImmediate();
     }
 
     public static void SetBGMVolume(float newVolume)
     {
-        CurrentVolumeNormalized_BGM = newVolume;
+        _currentVolumeNormalizedBGM = newVolume;
         AdjustSoundImmediate();
     }
 
     public static void AdjustSoundImmediate()
     {
         SoundManager soundMan = GetInstance();
-        if (soundMan.sfxSources != null)
+        if (soundMan._sfxSources != null)
         {
-            foreach (AudioSource source in soundMan.sfxSources)
+            foreach (AudioSource source in soundMan._sfxSources)
             {
                 source.volume = GetSFXVolume();
             }
         }
         Debug.Log("BGM Volume: " + GetBGMVolume());
-        soundMan.bgmSource.volume = GetBGMVolume();
+        soundMan._bgmSource.volume = GetBGMVolume();
         Debug.Log("BGM Volume is now: " + GetBGMVolume());
     }
 }

@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour {
     public AudioClip menuClickSFX;
     public static AudioClip menuSFX;
 
-    static GameManager instance;
+    static GameManager _instance;
 
     private void Start()
     {
@@ -20,19 +20,19 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager GetInstance()
     {
-        if (!instance)
+        if (!_instance)
         {
             GameObject gameManager = new GameObject("GameManager");
-            instance = gameManager.AddComponent<GameManager>();
-            instance.Initialize();
+            _instance = gameManager.AddComponent<GameManager>();
+            _instance.Initialize();
         }
-        return instance;
+        return _instance;
     }
 
     void Initialize()
     {
         SoundManager.PlayBGM(mainBGM, false, 0f);
-        instance.mainBGMclip = mainBGM;
+        _instance.mainBGMclip = mainBGM;
         DontDestroyOnLoad(gameObject);
     }
 }
