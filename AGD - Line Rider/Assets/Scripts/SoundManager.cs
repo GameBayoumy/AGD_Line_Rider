@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour {
-
+    
     // Static variables
     static SoundManager instance;
     static float CurrentVolumeNormalized_BGM = 1f;
@@ -17,6 +18,7 @@ public class SoundManager : MonoBehaviour {
     // Private variables
     List<AudioSource> sfxSources;
     AudioSource bgmSource;
+    AudioMixer audioMixer;
 
     public static SoundManager GetInstance()
     {
@@ -33,6 +35,8 @@ public class SoundManager : MonoBehaviour {
     {
         // Add bgm sound source
         bgmSource = gameObject.AddComponent<AudioSource>();
+        GetInstance().audioMixer = Resources.Load("AudioMixer") as AudioMixer;
+        bgmSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups("BGM")[0];
         bgmSource.loop = true;
         bgmSource.playOnAwake = false;
         bgmSource.volume = GetBGMVolume();
@@ -104,7 +108,6 @@ public class SoundManager : MonoBehaviour {
     ///
     void FadeBGMOut(float fadeDuration)
     {
-        SoundManager soundMan = GetInstance();
         float delay = 0f;
         float toVolume = 0f;
         StartCoroutine(FadeBGM(toVolume, delay, fadeDuration));
@@ -169,20 +172,24 @@ public class SoundManager : MonoBehaviour {
     /// 
     /// SFX functions
     ///
-    public static void PlaySFX(AudioClip sfxClip)
+    public static void PlaySFX(AudioClip sfxClip, string mixerOutputGroupName)
     {
         SoundManager soundMan = GetInstance();
         AudioSource source = soundMan.GetSFXSource();
+        AudioMixer audioMixer = Resources.Load("AudioMixer") as AudioMixer;
+        source.outputAudioMixerGroup = audioMixer.FindMatchingGroups(mixerOutputGroupName)[0];
         source.volume = GetSFXVolume();
         source.clip = sfxClip;
         source.Play();
         soundMan.StartCoroutine(soundMan.RemoveSFXSource(source));
     }
 
-    public static void PlaySFXRandomized(AudioClip sfxClip)
+    public static void PlaySFXRandomized(AudioClip sfxClip, string mixerOutputGroupName)
     {
         SoundManager soundMan = GetInstance();
         AudioSource source = soundMan.GetSFXSource();
+        AudioMixer audioMixer = Resources.Load("AudioMixer") as AudioMixer;
+        source.outputAudioMixerGroup = audioMixer.FindMatchingGroups(mixerOutputGroupName)[0];
         source.volume = GetSFXVolume();
         source.clip = sfxClip;
         source.pitch = Random.Range(0.85f, 1.2f);
@@ -190,10 +197,12 @@ public class SoundManager : MonoBehaviour {
         soundMan.StartCoroutine(soundMan.RemoveSFXSource(source));
     }
 
-    public static void PlaySFXFixedDuration(AudioClip sfxClip, float duration, float volumeMultiplier = 1.0f)
+    public static void PlaySFXFixedDuration(AudioClip sfxClip, string mixerOutputGroupName, float duration, float volumeMultiplier = 1.0f)
     {
         SoundManager soundMan = GetInstance();
         AudioSource source = soundMan.GetSFXSource();
+        AudioMixer audioMixer = Resources.Load("AudioMixer") as AudioMixer;
+        source.outputAudioMixerGroup = audioMixer.FindMatchingGroups(mixerOutputGroupName)[0];
         source.volume = GetSFXVolume() * volumeMultiplier;
         source.clip = sfxClip;
         source.loop = true;
