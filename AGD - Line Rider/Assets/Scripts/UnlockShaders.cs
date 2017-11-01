@@ -15,22 +15,30 @@ public class UnlockShaders : MonoBehaviour {
         score = GameObject.Find("GameController").GetComponent<HighScore>();
 
         PlayerPrefs.SetInt("ShaderID", PlayerPrefs.GetInt("ShaderID"));
-        PlayerPrefs.SetInt("UnlockedRope", 0);
-        PlayerPrefs.SetInt("UnlockedBubbles", 0);
-        PlayerPrefs.SetInt("UnlockedWave", 0);
+
+        PlayerPrefs.SetInt("UnlockedNeon", 1);
+        PlayerPrefs.SetInt("UnlockedRope", PlayerPrefs.GetInt("UnlockedRope"));
+        PlayerPrefs.SetInt("UnlockedBubbles", PlayerPrefs.GetInt("UnlockedBubbles"));
+        PlayerPrefs.SetInt("UnlockedWave", PlayerPrefs.GetInt("UnlockedWave"));
 
         SelectShader();
 	}
 	
 	// Update is called once per frame
-	void Update () {    
-        
-		if ((int)score.timeScore == 100)
+	void Update () {
+
+        if (Input.GetKeyDown(KeyCode.G))
         {
-            UnlockShader("UnlockedRope");
+            PlayerPrefs.SetInt("UnlockedRope", 0);
         }
 
-	}
+        if ((int)score.timeScore == 200)
+        {
+            PlayGamesScript.UnlockAchievement(GPGSIds.achievement_rope);
+            PlayerPrefs.SetInt("UnlockedRope", 1);
+        }
+
+    }
 
     public void UnlockShader(string shaderKey)
     {

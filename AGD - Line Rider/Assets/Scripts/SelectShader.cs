@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SelectShader : MonoBehaviour {
 
     public int shaderID;
+    public string shaderName;
     Button myButton;
     UnlockShaders shaderManager;
 
@@ -28,4 +29,16 @@ public class SelectShader : MonoBehaviour {
         PlayerPrefs.SetInt("ShaderID", shaderID);
         shaderManager.SelectShader();
     }
+
+    void OnEnable()
+    {
+        if (PlayerPrefs.GetInt(shaderName) == 1)
+        {
+            gameObject.SetActive(true);
+        }
+        else {
+            gameObject.SetActive(false);
+        }
+    }
+
 }

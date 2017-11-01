@@ -24,11 +24,9 @@
 
 public static class GPGSIds
 {
-        public const string achievement_spooktober = "CgkIiOKhnoYKEAIQBA"; // <GPGSID>
-        public const string achievement_end_of_the_line = "CgkIiOKhnoYKEAIQAg"; // <GPGSID>
-        public const string achievement_poop_dogg_xd = "CgkIiOKhnoYKEAIQAw"; // <GPGSID>
-        public const string achievement_humble_beginnings = "CgkIiOKhnoYKEAIQBg"; // <GPGSID>
-        public const string achievement_crowd_appeel = "CgkIiOKhnoYKEAIQBQ"; // <GPGSID>
+        public const string achievement_bubbles = "CgkIiOKhnoYKEAIQCA"; // <GPGSID>
+        public const string achievement_cave = "CgkIiOKhnoYKEAIQCQ"; // <GPGSID>
+        public const string achievement_rope = "CgkIiOKhnoYKEAIQBw"; // <GPGSID>
 
 }
 

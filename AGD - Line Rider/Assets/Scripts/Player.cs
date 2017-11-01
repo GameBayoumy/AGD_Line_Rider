@@ -20,8 +20,12 @@ public class Player : MonoBehaviour
 	void Update()
 	{
         // Stop drawing when resource is empty
-        if(drawResource <= 0)
+        if (drawResource <= 0)
+        {
             touch.canDraw = false;
+            PlayGamesScript.UnlockAchievement(GPGSIds.achievement_bubbles);
+            PlayerPrefs.SetInt("UnlockedBubbles", 1);
+        }
         else
             touch.canDraw = true;
     }
