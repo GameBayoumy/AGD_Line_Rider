@@ -8,14 +8,20 @@ public class EnemyEngagingFSM : FSMEngaging {
     private Vector3 PlayerPosition;
     private Vector3 EnemyEngagingPosition;
     private bool rotated = false;
+    private bool spawned = false;
+
+    Rigidbody2D m_Rigidbody2D;
+
 
     public GameObject Player;
+    public GameObject enemyBlock;
 
     HighScore score;
+    float spawnTimer;
+    private int SinusMovement = -8;
 
-    //public Transform from;
-    //public Transform to;
     public float speedRotation = 100F;
+    public float speedSinus = .75F;
 
 
     public enum FSMState
@@ -30,11 +36,11 @@ public class EnemyEngagingFSM : FSMEngaging {
 
 
 
-    //protected override void Awake()
-    //{
-    //    Player = GameObject.Find("Player");
-    //    base.Awake();
-    //}
+    protected override void Awake()
+    {
+        Player = GameObject.Find("Player");
+        base.Awake();
+    }
 
     protected override void Initialize()
     {
@@ -61,41 +67,11 @@ public class EnemyEngagingFSM : FSMEngaging {
                 break;
         }
 
-        //if (curState == FSMState.None)
-        //{
-        //    Debug.Log("None");
-        //}
-
-        //if (curState == FSMState.Green){
-        //    Debug.Log("Green");
-        //}
-
-        //if (curState == FSMState.Red)
-        //{
-        //    Debug.Log("Red");
-        //}
-
-        //if (curState == FSMState.Blue)
-        //{
-        //    Debug.Log("Blue");
-        //}
-
-
         PlayerPosition = Player.transform.position;
 
         if ((this.transform.position.x - Player.transform.position.x) <= 18){
             this.transform.position = new Vector3(Player.transform.position.x + 18, this.transform.position.y, this.transform.position.z);
         }
-
-       // this.transform.position = new Vector3(Player.transform.position.x + 18, this.transform.position.y, this.transform.position.z);
-
-
-        //EnemyEngagingPosition = new Vector3(Player.transform.position.x + 18, this.transform.position.y, this.transform.position.z);
-
-        //if (this.transform.position.x <= Player.transform.position.x + 20)
-        //{
-        //    this.transform.position = Vector3.Lerp(transform.position, EnemyEngagingPosition, speedRotation);
-        //}
 
 
         if ((int)score.timeScore == 30)
@@ -103,12 +79,12 @@ public class EnemyEngagingFSM : FSMEngaging {
             curState = FSMState.Green;
         }
 
-        if ((int)score.timeScore == 60)
+        if ((int)score.timeScore == 60000)
         {
             curState = FSMState.Red;
         }
 
-        if ((int)score.timeScore == 90)
+        if ((int)score.timeScore == 90000)
         {
             curState = FSMState.Blue;
         }
@@ -116,10 +92,30 @@ public class EnemyEngagingFSM : FSMEngaging {
 
     }
 
+
+
+
+
+
+
     protected void UpdateGreenState()
     {
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(transform.rotation.x, transform.rotation.x, -120f), speedRotation);
+
+        this.GetComponent<Rigidbody2D>().AddForce(new Vector2(-1, SinusMovement));
+
+
+        spawnTimer -= 1;
+        if (spawnTimer <= 20)
+        {
+            Instantiate(enemyBlock, new Vector3(this.transform.position.x - 3f, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+            spawnTimer = 250;
+        }
     }
+
+
+
+
 
     protected void UpdateRedState()
     {
@@ -132,5 +128,15 @@ public class EnemyEngagingFSM : FSMEngaging {
     }
 
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+
+        if (collision.gameObject.tag == "Wall")
+        {
+            SinusMovement *= -1;
+        }
+
+    }
 
 }
