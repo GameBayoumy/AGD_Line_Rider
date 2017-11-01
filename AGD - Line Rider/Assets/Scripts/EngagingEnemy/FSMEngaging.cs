@@ -1,8 +1,7 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class FSMEngaging : EnemyBasic {
+public class FSMEngaging : MonoBehaviour {
 
 	// Use this for initialization
     protected virtual void Initialize()
