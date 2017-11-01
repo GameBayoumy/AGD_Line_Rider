@@ -12,39 +12,39 @@ public class EnemyLaser : MonoBehaviour {
     public Transform laserStart;
     public Transform laserEnd;
 
-    private Vector3 currentLength;
-    private bool laserHit = false;
-    private float invertDirNumber = 1f;
+    private Vector3 _currentLength;
+    private bool _laserHit = false;
+    private float _invertDirNumber = 1f;
 
 	// Use this for initialization
 	void Start () {
-        currentLength = new Vector3(0, -19f, 0);
+        _currentLength = new Vector3(0, -19f, 0);
         SetPos(laserStart.position, laserEnd.position);
     }
 
     private void Update()
     {
         if (invertDirection == true)
-            invertDirNumber = -1f;
+            _invertDirNumber = -1f;
         else
-            invertDirNumber = 1f;
+            _invertDirNumber = 1f;
 
         SetPos(laserStart.position, laserEnd.position);
 
-        if (laserHit)
+        if (_laserHit)
         {
             if (!isHorizontal)
-                laserEnd.position = new Vector3(laserEnd.position.x, currentLength.y, 0);
+                laserEnd.position = new Vector3(laserEnd.position.x, _currentLength.y, 0);
             else if (isHorizontal)
-                laserEnd.position = new Vector3(currentLength.x, laserEnd.position.y, 0);
+                laserEnd.position = new Vector3(_currentLength.x, laserEnd.position.y, 0);
             laserEnd.localPosition = new Vector3(0, laserEnd.localPosition.y, 0);
         }
         else
         {
             if(!isHorizontal)
-                laserEnd.position = new Vector3(laserEnd.position.x, laserEnd.position.y - ((5 * invertDirNumber) * Time.deltaTime), 0);
+                laserEnd.position = new Vector3(laserEnd.position.x, laserEnd.position.y - ((5 * _invertDirNumber) * Time.deltaTime), 0);
             else if (isHorizontal)
-                laserEnd.position = new Vector3(laserEnd.position.x - ((5 * invertDirNumber) * Time.deltaTime), laserEnd.position.y, 0);
+                laserEnd.position = new Vector3(laserEnd.position.x - ((5 * _invertDirNumber) * Time.deltaTime), laserEnd.position.y, 0);
             laserEnd.localPosition = new Vector3(0, laserEnd.localPosition.y, 0);
         }
     }
@@ -74,11 +74,11 @@ public class EnemyLaser : MonoBehaviour {
         {
             Vector3 contactPoint = new Vector3(collision.contacts[0].point.x, collision.contacts[0].point.y, 0);
             
-            laserHit = true;
+            _laserHit = true;
 
-            if (contactPoint.y > currentLength.y)
+            if (contactPoint.y > _currentLength.y)
             {
-                currentLength = contactPoint;
+                _currentLength = contactPoint;
             }
         }
     }
@@ -87,8 +87,8 @@ public class EnemyLaser : MonoBehaviour {
     {
         if(collision.gameObject.name == "Trail" || collision.gameObject.tag == "Wall")
         {
-            laserHit = false;
-            currentLength = new Vector3(0, -19f, 0);
+            _laserHit = false;
+            _currentLength = new Vector3(0, -19f, 0);
         }
     }
 
