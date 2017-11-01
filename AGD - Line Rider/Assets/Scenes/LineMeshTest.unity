@@ -899,6 +899,48 @@ MonoBehaviour:
   playerPosition: {fileID: 339368992}
   gameOverCall: {fileID: 0}
   gameOverCaller: {fileID: 0}
+--- !u!1001 &979490276
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4842171823851926, guid: 21208c14a49b77340bf10cc4c271bd2a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842171823851926, guid: 21208c14a49b77340bf10cc4c271bd2a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842171823851926, guid: 21208c14a49b77340bf10cc4c271bd2a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842171823851926, guid: 21208c14a49b77340bf10cc4c271bd2a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842171823851926, guid: 21208c14a49b77340bf10cc4c271bd2a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842171823851926, guid: 21208c14a49b77340bf10cc4c271bd2a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842171823851926, guid: 21208c14a49b77340bf10cc4c271bd2a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842171823851926, guid: 21208c14a49b77340bf10cc4c271bd2a, type: 2}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 21208c14a49b77340bf10cc4c271bd2a, type: 2}
+  m_IsPrefabParent: 0
 --- !u!114 &1057402471 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114801001333541796, guid: ff39b077fc1584c5ea04a7bc6d3aeb82,
@@ -1299,7 +1341,7 @@ Camera:
   far clip plane: 1000
   field of view: 100
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 13
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
