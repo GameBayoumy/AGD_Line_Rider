@@ -28,7 +28,7 @@ public class Bumper : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player")
         {
-            SoundManager.PlaySFXRandomized(bounceSFX);
+            SoundManager.PlaySFXRandomized(bounceSFX, "SFX");
             transform.localScale = new Vector3(transform.localScale.x * 1.20f, transform.localScale.y * 1.20f, transform.localScale.z * 1.0f);
             hit = true;
         }

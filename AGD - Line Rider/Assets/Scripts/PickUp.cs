@@ -12,7 +12,7 @@ public class PickUp : SpawnableGameObject {
         {
             //Add score
 
-            SoundManager.PlaySFXRandomized(pickupSound);
+            SoundManager.PlaySFXRandomized(pickupSound, "SFX");
             GameObject CurrencyHandler = GameObject.Find("CurrencyHandler");
             Currency currency = CurrencyHandler.GetComponent<Currency>();
             int newCurrency = currency.CurrencyPoints += 1;

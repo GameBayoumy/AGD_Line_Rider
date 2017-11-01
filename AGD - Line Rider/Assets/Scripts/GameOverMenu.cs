@@ -35,8 +35,8 @@ public class GameOverMenu : MonoBehaviour {
             controls.GetComponent<Touch> ().enabled = false;            //Touch gameplay is turned off
             background.GetComponent<scroll> ().enabled = false;         //Scrolling background is frozen
             DisableButtonOnClick ();                                    //Disable the Pause Button
-            SoundManager.PlaySFX(explosionSFX);
-            SoundManager.PlaySFX(loseSFX);
+            SoundManager.PlaySFX(explosionSFX, "SFX");
+            SoundManager.PlaySFX(loseSFX, "SFX");
             SoundManager.StopBGM(false, 0f);
         }
 	}

@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class EnemySplitting : MonoBehaviour {
 
-    private Vector3 PlayerPosition;
-
     public GameObject Player;
     public GameObject EnemySplittingSmallUp;
     public GameObject EnemySplittingSmallDown;
     public GameObject Up;
     public GameObject Down;
+    public AudioClip splittingSFX;
+
+    private Vector3 PlayerPosition;
     bool SpawnAllowed = true;
     bool spawned = false;
 
@@ -39,6 +40,7 @@ public class EnemySplitting : MonoBehaviour {
             Up = Instantiate(EnemySplittingSmallUp, new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z), Quaternion.identity); //spawns the small upper enemy
             Down = Instantiate(EnemySplittingSmallDown, new Vector3(transform.position.x, transform.position.y - 0.2f, transform.position.z), Quaternion.identity); //spawns the small downgoing enemy
             SpawnAllowed = false;
+            SoundManager.PlaySFX(splittingSFX, "SFX");
             Destroy(gameObject);
         }
 

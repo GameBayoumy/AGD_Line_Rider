@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 58109423594425894}
   - component: {fileID: 114549088455227414}
   m_Layer: 0
-  m_Name: Bumper
+  m_Name: BumperCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTime: 0.1
+  bounceSFX: {fileID: 8300000, guid: 56d29afd9631728429b0781b0c394067, type: 3}
 --- !u!212 &212192733207397134
 SpriteRenderer:
   m_ObjectHideFlags: 1
