@@ -55,7 +55,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseButton: {fileID: 0}
-  explosionSFX: {fileID: 8300000, guid: 5b74c2fcadcb9e14ab97878416a0ced5, type: 3}
+  explosionSFX: {fileID: 8300000, guid: 6f95760407139aa4a85cf1e94eb968c9, type: 3}
   loseSFX: {fileID: 8300000, guid: 5161916ad7adc6d4a8405ebcec3d8645, type: 3}
   gameOverScreen: {fileID: 0}
   playerActivity: {fileID: 0}
