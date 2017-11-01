@@ -41,6 +41,10 @@ public class Touch : MonoBehaviour
                     isTouching = false; // Stop drawing lines when player cant draw
                 }
             }
+            else
+            {
+                SoundManager.PlaySFX(GameManager.menuSFX, "GUI");
+            }
         }
 
         if (isTouching)

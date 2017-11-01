@@ -6,12 +6,15 @@ public class GameManager : MonoBehaviour {
 
     public AudioClip mainBGMclip;
     public static AudioClip mainBGM;
+    public AudioClip menuClickSFX;
+    public static AudioClip menuSFX;
 
     static GameManager instance;
 
     private void Start()
     {
         mainBGM = mainBGMclip;
+        menuSFX = menuClickSFX;
         GetInstance();
     }
 
