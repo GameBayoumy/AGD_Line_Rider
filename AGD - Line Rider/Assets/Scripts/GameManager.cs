@@ -7,20 +7,12 @@ public class GameManager : MonoBehaviour {
     public AudioClip mainBGMclip;
     public static AudioClip mainBGM;
 
-    public AudioClip randomBGMclip;
-
     static GameManager instance;
 
     private void Start()
     {
         mainBGM = mainBGMclip;
         GetInstance();
-    }
-
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space))
-            SoundManager.PlaySFX(randomBGMclip);
     }
 
     public static GameManager GetInstance()
@@ -37,6 +29,7 @@ public class GameManager : MonoBehaviour {
     void Initialize()
     {
         SoundManager.PlayBGM(mainBGM, false, 0f);
+        instance.mainBGMclip = mainBGM;
         DontDestroyOnLoad(gameObject);
     }
 }

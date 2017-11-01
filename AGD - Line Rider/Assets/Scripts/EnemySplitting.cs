@@ -58,7 +58,7 @@ public class EnemySplitting : MonoBehaviour {
        
         if (collision.gameObject.tag == "Player")
         {
-            gameOverCall.gameOverState = true;
+            GameOverMenu.SetGameOverState(true);
         }
     }
 }

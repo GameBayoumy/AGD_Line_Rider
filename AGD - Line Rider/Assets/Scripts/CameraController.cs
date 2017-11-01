@@ -41,7 +41,7 @@ public class CameraController : MonoBehaviour {
         }
 		//If the scrolling screen catches on with the player, a Game Over results
 		if (offset.x >= 23){
-			gameOverCall.gameOverState = true;
+			GameOverMenu.SetGameOverState(true);
 		}
 	}
 

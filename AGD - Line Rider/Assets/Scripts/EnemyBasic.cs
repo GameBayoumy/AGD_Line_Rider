@@ -27,7 +27,7 @@ public class EnemyBasic : SpawnableGameObject {
 		if (collision.gameObject.tag == "Player")
 		{
 //			SceneManager.LoadScene("LineMeshTest");
-			gameOverCall.gameOverState = true;
+			GameOverMenu.SetGameOverState(true);
 		}
 	}
 }
