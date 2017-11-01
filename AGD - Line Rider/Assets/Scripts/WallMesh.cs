@@ -31,7 +31,7 @@ public class WallMesh : MonoBehaviour
         {
 //           SceneManager.LoadScene("LineMeshTest");
 //			Player.GetComponent<Collider2D>().enabled = false;
-			gameOverCall.gameOverState = true;
+			GameOverMenu.SetGameOverState(true);
         }
     }
 }

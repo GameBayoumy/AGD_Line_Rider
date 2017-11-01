@@ -36,7 +36,7 @@ public class HighScore : MonoBehaviour {
 		timerText.text = timeScore.ToString("Score: 0");
 		resultText.text = timeScore.ToString ("Your Score: 0");
 
-		if(gameOverCall.gameOverState == true){
+		if(GameOverMenu.gameOverState == true){
 			if (PlayerPrefs.GetFloat ("Highscore") < timeScore) {
 				PlayerPrefs.SetFloat ("Highscore", timeScore);
 			}

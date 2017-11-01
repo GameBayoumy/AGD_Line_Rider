@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8c4e7c30788b4409ed714496009890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupSound: {fileID: 8300000, guid: 1627a9ef44446994c99f5fb5eb812e24, type: 3}
 --- !u!212 &212519686549287764
 SpriteRenderer:
   m_ObjectHideFlags: 1

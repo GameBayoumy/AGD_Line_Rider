@@ -7,13 +7,14 @@ using UnityEngine.UI;
 public class GameOverMenu : MonoBehaviour {
 
 	public Button pauseButton;
-
-	public Transform gameOverScreen;
+    public AudioClip explosionSFX;
+    public AudioClip loseSFX;
+    public Transform gameOverScreen;
 	public Transform playerActivity;
 	public Transform controls;
 	public Transform background;
 
-	public bool gameOverState;
+	public static bool gameOverState;
 
 	public void Start(){
 		gameOverState = false;
@@ -28,18 +29,16 @@ public class GameOverMenu : MonoBehaviour {
 
 	public void Freeze(){
 		if (gameOverScreen.gameObject.activeInHierarchy == false) {
-			gameOverScreen.gameObject.SetActive (true);
-			//Causes the game to freeze in place (pausing)
-			Time.timeScale = 0;
-			//Player is turned off
-			playerActivity.GetComponent<Player>().enabled = false;
-			//Touch gameplay is turned off
-			controls.GetComponent<Touch> ().enabled = false;
-			//Scrolling background is frozen
-			background.GetComponent<scroll> ().enabled = false;
-			//Disable the Pause Button
-			DisableButtonOnClick ();
-		}
+            gameOverScreen.gameObject.SetActive (true);                 
+			Time.timeScale = 0;                                         //Causes the game to freeze in place (pausing)
+            playerActivity.GetComponent<Player>().enabled = false;      //Player is turned off
+            controls.GetComponent<Touch> ().enabled = false;            //Touch gameplay is turned off
+            background.GetComponent<scroll> ().enabled = false;         //Scrolling background is frozen
+            DisableButtonOnClick ();                                    //Disable the Pause Button
+            SoundManager.PlaySFX(explosionSFX, "SFX");
+            SoundManager.PlaySFX(loseSFX, "SFX");
+            SoundManager.StopBGM(false, 0f);
+        }
 	}
 
 	public void DisableButtonOnClick() { 
@@ -55,6 +54,8 @@ public class GameOverMenu : MonoBehaviour {
 		playerActivity.GetComponent<Player> ().enabled = true;
 		controls.GetComponent<Touch> ().enabled = true;
 		background.GetComponent<scroll> ().enabled = true;
+        SoundManager.PlayBGM(GameManager.mainBGM, false, 0f);
+        Debug.Log(GameManager.mainBGM);
 	}
 
 	public void Retry(){
@@ -72,4 +73,9 @@ public class GameOverMenu : MonoBehaviour {
 		Resume ();
 		Application.Quit();
 	}
+
+    public static void SetGameOverState(bool value)
+    {
+        gameOverState = value;
+    }
 }
