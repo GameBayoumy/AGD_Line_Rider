@@ -5,33 +5,46 @@ using UnityEngine.SceneManagement;
 
 public class EnemyLaser : MonoBehaviour {
 
-    public bool laserHit = false;
-    public bool laserBoundary = false;
     public float laserSpeed = 1.0f;
     public float factor = 1.0f;
+    public bool isHorizontal = false;
+    public bool invertDirection = false;
     public Transform laserStart;
     public Transform laserEnd;
 
-    private Vector3 currentHeight;
+    private Vector3 _currentLength;
+    private bool _laserHit = false;
+    private float _invertDirNumber = 1f;
 
 	// Use this for initialization
 	void Start () {
-        currentHeight = new Vector3(0, -19f, 0);
+        _currentLength = new Vector3(0, -19f, 0);
         SetPos(laserStart.position, laserEnd.position);
     }
 
     private void Update()
     {
+        if (invertDirection == true)
+            _invertDirNumber = -1f;
+        else
+            _invertDirNumber = 1f;
+
         SetPos(laserStart.position, laserEnd.position);
 
-        if (laserHit)
+        if (_laserHit)
         {
-            laserEnd.position = new Vector3(laserEnd.position.x, currentHeight.y, 0);
+            if (!isHorizontal)
+                laserEnd.position = new Vector3(laserEnd.position.x, _currentLength.y, 0);
+            else if (isHorizontal)
+                laserEnd.position = new Vector3(_currentLength.x, laserEnd.position.y, 0);
             laserEnd.localPosition = new Vector3(0, laserEnd.localPosition.y, 0);
         }
         else
         {
-            laserEnd.position = new Vector3(laserEnd.position.x, laserEnd.position.y - (5 * Time.deltaTime), 0);
+            if(!isHorizontal)
+                laserEnd.position = new Vector3(laserEnd.position.x, laserEnd.position.y - ((5 * _invertDirNumber) * Time.deltaTime), 0);
+            else if (isHorizontal)
+                laserEnd.position = new Vector3(laserEnd.position.x - ((5 * _invertDirNumber) * Time.deltaTime), laserEnd.position.y, 0);
             laserEnd.localPosition = new Vector3(0, laserEnd.localPosition.y, 0);
         }
     }
@@ -61,11 +74,11 @@ public class EnemyLaser : MonoBehaviour {
         {
             Vector3 contactPoint = new Vector3(collision.contacts[0].point.x, collision.contacts[0].point.y, 0);
             
-            laserHit = true;
+            _laserHit = true;
 
-            if (contactPoint.y > currentHeight.y)
+            if (contactPoint.y > _currentLength.y)
             {
-                currentHeight = contactPoint;
+                _currentLength = contactPoint;
             }
         }
     }
@@ -74,8 +87,8 @@ public class EnemyLaser : MonoBehaviour {
     {
         if(collision.gameObject.name == "Trail" || collision.gameObject.tag == "Wall")
         {
-            laserHit = false;
-            currentHeight = new Vector3(0, -19f, 0);
+            _laserHit = false;
+            _currentLength = new Vector3(0, -19f, 0);
         }
     }
 

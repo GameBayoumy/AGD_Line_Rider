@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114325109105884118}
   m_Layer: 0
   m_Name: enemyWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c278ec0174b16485c8b02e583980bb7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverCall: {fileID: 0}
+  gameOverCaller: {fileID: 0}
 --- !u!212 &212844883570576514
 SpriteRenderer:
   m_ObjectHideFlags: 1
