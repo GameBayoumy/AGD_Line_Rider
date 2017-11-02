@@ -7,6 +7,7 @@ public class LineMeshGenerator: MonoBehaviour
     // Public variables
 
     public Material trailMaterial;                  // Material of the trail.  Changing this during runtime will have no effect.
+    public Material ropeMaterial;
     public float lifeTime = 1.0f;                   // Life time of the trail
     public float changeTime = 0.5f;                 // Time point when the trail begins changing its width (if widthStart != widthEnd)
     public float widthStart = 1.0f;                 // Starting width of the trail
@@ -26,6 +27,7 @@ public class LineMeshGenerator: MonoBehaviour
     private LinkedList<Vertex> leftVertices;        // The left vertices derived from the center positions
     private LinkedList<Vertex> rightVertices;       // The right vertices derived from the center positions
     private Player player;                          // The player
+    private UnlockShaders shaderManager;
 
     //************
     //
@@ -52,9 +54,10 @@ public class LineMeshGenerator: MonoBehaviour
         // Create an object and mesh for the trail
         GameObject trail = new GameObject("Trail", new[] { typeof(MeshRenderer), typeof(MeshFilter), typeof(PolygonCollider2D) });
         player = GameObject.Find("Player").GetComponent<Player>();
+        shaderManager = GameObject.Find("ShaderManager").GetComponent<UnlockShaders>();
         transform.SetParent(trail.transform);
         mesh = trail.GetComponent<MeshFilter>().mesh = new Mesh();
-        trail.GetComponent<Renderer>().material = trailMaterial;
+        trail.GetComponent<Renderer>().material = shaderManager.activeMaterial;
 
         // Get and set the polygon collider on this trail.
         collider = trail.GetComponent<PolygonCollider2D>();
@@ -77,6 +80,11 @@ public class LineMeshGenerator: MonoBehaviour
             {
                 SetMesh();
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            trailMaterial = ropeMaterial;
         }
     }
 
