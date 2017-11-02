@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class SetObjectPools : MonoBehaviour {
 
-    List<GameObject> easySets;
-    List<GameObject> normalSets;
-    List<GameObject> hardSets;
-    List<GameObject> chosenSets;
+    public List<GameObject> easySets;
+    public List<GameObject> normalSets;
+    public List<GameObject> hardSets;
+    public List<GameObject> chosenSets;
 
     public int easyAmount;
     public int normalAmount;

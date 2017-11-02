@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 114791169358000368}
   m_Layer: 0
   m_Name: enemyWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 114068302321244010}
   m_Layer: 0
   m_Name: enemyWall (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 114340503747812266}
   m_Layer: 0
   m_Name: enemyWall (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -223,7 +223,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1433066299135464}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.209076, y: -4.95, z: 1.0546875}
+  m_LocalPosition: {x: -3.209076, y: -4.95, z: 0}
   m_LocalScale: {x: 0.8964596, y: 11.442935, z: 1}
   m_Children: []
   m_Father: {fileID: 4837740688596878}
@@ -236,7 +236,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1210715039466698}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.2582207, y: 8.28, z: 1.0546875}
+  m_LocalPosition: {x: 1.2582207, y: 8.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4456533487448910}
@@ -252,7 +252,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1736354081758520}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.36, y: -8.649946, z: 2.0412815}
+  m_LocalPosition: {x: 8.36, y: -8.649946, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_Children: []
   m_Father: {fileID: 4837740688596878}
@@ -278,7 +278,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1460838471686266}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.98, y: -8.649946, z: 2.0412815}
+  m_LocalPosition: {x: 10.98, y: -8.649946, z: 0}
   m_LocalScale: {x: 0.14999999, y: 0.14999999, z: 1}
   m_Children: []
   m_Father: {fileID: 4837740688596878}
@@ -304,7 +304,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1705043940372918}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.44, y: -8.649946, z: 2.0412815}
+  m_LocalPosition: {x: 13.44, y: -8.649946, z: 0}
   m_LocalScale: {x: 0.14999999, y: 0.14999999, z: 1}
   m_Children: []
   m_Father: {fileID: 4837740688596878}
@@ -317,7 +317,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1989717196954396}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 12.09, y: -6.12, z: 1.0546875}
+  m_LocalPosition: {x: 12.09, y: -6.12, z: 0}
   m_LocalScale: {x: 0.89646, y: 13.792582, z: 1}
   m_Children: []
   m_Father: {fileID: 4837740688596878}
@@ -330,7 +330,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1517173212265104}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.86, y: 0, z: 0}
+  m_LocalPosition: {x: 44.9, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4837740688596878}
@@ -343,7 +343,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1688932899099552}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 34.88178, y: 0, z: -1.0546875}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4836244788090378}
@@ -377,7 +377,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1634295879816182}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.63, y: -2.55, z: 1.0546875}
+  m_LocalPosition: {x: 5.63, y: -2.55, z: 0}
   m_LocalScale: {x: 0.89646, y: 6.6045675, z: 1}
   m_Children: []
   m_Father: {fileID: 4837740688596878}
@@ -678,10 +678,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8c7fa88be6754638be68528f8d14f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserHit: 0
-  laserBoundary: 0
   laserSpeed: 1
   factor: 1
+  isHorizontal: 0
+  invertDirection: 0
   laserStart: {fileID: 4608654105904998}
   laserEnd: {fileID: 4901515498790244}
 --- !u!114 &114791169358000368
