@@ -7,12 +7,12 @@ public class UnlockShaders : MonoBehaviour {
     public Material activeMaterial;
     public Material[] possibleMaterials;
     public GameObject skinUI;
-    HighScore score;
+    HighScore _score;
 
 	// Use this for initialization
 	void Start () {
 
-        score = GameObject.Find("GameController").GetComponent<HighScore>();
+        _score = GameObject.Find("GameController").GetComponent<HighScore>();
 
         PlayerPrefs.SetInt("ShaderID", PlayerPrefs.GetInt("ShaderID"));
 
@@ -32,7 +32,7 @@ public class UnlockShaders : MonoBehaviour {
             PlayerPrefs.SetInt("UnlockedRope", 0);
         }
 
-        if ((int)score.timeScore == 200)
+        if ((int)_score.timeScore == 200)
         {
             PlayGamesScript.UnlockAchievement(GPGSIds.achievement_rope);
             PlayerPrefs.SetInt("UnlockedRope", 1);

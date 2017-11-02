@@ -7,15 +7,15 @@ public class SelectShader : MonoBehaviour {
 
     public int shaderID;
     public string shaderName;
-    Button myButton;
-    UnlockShaders shaderManager;
+    Button _myButton;
+    UnlockShaders _shaderManager;
 
 	// Use this for initialization
 	void Start () {
 
-        myButton = GetComponent<Button>();
-        myButton.onClick.AddListener(ChangeShader);
-        shaderManager = GameObject.Find("ShaderManager").GetComponent<UnlockShaders>();
+        _myButton = GetComponent<Button>();
+        _myButton.onClick.AddListener(ChangeShader);
+        _shaderManager = GameObject.Find("ShaderManager").GetComponent<UnlockShaders>();
             
 	}
 	
@@ -27,7 +27,7 @@ public class SelectShader : MonoBehaviour {
     void ChangeShader()
     {
         PlayerPrefs.SetInt("ShaderID", shaderID);
-        shaderManager.SelectShader();
+        _shaderManager.SelectShader();
     }
 
     void OnEnable()
