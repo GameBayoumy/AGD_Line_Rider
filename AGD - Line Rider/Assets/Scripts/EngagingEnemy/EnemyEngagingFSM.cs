@@ -5,45 +5,10 @@ using UnityEngine;
 public class EnemyEngagingFSM : FSMEngaging {
 
 
-
-    private Vector3 EnemyEngagingPosition;
-    private bool rotated = false;
-    private bool spawned = false;
-
-    Rigidbody2D m_Rigidbody2D;
-
-
-
-
-
-
-    private Vector3 PlayerPosition; //Holds the position of the Player
-
     public GameObject Player;
     public GameObject enemyBlock;
-
-    HighScore score;
-    private float spawnTimer;
-
-    private int SinusMovement = -8; //The distance of the up and down movement of Green State
-
-    private float speedRotation = 100F; //The speed of the enemies rotation.
-    private float speedSinus = .75F;
-
-    private bool hasHit = false;
-    private bool hasReturned = true;
-
-
-
-
+    public FSMState curState;
     public float speed = .5f;
-    private float fraction = 0; 
-    private Vector3 start;
-    private Vector3 des;
-
-
-
-
     public enum FSMState
     {
         None,
@@ -51,11 +16,23 @@ public class EnemyEngagingFSM : FSMEngaging {
         Red,
         Blue,
     }
+    
+    private Vector3 EnemyEngagingPosition;
+    private bool rotated = false;
+    private bool spawned = false;
+    private float spawnTimer;
+    private int SinusMovement = -8; //The distance of the up and down movement of Green State
+    private float speedRotation = 10F; //The speed of the enemies rotation.
+    private float speedSinus = .75F;
+    private bool hasHit = false;
+    private bool hasReturned = true;
+    private float fraction = 0; 
+    private Vector3 start;
+    private Vector3 des;
 
-    public FSMState curState;
-
-
-
+    Rigidbody2D m_Rigidbody2D;
+    HighScore score;
+    
     protected override void Awake()
     {
         gameOverCaller = GameObject.Find("GameController");
@@ -73,7 +50,6 @@ public class EnemyEngagingFSM : FSMEngaging {
         score = GameObject.Find("GameController").GetComponent<HighScore>();
     }
 
-
     //switch between the different states
     protected override void FSMUpdate()
     {
@@ -90,9 +66,6 @@ public class EnemyEngagingFSM : FSMEngaging {
                 break;
         }
 
-        //stores the position of the player
-        PlayerPosition = Player.transform.position;
-
         //Makes sure that the enemy floats in front of the player at a fixed distance at certain states
         if (curState == FSMState.None || curState == FSMState.Green)
         {
@@ -101,12 +74,9 @@ public class EnemyEngagingFSM : FSMEngaging {
                 this.transform.position = new Vector3(Player.transform.position.x + 18, this.transform.position.y, this.transform.position.z);
             }
         }
-
-
+        
         start = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         des = new Vector3(Player.transform.position.x + 18, transform.position.y, transform.position.z);
-
-
 
         //currently how different states are switched
         if ((int)score.timeScore == 30)
@@ -127,16 +97,11 @@ public class EnemyEngagingFSM : FSMEngaging {
 
     }
 
-
-
-
-
-
     //Behaviour of greenstate
     protected void UpdateGreenState()
     {
         //Rotates the sprite to the Green side
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(transform.rotation.x, transform.rotation.x, -120f), speedRotation);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(transform.rotation.x, transform.rotation.x, -120f), speedRotation * Time.deltaTime);
 
         //Lets the enemy move up and down.
         this.GetComponent<Rigidbody2D>().AddForce(new Vector2(-1, SinusMovement));
@@ -151,25 +116,18 @@ public class EnemyEngagingFSM : FSMEngaging {
         }
     }
 
-
-
-
-
     protected void UpdateRedState()
     {
         //Rotates the sprite to the Red side
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(transform.rotation.x, transform.rotation.x, -240f), speedRotation);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(transform.rotation.x, transform.rotation.x, -240f), speedRotation * Time.deltaTime);
     }
 
     protected void UpdateBlueState()
     {
         //Rotates the sprite to the Blue side
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(transform.rotation.x, transform.rotation.x, -360f), speedRotation);
-
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(transform.rotation.x, transform.rotation.x, -360f), speedRotation * Time.deltaTime);
 
         if(hasHit == true){
-     
-
             if (fraction < 1)
             {
                 fraction += Time.deltaTime * speed;
@@ -177,13 +135,12 @@ public class EnemyEngagingFSM : FSMEngaging {
                 if ((this.transform.position.x - Player.transform.position.x) <= 17.8)
                 {
                     transform.position = Vector3.Lerp(start, des, fraction);
-                } else  {
+                } else
+                {
                     hasHit = false;
                     hasReturned = true;
-
                 }
             }
-
         }
 
         if (hasReturned == true){
