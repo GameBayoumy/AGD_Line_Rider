@@ -571,6 +571,7 @@ MonoBehaviour:
     type: 2}
   Up: {fileID: 0}
   Down: {fileID: 0}
+  splittingSFX: {fileID: 8300000, guid: 44bf1194efc696a46a51dff09f75aad6, type: 3}
   gameOverCall: {fileID: 0}
   gameOverCaller: {fileID: 0}
 --- !u!114 &114188643692811834

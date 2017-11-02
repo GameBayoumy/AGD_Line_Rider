@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 61747922616155814}
   m_Layer: 0
   m_Name: blockingWall (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 61062400041273496}
   m_Layer: 0
   m_Name: blockingWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 61473024612765980}
   m_Layer: 0
   m_Name: blockingWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -333,7 +333,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1987347473657874}
   m_LocalRotation: {x: -0, y: -0, z: 0.29131302, w: 0.95662785}
-  m_LocalPosition: {x: -3.3148804, y: 8.038636, z: 1.0546875}
+  m_LocalPosition: {x: -3.3148804, y: 8.038636, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4543059022612848}
@@ -349,7 +349,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1272993900972248}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 26.075119, y: -2.35, z: 1.0546875}
+  m_LocalPosition: {x: 26.075119, y: -2.35, z: 0}
   m_LocalScale: {x: 0.89646006, y: 6.2289033, z: 1}
   m_Children: []
   m_Father: {fileID: 4547408121079264}
@@ -388,7 +388,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1136296287536730}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 41.255077, y: 0, z: -1.0546875}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4032243724767464}
@@ -408,7 +408,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1338417712679330}
   m_LocalRotation: {x: 0, y: 0, z: -0.29131165, w: 0.9566282}
-  m_LocalPosition: {x: 33.04, y: 7.8599997, z: 1.0546875}
+  m_LocalPosition: {x: 33.04, y: 7.8599997, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4793517506582054}
@@ -437,7 +437,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1563473758255256}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 3.57, y: -2.35, z: 1.0546875}
+  m_LocalPosition: {x: 3.57, y: -2.35, z: 0}
   m_LocalScale: {x: 0.89646006, y: 6.2289033, z: 1}
   m_Children: []
   m_Father: {fileID: 4547408121079264}
@@ -450,7 +450,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1197311530066170}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 15.13, y: -2.35, z: 1.0546875}
+  m_LocalPosition: {x: 15.13, y: -2.35, z: 0}
   m_LocalScale: {x: 0.8964605, y: 6.228914, z: 1}
   m_Children: []
   m_Father: {fileID: 4547408121079264}
@@ -502,7 +502,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1889064391296264}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.042187, y: -2.7113638, z: 1.0546875}
+  m_LocalPosition: {x: 15.042187, y: -2.7113638, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4188356647338320}
@@ -805,10 +805,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8c7fa88be6754638be68528f8d14f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserHit: 0
-  laserBoundary: 0
   laserSpeed: 1
   factor: 1
+  isHorizontal: 0
+  invertDirection: 0
   laserStart: {fileID: 4544631797027362}
   laserEnd: {fileID: 4186825251902334}
 --- !u!114 &114718534220588976
@@ -822,10 +822,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8c7fa88be6754638be68528f8d14f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserHit: 0
-  laserBoundary: 0
   laserSpeed: 1
   factor: 1
+  isHorizontal: 0
+  invertDirection: 0
   laserStart: {fileID: 4569582290845614}
   laserEnd: {fileID: 4997244987729950}
 --- !u!114 &114965560449514718
@@ -839,10 +839,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8c7fa88be6754638be68528f8d14f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserHit: 0
-  laserBoundary: 0
   laserSpeed: 1
   factor: 1
+  isHorizontal: 0
+  invertDirection: 0
   laserStart: {fileID: 4951146230254760}
   laserEnd: {fileID: 4963325709742336}
 --- !u!212 &212049365427889058
