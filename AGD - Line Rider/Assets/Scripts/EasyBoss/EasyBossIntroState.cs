@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EasyBossIntroState : IBossState
+public class EasyBossIntroState : MonoBehaviour, IBossState
 {
-    private Boss _boss;
+
     public Boss boss
     {
         get
@@ -18,16 +18,37 @@ public class EasyBossIntroState : IBossState
         }
     }
 
+    private Boss _boss;
+    private float _introTimer;
+    private float _introTime;
+
+    private void Awake()
+    {
+        _introTimer = 0;
+        _introTime = 10f;
+    }
+    
     public void Reset()
     {
         //Animation of boss appearing starts
+        _introTimer = 0;
     }
 
     // kijkt of er geswitched KAN wordne
     public bool ShouldSwitch()
     {
-        // timer
-        return true;
+
+        if (_introTimer < _introTime)
+        {
+            _introTimer += Time.deltaTime;
+            return false;
+        }
+
+        else
+        {
+            return true;
+        }
+        
 
     }
 
@@ -36,17 +57,22 @@ public class EasyBossIntroState : IBossState
         // Bepaald wat de volgende state is wanneer er geswitched mag worden
         //random.value <x
         // return Boss.introstate
-        return null;
+        Boss.eatState.enabled = true;
+        return Boss.eatState;
+        //return null;
     }
 
     public void Update()
     {
+        ShouldSwitch();
+
         if(ShouldSwitch())
         {
             IBossState state = NextState();
             if (state != null)
             {
                 _boss.SetState(state);
+                enabled = false;
             }
         }
     }

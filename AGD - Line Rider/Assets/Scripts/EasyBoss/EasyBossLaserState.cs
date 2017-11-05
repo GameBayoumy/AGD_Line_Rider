@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EasyBossLaserState : MonoBehaviour,IBossState {
+public class EasyBossLaserState : MonoBehaviour, IBossState {
 
-    private Boss _boss;
+   
     public Boss boss
     {
         get
@@ -18,33 +18,54 @@ public class EasyBossLaserState : MonoBehaviour,IBossState {
         }
     }
 
+    private Boss _boss;
+    private float _chargeTimer = 0;
+    private float _chargeTime = 0;
+    private float _laserAttackTimer = 0;
+    private float _laserAttackTime = 0;
+    private bool _laserDone = false;
+
+
     public IBossState NextState()
     {
-        throw new NotImplementedException();
+        // Bepaald wat de volgende state is wanneer er geswitched mag worden (ShouldSwitch() is true)
+        //random.value <x
+        // return Boss.introstate
+        return null;
     }
 
     public void Reset()
     {
-        throw new NotImplementedException();
+        _chargeTime = 0;
+        _chargeTimer = 0;
+        _laserAttackTime = 0;
+        _laserAttackTimer = 0;
+        _laserDone = false;
     }
 
     public bool ShouldSwitch()
     {
-        throw new NotImplementedException();
+        //timer + laser gone
+        return true;
     }
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     void IBossState.Update()
     {
-        throw new NotImplementedException();
+        if (_laserDone == false)
+        {
+            if (_chargeTimer < _chargeTime)
+            {
+                _chargeTime += Time.deltaTime;
+            }
+            else
+            {
+                //spawn laser
+                // timer for laser active
+                // if laser active time is over, laser done returns true.
+
+            }
+        }
+
     }
 }
