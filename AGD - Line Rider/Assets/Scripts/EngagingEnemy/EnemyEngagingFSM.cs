@@ -23,7 +23,6 @@ public class EnemyEngagingFSM : FSMEngaging {
     private int _sinusMovement = -8; 
    
     private bool _charged = false;
-    private bool _hasHit = false;
 
     private float _spawnTimer;
     private float _spawnBumperTimer;
@@ -119,11 +118,13 @@ public class EnemyEngagingFSM : FSMEngaging {
                 this.transform.position = new Vector3(player.transform.position.x + 18, this.transform.position.y, this.transform.position.z);
             }
 
-        } else if (_launchTimer < 10 && _charged == false) {
+        } else if (_launchTimer < 10 && _charged == false) 
+        {
             this.GetComponent<Rigidbody2D>().AddForce(new Vector2(150f, 0));
         }
 
-        if (_launchTimer == 6){
+        if (_launchTimer == 6)
+        {
             _charged = true;
         }
 
@@ -132,9 +133,6 @@ public class EnemyEngagingFSM : FSMEngaging {
             this.GetComponent<Rigidbody2D>().AddForce(new Vector2(-15f, 0));
         }
     }
-
-
-
 
     protected void UpdateBlueState()
     {
