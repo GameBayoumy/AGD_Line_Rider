@@ -21,8 +21,10 @@ public class EnemyEngagingFSM : FSMEngaging {
     private Vector3 EnemyEngagingPosition;
     private bool rotated = false;
     private bool spawned = false;
+    private bool charged = false;
     private float spawnTimer;
     private float returnTimer = 250f;
+    private float launchTimer = 20f;
     private int SinusMovement = -8; //The distance of the up and down movement of Green State
     private float speedRotation = 10F; //The speed of the enemies rotation.
     private float speedSinus = .75F;
@@ -69,7 +71,7 @@ public class EnemyEngagingFSM : FSMEngaging {
         }
 
         //Makes sure that the enemy floats in front of the player at a fixed distance at certain states
-        if (curState == FSMState.None || curState == FSMState.Green || curState == FSMState.Red)
+        if (curState == FSMState.None || curState == FSMState.Green)
         {
             if ((this.transform.position.x - Player.transform.position.x) <= 18)
             {
@@ -86,12 +88,12 @@ public class EnemyEngagingFSM : FSMEngaging {
             curState = FSMState.Green;
         }
 
-        if ((int)score.timeScore == 4000000)
+        if ((int)score.timeScore == 80)
         {
             curState = FSMState.Red;
         }
 
-        if ((int)score.timeScore == 150)
+        if ((int)score.timeScore == 1500)
         {
             curState = FSMState.Blue;
         }
@@ -120,8 +122,30 @@ public class EnemyEngagingFSM : FSMEngaging {
 
     protected void UpdateRedState()
     {
+        Debug.Log(launchTimer);
         //Rotates the sprite to the Red side
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(transform.rotation.x, transform.rotation.x, -240f), speedRotation * Time.deltaTime);
+        launchTimer -= 1;
+
+        if (launchTimer >= 10)
+        {
+            if ((this.transform.position.x - Player.transform.position.x) <= 18)
+            {
+                this.transform.position = new Vector3(Player.transform.position.x + 18, this.transform.position.y, this.transform.position.z);
+            }
+
+        } else if (launchTimer < 10 && charged == false) {
+            this.GetComponent<Rigidbody2D>().AddForce(new Vector2(150f, 0));
+        }
+
+        if (launchTimer == 6){
+            charged = true;
+        }
+
+        if (launchTimer < 5 && charged == true)
+        {
+            this.GetComponent<Rigidbody2D>().AddForce(new Vector2(-15f, 0));
+        }
     }
 
 
