@@ -6,8 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Scene_StartMenu.unity
-    guid: 41f3ceb65bcfb46dcb3e2d2091d47aec
+    path: Assets/Scenes/Prototype_Selection.unity
+    guid: 9f6428e88e0a746778595865be4031ce
   - enabled: 1
     path: Assets/Scenes/LineMeshTest.unity
     guid: 586d908f808723b4098fe47f2f40da89
+  - enabled: 1
+    path: Assets/Scenes/Prototype_1_Scene.unity
+    guid: 5f69c5c64fd444c6eae7d20fce496a21
+  - enabled: 1
+    path: Assets/Scenes/Prototype_2_Scene.unity
+    guid: c4dc5984845b046269bb0415ccbd6ad4
+  - enabled: 1
+    path: Assets/Scenes/Prototype_3_Scene.unity
+    guid: 43fe77308846048e5a21fc547c1a2889
+  - enabled: 1
+    path: Assets/Scenes/Scene_StartMenu.unity
+    guid: 41f3ceb65bcfb46dcb3e2d2091d47aec
