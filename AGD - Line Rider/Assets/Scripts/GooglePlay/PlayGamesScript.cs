@@ -23,6 +23,8 @@ public class PlayGamesScript : MonoBehaviour {
         PlayGamesPlatform.InitializeInstance(config);
         PlayGamesPlatform.Activate();
         // END THE CODE TO PASTE INTO START
+
+        Social.localUser.Authenticate((bool succes) => { });
     }
 
     public static void LogIn()
