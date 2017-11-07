@@ -20,6 +20,9 @@ public class Boss : MonoBehaviour
 
     private IBossState _currentState;
 
+    [SerializeField]
+    private GameObject _setSpawner;
+
     private void Awake()
     {
         // Retrieve all the states
@@ -44,6 +47,11 @@ public class Boss : MonoBehaviour
     private void Update()
     {
         _currentState.Update();
+
+        if (enabled)
+        {
+            _setSpawner.SetActive(false);
+        }
     }
 
     
