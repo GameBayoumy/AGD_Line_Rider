@@ -16,9 +16,17 @@ public class EnemyLaser : MonoBehaviour {
     private bool _laserHit = false;
     private float _invertDirNumber = 1f;
 
+	//These are essential for calling the GameOverMenu script
+	public GameOverMenu gameOverCall;
+	public GameObject gameOverCaller;
+
 	// Use this for initialization
 	void Start () {
-        _currentLength = new Vector3(0, -19f, 0);
+		//Calls the GameController which hosts the GameOverMenu script
+		GameObject gameOverCaller = GameObject.Find("GameController");
+		gameOverCall = gameOverCaller.GetComponent<GameOverMenu>();
+
+		_currentLength = new Vector3(0, -19f, 0);
         SetPos(laserStart.position, laserEnd.position);
     }
 
@@ -66,8 +74,8 @@ public class EnemyLaser : MonoBehaviour {
         {
             PlayGamesScript.UnlockAchievement(GPGSIds.achievement_cave);
             PlayerPrefs.SetInt("UnlockedCave", 1);
-            SceneManager.LoadScene("LineMeshTest");
-        }
+			GameOverMenu.SetGameOverState(true);
+		}
     }
 
     private void OnCollisionStay2D(Collision2D collision)
