@@ -3033,6 +3033,21 @@ Prefab:
       propertyPath: skinUI
       value: 
       objectReference: {fileID: 1033539095}
+    - target: {fileID: 114207189385337684, guid: e48d61fa7dd45b1499e53b6071794c01,
+        type: 2}
+      propertyPath: possibleMaterials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9da39d2c358e12945b783f916084f7d1, type: 2}
+    - target: {fileID: 114207189385337684, guid: e48d61fa7dd45b1499e53b6071794c01,
+        type: 2}
+      propertyPath: possibleMaterials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: 877050318d2dfe045afe2ed9d9fc8af8, type: 2}
+    - target: {fileID: 114207189385337684, guid: e48d61fa7dd45b1499e53b6071794c01,
+        type: 2}
+      propertyPath: possibleMaterials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 02b305cd4b981684dac98052dff4a440, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e48d61fa7dd45b1499e53b6071794c01, type: 2}
   m_IsPrefabParent: 0

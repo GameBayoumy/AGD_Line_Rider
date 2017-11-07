@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trailMaterial: {fileID: 2100000, guid: 9da39d2c358e12945b783f916084f7d1, type: 2}
+  ropeMaterial: {fileID: 0}
   lifeTime: 3
   changeTime: 0.5
   widthStart: 0.5
