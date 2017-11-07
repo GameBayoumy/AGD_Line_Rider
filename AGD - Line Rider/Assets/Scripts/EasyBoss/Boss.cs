@@ -35,19 +35,25 @@ public class Boss : MonoBehaviour
         // Set Boss reference to this object.
         introState.boss = this;
         eatState.boss = this;
+        spawnState.boss = this;
+
         SetState(introState);
+   
 
     }
     private void Update()
     {
         _currentState.Update();
-
     }
+
+    
 
     public void SetState(IBossState state)
     {
         _currentState = state;
         _currentState.Reset();
+
+        Debug.Log("current state set to : " + _currentState);
 
     }
 

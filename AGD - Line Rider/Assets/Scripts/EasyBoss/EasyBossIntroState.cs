@@ -27,7 +27,7 @@ public class EasyBossIntroState : MonoBehaviour, IBossState
         _introTimer = 0;
         _introTime = 10f;
     }
-    
+
     public void Reset()
     {
         //Animation of boss appearing starts

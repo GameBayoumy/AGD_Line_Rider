@@ -36,7 +36,6 @@ public class EasyBossLaserState : MonoBehaviour, IBossState {
 
     public void Reset()
     {
-        _chargeTime = 0;
         _chargeTimer = 0;
         _laserAttackTime = 0;
         _laserAttackTimer = 0;

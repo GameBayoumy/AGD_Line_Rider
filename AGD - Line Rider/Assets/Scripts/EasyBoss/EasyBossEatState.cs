@@ -19,55 +19,50 @@ public class EasyBossEatState : MonoBehaviour, IBossState
     }
 
     private Boss _boss;
+    [SerializeField]
     private GameObject _bumper;
-    private float _eatTimer;
-    private float _eatTime;
+
     private Transform _playerPos;
     private bool _spawnedBumper;
+    private Vector3 _bumperSpawnPos;
+    private GameObject _bumperObject;
 
 
     private void Awake()
     {
-        _bumper = _boss.transform.GetChild(2).gameObject;
+       // _bumper = _boss.transform.GetChild(2).gameObject;
         _playerPos = GameObject.FindWithTag("Player").transform;
-        _eatTimer = 0f;
-        _eatTime = 30;
         _spawnedBumper = false;
-
-
     }
 
-    private void SpawnBumper()
+    public void SpawnBumper()
     {
-        _bumper.transform.position = new Vector3(_playerPos.position.x + 20, 0, 0);
+        _bumperSpawnPos = new Vector3(_playerPos.position.x + 20, 0, 0);
+        _bumperObject = Instantiate(_bumper, _bumperSpawnPos, Quaternion.identity);
         _spawnedBumper = true;
-
 
     }
     public IBossState NextState()
     {
-        // return Boss.laserState;
-        return null;
+        Boss.spawnState.enabled = true;
+        return Boss.spawnState;
     }
 
     public void Reset()
     {
-        _eatTimer = 0;
+        _spawnedBumper = false;
     }
 
     public bool ShouldSwitch()
     {
-
-        if (_eatTimer < _eatTime)
-        {
-            _eatTimer += Time.deltaTime;
-            return false;
-        }
-
-        else
+        if  ( _spawnedBumper && _playerPos.position.x > _bumperObject.transform.position.x)
         {
             return true;
             
+        }
+        else
+        {
+            return false;
         }
 
     }
@@ -86,6 +81,10 @@ public class EasyBossEatState : MonoBehaviour, IBossState
             if (state != null)
             {
                 _boss.SetState(state);
+                Destroy(_bumperObject);
+                enabled = false;
+                
+                
             }
         }
     }
