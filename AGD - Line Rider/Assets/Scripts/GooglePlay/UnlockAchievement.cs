@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnlockAchievement : MonoBehaviour {
+public class UnlockAchievement : MonoBehaviour
+{
 
     void OnEnable()
     {
@@ -11,6 +12,7 @@ public class UnlockAchievement : MonoBehaviour {
         Player.OnResource += CheckResourceAchievement;
     }
 
+    //Unsubscribing to events upon disabling the objects prevents errors and memory leaks.
     void OnDisable()
     {
         HighScore.OnGameOver -= CheckScoreAchievement;
@@ -18,27 +20,21 @@ public class UnlockAchievement : MonoBehaviour {
         Player.OnResource -= CheckResourceAchievement;
     }
 
-    // Use this for initialization
-    void Start () {
-
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    void CheckScoreAchievement(float theScore, int shader)
+    void CheckScoreAchievement(float theScore, int ballType)
     {
         if (theScore >= 200)
         {
-            PlayGamesScript.UnlockAchievement(GPGSIds.achievement_rope);
+            PlayGamesScript.UnlockAchievement(GPGSIds.achievement_bounce);
             PlayerPrefs.SetInt("UnlockedRope", 1);
+            PlayerPrefs.SetInt("UnlockedBounce", 1);
+
         }
 
-        if (shader != 0)
+        if (ballType != 0)
         {
+            PlayGamesScript.UnlockAchievement(GPGSIds.achievement_snail);
             PlayerPrefs.SetInt("UnlockedRainbow", 1);
+            PlayerPrefs.SetInt("UnlockedSnail", 1);
         }
     }
 
@@ -46,14 +42,16 @@ public class UnlockAchievement : MonoBehaviour {
     {
         if (other.gameObject.tag == "Laser")
         {
-            PlayGamesScript.UnlockAchievement(GPGSIds.achievement_cave);
+            PlayGamesScript.UnlockAchievement(GPGSIds.achievement_weightless);
             PlayerPrefs.SetInt("UnlockedCave", 1);
+            PlayerPrefs.SetInt("UnlockedWeightless", 1);
         }
     }
 
     void CheckResourceAchievement(float resource)
     {
-        PlayGamesScript.UnlockAchievement(GPGSIds.achievement_bubbles);
+        PlayGamesScript.UnlockAchievement(GPGSIds.achievement_ascending);
         PlayerPrefs.SetInt("UnlockedBubbles", 1);
+        PlayerPrefs.SetInt("UnlockedGravity", 1);
     }
 }

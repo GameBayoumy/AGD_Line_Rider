@@ -64,8 +64,6 @@ public class EnemyLaser : MonoBehaviour {
 	{
         if (collision.gameObject.tag == "Player")
         {
-            PlayGamesScript.UnlockAchievement(GPGSIds.achievement_cave);
-            PlayerPrefs.SetInt("UnlockedCave", 1);
             SceneManager.LoadScene("LineMeshTest");
         }
     }

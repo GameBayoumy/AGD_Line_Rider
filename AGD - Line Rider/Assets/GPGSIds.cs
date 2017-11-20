@@ -24,9 +24,10 @@
 
 public static class GPGSIds
 {
-        public const string achievement_bubbles = "CgkIiOKhnoYKEAIQCA"; // <GPGSID>
-        public const string achievement_cave = "CgkIiOKhnoYKEAIQCQ"; // <GPGSID>
-        public const string achievement_rope = "CgkIiOKhnoYKEAIQBw"; // <GPGSID>
+        public const string achievement_bounce = "CgkIiOKhnoYKEAIQBw"; // <GPGSID>
+        public const string achievement_weightless = "CgkIiOKhnoYKEAIQCQ"; // <GPGSID>
+        public const string achievement_ascending = "CgkIiOKhnoYKEAIQCA"; // <GPGSID>
+        public const string achievement_snail = "CgkIiOKhnoYKEAIQCg"; // <GPGSID>
 
 }
 

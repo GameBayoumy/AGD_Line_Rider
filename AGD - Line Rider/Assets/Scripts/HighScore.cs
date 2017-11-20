@@ -16,7 +16,7 @@ public class HighScore : MonoBehaviour {
 	public GameOverMenu gameOverCall;
 	public GameObject gameOverCaller;
 
-    public delegate void GameOverAction(float score, int shaderID);
+    public delegate void GameOverAction(float score, int ballID);
     public static event GameOverAction OnGameOver;
 
     bool checkedOnce = false;
@@ -46,7 +46,7 @@ public class HighScore : MonoBehaviour {
 				PlayerPrefs.SetFloat ("Highscore", timeScore);
 			}
             if (OnGameOver != null)
-                OnGameOver(timeScore, PlayerPrefs.GetInt("ShaderID"));
+                OnGameOver(timeScore, PlayerPrefs.GetInt("BallID"));
 
             checkedOnce = true;
         }
