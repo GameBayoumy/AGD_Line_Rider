@@ -7,6 +7,12 @@ public class Player : MonoBehaviour
     public float drawResource;
     public Touch touch;
 
+    public delegate void CollisionAction(Collision2D objectInfo);
+    public static event CollisionAction OnCollision;
+
+    public delegate void ResourceAction(float resourceAmount);
+    public static event ResourceAction OnResource;
+
     private Rigidbody2D rb2d;
 
 	// Use this for initialization
@@ -23,8 +29,9 @@ public class Player : MonoBehaviour
         if (drawResource <= 0)
         {
             touch.canDraw = false;
-            PlayGamesScript.UnlockAchievement(GPGSIds.achievement_bubbles);
-            PlayerPrefs.SetInt("UnlockedBubbles", 1);
+
+            if (OnResource != null)
+                OnResource(drawResource);
         }
         else
             touch.canDraw = true;
@@ -48,5 +55,11 @@ public class Player : MonoBehaviour
     {
         if(touch != null)
             touch.canDraw = value;
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (OnCollision != null)
+            OnCollision(collision);
     }
 }

@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnlockShaders : MonoBehaviour {
+public class UnlockShaders : MonoBehaviour
+{
 
     public Material activeMaterial;
     public Material[] possibleMaterials;
     public GameObject skinUI;
+    public GameObject ballUI;
     HighScore _score;
 
-	// Use this for initialization
-	void Start () {
-
-        _score = GameObject.Find("GameController").GetComponent<HighScore>();
+    // Use this for initialization
+    void Start()
+    {
 
         PlayerPrefs.SetInt("ShaderID", PlayerPrefs.GetInt("ShaderID"));
 
@@ -20,22 +21,24 @@ public class UnlockShaders : MonoBehaviour {
         PlayerPrefs.SetInt("UnlockedRope", PlayerPrefs.GetInt("UnlockedRope"));
         PlayerPrefs.SetInt("UnlockedBubbles", PlayerPrefs.GetInt("UnlockedBubbles"));
         PlayerPrefs.SetInt("UnlockedCave", PlayerPrefs.GetInt("UnlockedCave"));
+        PlayerPrefs.SetInt("UnlockedRainbow", PlayerPrefs.GetInt("UnlockedRainbow"));
+
+        PlayerPrefs.SetInt("UnlockedNormal", 1);
+        PlayerPrefs.SetInt("UnlockedBounce", PlayerPrefs.GetInt("UnlockedBounce"));
+        PlayerPrefs.SetInt("UnlockedGravity", PlayerPrefs.GetInt("UnlockedGravity"));
+        PlayerPrefs.SetInt("UnlockedWeightless", PlayerPrefs.GetInt("UnlockedWeightless"));
+        PlayerPrefs.SetInt("UnlockedSnail", PlayerPrefs.GetInt("UnlockedSnail"));
 
         SelectShader();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
         if (Input.GetKeyDown(KeyCode.G))
         {
             ResetAllProgress();
-        }
-
-        if ((int)_score.timeScore == 200)
-        {
-            PlayGamesScript.UnlockAchievement(GPGSIds.achievement_rope);
-            PlayerPrefs.SetInt("UnlockedRope", 1);
         }
 
     }
@@ -60,10 +63,26 @@ public class UnlockShaders : MonoBehaviour {
         skinUI.SetActive(false);
     }
 
+    public void RevealBallUI()
+    {
+        ballUI.SetActive(true);
+    }
+
+    public void HideBallUI()
+    {
+        ballUI.SetActive(false);
+    }
+
     public void ResetAllProgress()
     {
         PlayerPrefs.SetInt("UnlockedRope", 0);
         PlayerPrefs.SetInt("UnlockedBubbles", 0);
         PlayerPrefs.SetInt("UnlockedCave", 0);
+        PlayerPrefs.SetInt("UnlockedRainbow", 0);
+
+        PlayerPrefs.SetInt("UnlockedBounce", 0);
+        PlayerPrefs.SetInt("UnlockedGravity", 0);
+        PlayerPrefs.SetInt("UnlockedWeightless", 0);
+        PlayerPrefs.SetInt("UnlockedSnail", 0);
     }
 }

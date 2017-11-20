@@ -14,7 +14,7 @@ public class UIScript : MonoBehaviour {
 
     void Awake()
     {
-        PlayGamesScript.LogIn();
+        //PlayGamesScript.LogIn();
     }
 
     [SerializeField]
