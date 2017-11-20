@@ -3,9 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Opens a portal above the player/level. Basic enemies will fall down from the portal. The range of the falling enemies is the size of the portal. 
-//Enemies will only instantiate if the player is close 
-
 public class EasyBossSpawnState : MonoBehaviour, IBossState
 {
     public Boss boss
@@ -27,7 +24,6 @@ public class EasyBossSpawnState : MonoBehaviour, IBossState
     private GameObject _portal;
 
     private Boss _boss;
-    private Transform _startPortal;
     private Transform _endPortal;
     private Transform _playerPos;
 
@@ -37,11 +33,11 @@ public class EasyBossSpawnState : MonoBehaviour, IBossState
     private bool _portalSpawned;
     private Vector3 _portalSpawnPos;
     private GameObject _portalObj;
+    
 
     private void Awake()
     {
         _playerPos = GameObject.FindWithTag("Player").transform;
-      //  _portal = _boss.transform.GetChild(3).gameObject;
         _spawnTimer = 0f;
         _spawnTime = 1f;
         _canSpawn = false;
@@ -56,12 +52,6 @@ public class EasyBossSpawnState : MonoBehaviour, IBossState
         _portalSpawned = true;
     }
 
-    public IBossState NextState()
-    {
-        Boss.eatState.enabled = true;
-        return Boss.eatState;
-    }
-
     public void Reset()
     {
         _spawnTimer = 0;
@@ -69,6 +59,15 @@ public class EasyBossSpawnState : MonoBehaviour, IBossState
         _portalSpawned = false;
     }
 
+    public void Enable()
+    {
+        enabled = true;
+    }
+
+    public void Disable()
+    {
+        enabled = false;
+    }
     private void SpawnEnemy()
     {
         if ((_playerPos.position.x < _endPortal.position.x - 10f) && _canSpawn)
@@ -115,18 +114,6 @@ public class EasyBossSpawnState : MonoBehaviour, IBossState
             _spawnTimer = 0;
             SpawnEnemy();
         }
-
-        if (ShouldSwitch())
-        {
-            IBossState state = NextState();
-            if (state != null)
-            {
-                _boss.SetState(state);
-                Destroy(_portalObj);
-                enabled = false;
-            }
-        }
-
-       
     }
+    
 }

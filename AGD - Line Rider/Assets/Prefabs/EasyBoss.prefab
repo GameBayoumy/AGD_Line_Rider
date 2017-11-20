@@ -52,14 +52,9 @@ GameObject:
   - component: {fileID: 212241260976614288}
   - component: {fileID: 61089209528277038}
   - component: {fileID: 114885724376408946}
-  - component: {fileID: 114277204753054222}
-  - component: {fileID: 114485178932003912}
-  - component: {fileID: 114586089607374212}
-  - component: {fileID: 114773012641456376}
-  - component: {fileID: 114610834153867336}
-  - component: {fileID: 114313039294608728}
   - component: {fileID: 114897366411389700}
   - component: {fileID: 114467049854728226}
+  - component: {fileID: 114946036024151922}
   m_Layer: 0
   m_Name: EasyBoss
   m_TagString: Untagged
@@ -100,7 +95,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1662441642591540}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.6, y: -1.3, z: 0}
+  m_LocalPosition: {x: -24.5, y: -1.3, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4295289827507784}
@@ -133,28 +128,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.06, y: 1.2}
   m_EdgeRadius: 0
---- !u!114 &114277204753054222
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1662441642591540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6272b2bc4cf5dd94f848c54629ba0780, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114313039294608728
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1662441642591540}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f816af8fdc4170b45854bd8e3607ab6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114467049854728226
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -170,51 +143,6 @@ MonoBehaviour:
   movementSpeed: 0
   attacksSpawned: 0
   _setSpawner: {fileID: 0}
---- !u!114 &114485178932003912
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1662441642591540}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec9932dcc619f6b4bb5bc1574a505337, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114586089607374212
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1662441642591540}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd17f9bfb1de674489663c9aaa17ddf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bumper: {fileID: 1751058278560782, guid: 7647e099270c1694cb59bfb412a80890, type: 2}
---- !u!114 &114610834153867336
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1662441642591540}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a5b8dd836fedf24bbf67b13690687c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114773012641456376
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1662441642591540}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78b55d65d9eb0224d9e92b32aa9a1468, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114885724376408946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -240,6 +168,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35efd38ea8cc80e4889a2f7ad0d48f10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114946036024151922
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1662441642591540}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd17f9bfb1de674489663c9aaa17ddf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bumper: {fileID: 1751058278560782, guid: 7647e099270c1694cb59bfb412a80890, type: 2}
 --- !u!212 &212241260976614288
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -21,7 +21,6 @@ public class EasyBossEatState : MonoBehaviour, IBossState
     private Boss _boss;
     [SerializeField]
     private GameObject _bumper;
-
     private Transform _playerPos;
     private bool _spawnedBumper;
     private Vector3 _bumperSpawnPos;
@@ -30,41 +29,45 @@ public class EasyBossEatState : MonoBehaviour, IBossState
 
     private void Awake()
     {
-       // _bumper = _boss.transform.GetChild(2).gameObject;
         _playerPos = GameObject.FindWithTag("Player").transform;
         _spawnedBumper = false;
     }
 
-    public void SpawnBumper()
+    private void SpawnBumper()
     {
         _bumperSpawnPos = new Vector3(_playerPos.position.x + 20, 0, 0);
         _bumperObject = Instantiate(_bumper, _bumperSpawnPos, Quaternion.identity);
         _spawnedBumper = true;
 
     }
-    public IBossState NextState()
-    {
-        Boss.spawnState.enabled = true;
-        return Boss.spawnState;
-    }
+ 
 
     public void Reset()
     {
         _spawnedBumper = false;
     }
 
+    public void Enable()
+    {
+        enabled = true;
+    }
+
+    public void Disable()
+    {
+        enabled = false;
+    }
+
+
     public bool ShouldSwitch()
     {
         if  ( _spawnedBumper && _playerPos.position.x > _bumperObject.transform.position.x)
         {
             return true;
-            
         }
         else
         {
             return false;
         }
-
     }
 
     public void Update()
@@ -74,18 +77,5 @@ public class EasyBossEatState : MonoBehaviour, IBossState
             SpawnBumper();
         }
         ShouldSwitch();
-
-        if (ShouldSwitch())
-        {
-            IBossState state = NextState();
-            if (state != null)
-            {
-                _boss.SetState(state);
-                Destroy(_bumperObject);
-                enabled = false;
-                
-                
-            }
-        }
     }
 }
