@@ -16,6 +16,11 @@ public class HighScore : MonoBehaviour {
 	public GameOverMenu gameOverCall;
 	public GameObject gameOverCaller;
 
+    public delegate void GameOverAction(float score, int shaderID);
+    public static event GameOverAction OnGameOver;
+
+    bool checkedOnce = false;
+
 	void Awake (){
 		//Calls the GameController which hosts the GameOverMenu script
 		GameObject gameOverCaller = GameObject.Find("GameController");     
@@ -36,11 +41,19 @@ public class HighScore : MonoBehaviour {
 		timerText.text = timeScore.ToString("Score: 0");
 		resultText.text = timeScore.ToString ("Your Score: 0");
 
-		if(GameOverMenu.gameOverState == true){
+		if(GameOverMenu.gameOverState == true && !checkedOnce){
 			if (PlayerPrefs.GetFloat ("Highscore") < timeScore) {
 				PlayerPrefs.SetFloat ("Highscore", timeScore);
 			}
-		}
+            if (OnGameOver != null)
+                OnGameOver(timeScore, PlayerPrefs.GetInt("ShaderID"));
+
+            checkedOnce = true;
+        }
+        if (GameOverMenu.gameOverState == false)
+        {
+            checkedOnce = false;
+        }
 
         if (timeScore < 150)
         {

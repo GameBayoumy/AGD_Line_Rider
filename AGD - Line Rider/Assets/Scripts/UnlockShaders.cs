@@ -20,6 +20,7 @@ public class UnlockShaders : MonoBehaviour {
         PlayerPrefs.SetInt("UnlockedRope", PlayerPrefs.GetInt("UnlockedRope"));
         PlayerPrefs.SetInt("UnlockedBubbles", PlayerPrefs.GetInt("UnlockedBubbles"));
         PlayerPrefs.SetInt("UnlockedCave", PlayerPrefs.GetInt("UnlockedCave"));
+        PlayerPrefs.SetInt("UnlockedRainbow", PlayerPrefs.GetInt("UnlockedRainbow"));
 
         SelectShader();
 	}
@@ -32,17 +33,6 @@ public class UnlockShaders : MonoBehaviour {
             ResetAllProgress();
         }
 
-        if ((int)_score.timeScore == 200)
-        {
-            PlayGamesScript.UnlockAchievement(GPGSIds.achievement_rope);
-            PlayerPrefs.SetInt("UnlockedRope", 1);
-        }
-
-    }
-
-    public void UnlockShader(string shaderKey)
-    {
-        PlayerPrefs.SetInt(shaderKey, 1);
     }
 
     public void SelectShader()
@@ -65,5 +55,6 @@ public class UnlockShaders : MonoBehaviour {
         PlayerPrefs.SetInt("UnlockedRope", 0);
         PlayerPrefs.SetInt("UnlockedBubbles", 0);
         PlayerPrefs.SetInt("UnlockedCave", 0);
+        PlayerPrefs.SetInt("UnlockedRainbow", 0);
     }
 }
