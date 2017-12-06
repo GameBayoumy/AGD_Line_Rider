@@ -10,7 +10,6 @@ public class GameOverMenu : MonoBehaviour {
     public AudioClip explosionSFX;
     public AudioClip loseSFX;
     public Transform gameOverScreen;
-    public Transform testFailedScreen;
 	public Transform playerActivity;
 	public Transform controls;
 	public Transform background;

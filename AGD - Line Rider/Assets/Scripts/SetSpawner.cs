@@ -22,6 +22,7 @@ public class SetSpawner : MonoBehaviour {
     private HighScore _difficultySetter;
     private SetObjectPools _objectPool;
     private bool _canSpawn;
+    private bool _customGame;
 
 
     void Awake()
@@ -33,6 +34,9 @@ public class SetSpawner : MonoBehaviour {
 
         UpdateSpawnChances();
         _previousDifficulty = _difficultySetter.currentDifficulty;
+
+        if (GameObject.Find("CustomCheck") != null)
+            _customGame = true;
     }
 
     void Update()
@@ -50,27 +54,36 @@ public class SetSpawner : MonoBehaviour {
         }
         if (_canSpawn)
         {
-            // Spawns the set based on a random value and the spawn percentages. 
-            _randomValue = Random.value;
-            if (_randomValue <= _easySpawnChance)
+            if (!_customGame)
             {
-                _objectPool.chosenSets = _objectPool.easySets;
-                SpawnSet();
-                return;
-            }
+                // Spawns the set based on a random value and the spawn percentages. 
+                _randomValue = Random.value;
+                if (_randomValue <= _easySpawnChance)
+                {
+                    _objectPool.chosenSets = _objectPool.easySets;
+                    SpawnSet();
+                    return;
+                }
 
-            _randomValue -= _easySpawnChance;
-            if (_randomValue <= _normalSpawnChance)
-            {
-                _objectPool.chosenSets = _objectPool.normalSets;
-                SpawnSet();
-                return;
-            }
+                _randomValue -= _easySpawnChance;
+                if (_randomValue <= _normalSpawnChance)
+                {
+                    _objectPool.chosenSets = _objectPool.normalSets;
+                    SpawnSet();
+                    return;
+                }
 
-            _randomValue -= _normalSpawnChance;
-            if (_randomValue <= _hardSpawnChance)
+                _randomValue -= _normalSpawnChance;
+                if (_randomValue <= _hardSpawnChance)
+                {
+                    _objectPool.chosenSets = _objectPool.hardSets;
+                    SpawnSet();
+                    return;
+                }
+            }
+            else
             {
-                _objectPool.chosenSets = _objectPool.hardSets;
+                _objectPool.chosenSets = _objectPool.customSets;
                 SpawnSet();
                 return;
             }

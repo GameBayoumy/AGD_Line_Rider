@@ -13,6 +13,7 @@ public class CompleteTest : MonoBehaviour {
 
     GameObject customSet;
     GameObject ghostSet;
+    GameObject setEnd;
     Vector3 originalPos;
     float horizontalPos;
     public int timer;
@@ -48,10 +49,6 @@ public class CompleteTest : MonoBehaviour {
         if (timer == 15)
         {
             CreateDuplicate();
-        }
-
-        if (timer == 0)
-        {
             SetEndPosition();
         }
 
@@ -65,6 +62,7 @@ public class CompleteTest : MonoBehaviour {
     public void CreateDuplicate()
     {
         ghostSet = Instantiate(customSet, Vector3.zero, Quaternion.identity);
+        setEnd = ghostSet.transform.Find("set_end").gameObject;
         ghostSet.SetActive(false);
         ghostSet.gameObject.name = "GhostSet";
         test.ghost = ghostSet;
@@ -83,6 +81,7 @@ public class CompleteTest : MonoBehaviour {
         }
 
         transform.position = new Vector2(horizontalPos + 3, -4.38f);
+        setEnd.transform.position = new Vector2(horizontalPos + 50, 0);
 
     }
 

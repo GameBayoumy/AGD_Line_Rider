@@ -8,11 +8,13 @@ public class SetObjectPools : MonoBehaviour {
     public List<GameObject> easySets;
     public List<GameObject> normalSets;
     public List<GameObject> hardSets;
+    public List<GameObject> customSets;
     public List<GameObject> chosenSets;
 
     public int easyAmount;
     public int normalAmount;
     public int hardAmount;
+    public int customAmount;
 
     // Use this for initialization
     void Start () {
@@ -20,6 +22,7 @@ public class SetObjectPools : MonoBehaviour {
         easySets = new List<GameObject>();
         normalSets = new List<GameObject>();
         hardSets = new List<GameObject>();
+        customSets = new List<GameObject>();
 
         chosenSets = easySets;
 
@@ -42,6 +45,13 @@ public class SetObjectPools : MonoBehaviour {
             GameObject hardObj = Instantiate(Resources.Load("Sets/hard/hard_set" + i, typeof(GameObject))) as GameObject;
             hardObj.SetActive(false);
             hardSets.Add(hardObj);
+        }
+
+        for (int i = 1; i < customAmount + 1; i++)
+        {
+            GameObject customObj = Instantiate(Resources.Load("Sets/custom/custom_set" + i, typeof(GameObject))) as GameObject;
+            customObj.SetActive(false);
+            customSets.Add(customObj);
         }
 
     }
