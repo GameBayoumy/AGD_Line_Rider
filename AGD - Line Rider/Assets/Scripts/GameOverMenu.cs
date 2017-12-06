@@ -10,9 +10,11 @@ public class GameOverMenu : MonoBehaviour {
     public AudioClip explosionSFX;
     public AudioClip loseSFX;
     public Transform gameOverScreen;
+    public Transform testFailedScreen;
 	public Transform playerActivity;
 	public Transform controls;
 	public Transform background;
+    public Transform testManager;
 
 	public static bool gameOverState;
 
@@ -29,7 +31,13 @@ public class GameOverMenu : MonoBehaviour {
 
 	public void Freeze(){
 		if (gameOverScreen.gameObject.activeInHierarchy == false) {
-            gameOverScreen.gameObject.SetActive (true);                 
+            gameOverScreen.gameObject.SetActive (true);
+            
+            if (testManager != null)
+            {
+                testManager.gameObject.SetActive (true);
+            }
+
 			Time.timeScale = 0;                                         //Causes the game to freeze in place (pausing)
             playerActivity.GetComponent<Player>().enabled = false;      //Player is turned off
             controls.GetComponent<Touch> ().enabled = false;            //Touch gameplay is turned off
@@ -41,7 +49,22 @@ public class GameOverMenu : MonoBehaviour {
         }
 	}
 
-	public void DisableButtonOnClick() { 
+    public void Unfreeze()
+    {
+        if (gameOverScreen.gameObject.activeInHierarchy == true)
+        {
+            gameOverState = false;
+            gameOverScreen.gameObject.SetActive(false);
+
+            Time.timeScale = 1;
+            playerActivity.GetComponent<Player>().enabled = true;
+            //controls.GetComponent<Touch>().enabled = true;
+            background.GetComponent<scroll>().enabled = true;
+            playerActivity.position = new Vector2(-53, 2);
+        }
+    }
+
+    public void DisableButtonOnClick() { 
 		pauseButton.interactable = false; 
 	}
 		

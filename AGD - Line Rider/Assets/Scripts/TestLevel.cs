@@ -6,12 +6,16 @@ public class TestLevel : MonoBehaviour {
 
     public bool testInProgress;
     public GameObject[] objectsToToggle;
+    public GameObject failureScreen;
+    public GameObject ghost;
 
     GameObject camera;
     GameObject topWall;
     GameObject bottomWall;
     GameObject bluePrint;
     GameObject playButton;
+    GameObject trashcan;
+    GameObject scrollBar;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +24,8 @@ public class TestLevel : MonoBehaviour {
         bottomWall = GameObject.Find("BottomWall");
         bluePrint = GameObject.Find("Blueprint");
         playButton = GameObject.Find("Play");
+        trashcan = GameObject.Find("Trashcan");
+        scrollBar = GameObject.Find("ScrollBar");
     }
 	
 	// Update is called once per frame
@@ -29,6 +35,8 @@ public class TestLevel : MonoBehaviour {
 
     public void StartTest()
     {
+        testInProgress = true;
+
         for (int i = 0; i < objectsToToggle.Length; i++)
         {
             objectsToToggle[i].SetActive(true);
@@ -44,6 +52,37 @@ public class TestLevel : MonoBehaviour {
 
         bluePrint.transform.position = new Vector3(transform.position.x, transform.position.y, -15);
 
-        playButton.SetActive(false);
+        trashcan.SetActive(false);
+        scrollBar.SetActive(false);
+        playButton.transform.localPosition = new Vector2(376, 400);
+    }
+
+    public void QuitTest()
+    {
+        testInProgress = false;
+
+        for (int i = 0; i < objectsToToggle.Length; i++)
+        {
+            objectsToToggle[i].SetActive(false);
+        }
+
+        camera.transform.position = new Vector3(0, 1, -10);
+        camera.GetComponent<Touch>().enabled = false;
+        camera.GetComponent<CameraController>().enabled = false;
+
+        topWall.GetComponent<WallMesh>().enabled = false;
+        bottomWall.GetComponent<WallMesh>().enabled = false;
+
+        bluePrint.transform.position = new Vector3(0, 2, 9);
+
+        trashcan.SetActive(true);
+        scrollBar.SetActive(true);
+        playButton.transform.localPosition = new Vector2(376, 215);
+
+        Destroy(ghost);
+
+        objectsToToggle[0].GetComponent<GameOverMenu>().Unfreeze();
+
+        failureScreen.SetActive(false);
     }
 }

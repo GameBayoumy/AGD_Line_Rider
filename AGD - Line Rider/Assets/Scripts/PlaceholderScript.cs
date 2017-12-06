@@ -11,14 +11,40 @@ public class PlaceholderScript : MonoBehaviour {
     Color col;
     Color originalCol;
 
+    TestLevel _testManager;
+    bool spawnedMyObject;
+    GameObject _objectCopy;
+    Vector2 _positionInLevel;
+    GameObject _finalSet;
+
 	// Use this for initialization
 	void Start () {
         col = GetComponent<SpriteRenderer>().color;
         originalCol = col;
+        _testManager = GameObject.Find("Play").GetComponent<TestLevel>();
+        _finalSet = GameObject.Find("CustomSet");
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (!spawnedMyObject && _testManager.testInProgress)
+        {
+            spawnedMyObject = true;
+            _positionInLevel = transform.position;
+            _objectCopy = Instantiate(objectToSpawn, transform.position, transform.rotation);
+            _objectCopy.transform.parent = _finalSet.transform;
+            GetComponent<SpriteRenderer>().enabled = false;
+            transform.position = new Vector2(-200, -200);
+        }
+
+        if (spawnedMyObject && !_testManager.testInProgress)
+        {
+            spawnedMyObject = false;
+            Destroy(_objectCopy);
+            GetComponent<SpriteRenderer>().enabled = true;
+            transform.position = _positionInLevel;
+        }
 		
 	}
 
