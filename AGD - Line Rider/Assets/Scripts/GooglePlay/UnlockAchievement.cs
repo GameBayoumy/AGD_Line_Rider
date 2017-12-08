@@ -34,7 +34,8 @@ public class UnlockAchievement : MonoBehaviour
         {
             PlayGamesScript.UnlockAchievement(GPGSIds.achievement_snail);
             PlayerPrefs.SetInt("UnlockedRainbow", 1);
-            PlayerPrefs.SetInt("UnlockedSnail", 1);
+            EncryptedPlayerPrefs.SetInt("UnlockedSnailEncrypted", 1);
+
         }
     }
 

@@ -4154,7 +4154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballID: 4
-  ballName: UnlockedSnail
+  ballName: UnlockedSnailEncrypted
   ballGravity: 3
   ballSpeed: 10
   ballBounce: 0
