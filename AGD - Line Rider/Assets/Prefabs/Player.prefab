@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 50331766055128076}
   - component: {fileID: 114050877662508092}
   - component: {fileID: 58951310941827998}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 1880750458544924}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 569d7ae3b8f670a48b8fcfed26d105fa, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
