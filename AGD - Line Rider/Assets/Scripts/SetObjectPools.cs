@@ -47,11 +47,24 @@ public class SetObjectPools : MonoBehaviour {
             hardSets.Add(hardObj);
         }
 
-        for (int i = 1; i < customAmount + 1; i++)
+        if (Application.isEditor)
         {
-            GameObject customObj = Instantiate(Resources.Load("Sets/custom/custom_set" + i, typeof(GameObject))) as GameObject;
-            customObj.SetActive(false);
-            customSets.Add(customObj);
+            for (int i = 1; i < customAmount + 1; i++)
+            {
+                GameObject customObj = Instantiate(Resources.Load("Sets/custom/custom_set" + i, typeof(GameObject))) as GameObject;
+                customObj.SetActive(false);
+                customSets.Add(customObj);
+            }
+        }
+
+        else
+        {
+            for (int i = 1; i < customAmount + 1; i++)
+            {
+                GameObject customObj = Instantiate(Resources.Load("Sets/customMobile/mobile_set" + i, typeof(GameObject))) as GameObject;
+                customObj.SetActive(false);
+                customSets.Add(customObj);
+            }
         }
 
     }

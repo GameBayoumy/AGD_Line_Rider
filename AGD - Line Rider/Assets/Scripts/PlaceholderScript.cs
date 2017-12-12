@@ -73,25 +73,6 @@ public class PlaceholderScript : MonoBehaviour {
         }
     }
 
-    //Use this is the object has no additional scripts.
-    void SpawnObstacle()
-    {
-        GameObject newObstacle = Instantiate(objectToSpawn, transform.position, transform.rotation);
-    }
-
-    //Use this if the object has the EnemyBasic script.
-    void SpawnEnemy()
-    {
-        GameObject newEnemy = Instantiate(objectToSpawn, transform.position, transform.rotation);
-        newEnemy.GetComponent<EnemyBasic>().enabled = false;
-    }
-
-    //Use this if the object has the EnemyLaser script.
-    void SpawnLaser()
-    {
-        GameObject newLaser = Instantiate(objectToSpawn, transform.position + new Vector3(0, 9.25f, 0), transform.rotation);
-    }
-
     public void OnTriggerEnter2D(Collider2D collision)
     {
         overlapping = true;

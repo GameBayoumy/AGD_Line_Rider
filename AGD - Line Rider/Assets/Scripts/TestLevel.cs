@@ -54,7 +54,7 @@ public class TestLevel : MonoBehaviour {
 
         trashcan.SetActive(false);
         scrollBar.SetActive(false);
-        playButton.transform.localPosition = new Vector2(376, 400);
+        playButton.transform.localPosition = new Vector2(321, 800);
     }
 
     public void QuitTest()
@@ -66,8 +66,16 @@ public class TestLevel : MonoBehaviour {
             objectsToToggle[i].SetActive(false);
         }
 
+        GameObject[] trash = GameObject.FindGameObjectsWithTag("Spawnables");
+
+        for (int j = 0; j < trash.Length; j++)
+        {
+            Destroy(trash[j]);
+        }
+
         camera.transform.position = new Vector3(0, 1, -10);
         camera.GetComponent<Touch>().enabled = false;
+        camera.GetComponent<CameraController>().offset = Vector3.zero;
         camera.GetComponent<CameraController>().enabled = false;
 
         topWall.GetComponent<WallMesh>().enabled = false;
@@ -77,7 +85,7 @@ public class TestLevel : MonoBehaviour {
 
         trashcan.SetActive(true);
         scrollBar.SetActive(true);
-        playButton.transform.localPosition = new Vector2(376, 215);
+        playButton.transform.localPosition = new Vector2(321, 189);
 
         Destroy(ghost);
 

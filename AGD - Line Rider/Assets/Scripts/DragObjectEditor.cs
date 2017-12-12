@@ -18,7 +18,7 @@ public class DragObjectEditor : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        placeholder = GameObject.Find("Placeholder");
+        //placeholder = GameObject.Find("Placeholder");
 		
 	}
 	
