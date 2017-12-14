@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LineMeshTest.unity
     guid: 586d908f808723b4098fe47f2f40da89
+  - enabled: 1
+    path: Assets/Scenes/Scene_ShopMenu.unity
+    guid: 10b2d0ac41f364e91a1081b382e15a8c
