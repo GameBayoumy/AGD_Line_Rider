@@ -22,4 +22,14 @@ public class MainMenuButtons : MonoBehaviour {
 	{
 		Application.Quit();
 	}
+
+    public void StartEditor()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    public void StartCustomGame()
+    {
+        SceneManager.LoadScene(3);
+    }
 }

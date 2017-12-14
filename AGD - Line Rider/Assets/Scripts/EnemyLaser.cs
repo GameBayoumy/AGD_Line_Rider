@@ -64,7 +64,7 @@ public class EnemyLaser : MonoBehaviour {
 	{
         if (collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("LineMeshTest");
+            GameOverMenu.SetGameOverState(true);
         }
     }
 

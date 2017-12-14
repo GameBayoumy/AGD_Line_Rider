@@ -11,7 +11,7 @@ public class WallMesh : MonoBehaviour
 	public GameOverMenu gameOverCall;
 	public GameObject gameOverCaller;
 
-    private void Awake()
+    private void OnEnable()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
 		//Calls the GameController which hosts the GameOverMenu script

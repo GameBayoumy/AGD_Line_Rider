@@ -23,6 +23,11 @@ public class scroll : MonoBehaviour
 
     void Update()
     {
+        if (Player == null)
+        {
+            Player = GameObject.FindGameObjectWithTag("Player");
+        }
+
         float offset = Time.time * scrollSpeed;
         rend.material.SetTextureOffset("_MainTex", new Vector2(offset, 0));
 
