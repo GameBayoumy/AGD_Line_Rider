@@ -8,11 +8,16 @@ public class PlaceholderScript : MonoBehaviour {
     public bool overlapping;
     public string collidingObject;
 
+    public string myName;
+    public string description;
+    public bool canBeScaled;
+    public bool canBeRotated;
+
     Color col;
     Color originalCol;
 
     TestLevel _testManager;
-    bool spawnedMyObject;
+    bool _spawnedMyObject;
     GameObject _objectCopy;
     Vector2 _positionInLevel;
     GameObject _finalSet;
@@ -28,9 +33,9 @@ public class PlaceholderScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (!spawnedMyObject && _testManager.testInProgress)
+        if (!_spawnedMyObject && _testManager.testInProgress)
         {
-            spawnedMyObject = true;
+            _spawnedMyObject = true;
             _positionInLevel = transform.position;
             _objectCopy = Instantiate(objectToSpawn, transform.position, transform.rotation);
             _objectCopy.transform.parent = _finalSet.transform;
@@ -38,9 +43,9 @@ public class PlaceholderScript : MonoBehaviour {
             transform.position = new Vector2(-200, -200);
         }
 
-        if (spawnedMyObject && !_testManager.testInProgress)
+        if (_spawnedMyObject && !_testManager.testInProgress)
         {
-            spawnedMyObject = false;
+            _spawnedMyObject = false;
             Destroy(_objectCopy);
             GetComponent<SpriteRenderer>().enabled = true;
             transform.position = _positionInLevel;

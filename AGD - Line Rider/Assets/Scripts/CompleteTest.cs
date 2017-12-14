@@ -16,11 +16,12 @@ public class CompleteTest : MonoBehaviour {
     public GameObject player;
     public int goToNo;
 
-    GameObject customSet;
-    GameObject ghostSet;
-    GameObject setEnd;
-    Vector3 originalPos;
+    GameObject _customSet;
+    GameObject _ghostSet;
+    GameObject _setEnd;
+    Vector3 _originalPos;
     float horizontalPos;
+
     public int timer;
 
     public int setToRemove;
@@ -36,8 +37,8 @@ public class CompleteTest : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        customSet = GameObject.Find("CustomSet");
-        originalPos = transform.position;
+        _customSet = GameObject.Find("CustomSet");
+        _originalPos = transform.position;
         horizontalPos = -22;
         timer = 20;
 	}
@@ -81,18 +82,18 @@ public class CompleteTest : MonoBehaviour {
 
     public void CreateDuplicate()
     {
-        ghostSet = Instantiate(customSet, Vector3.zero, Quaternion.identity);
-        setEnd = ghostSet.transform.Find("set_end").gameObject;
-        ghostSet.SetActive(false);
-        ghostSet.gameObject.name = "GhostSet";
-        test.ghost = ghostSet;
+        _ghostSet = Instantiate(_customSet, Vector3.zero, Quaternion.identity);
+        _setEnd = _ghostSet.transform.Find("set_end").gameObject;
+        _ghostSet.SetActive(false);
+        _ghostSet.gameObject.name = "GhostSet";
+        test.ghost = _ghostSet;
     }
 
     public void SetEndPosition()
     {
         horizontalPos = -22;
 
-        foreach (Transform t in customSet.transform)
+        foreach (Transform t in _customSet.transform)
         {
             if (t.transform.position.x > horizontalPos)
             {
@@ -100,45 +101,47 @@ public class CompleteTest : MonoBehaviour {
             }
         }
 
-        transform.position = new Vector2(horizontalPos + 3, -4.38f);
-        setEnd.transform.position = new Vector2(horizontalPos + 30, 0);
+        transform.position = new Vector2(horizontalPos + 10, -4.38f);
+        _setEnd.transform.position = new Vector2(horizontalPos + 30, 0);
 
     }
 
     public void SetOriginalPosition()
     {
-        transform.position = originalPos;
+        transform.position = _originalPos;
         timer = 20;
     }
 
     public void SaveCustomSet()
     {
-        ghostSet.SetActive(true);
+        _ghostSet.SetActive(true);
 
 #if UNITY_EDITOR
         Object newPrefab = PrefabUtility.CreateEmptyPrefab("Assets/Resources/Sets/custom/custom_set" + PlayerPrefs.GetInt("PrefabNo") + ".prefab");
-        PrefabUtility.ReplacePrefab(ghostSet, newPrefab, ReplacePrefabOptions.ConnectToPrefab);
+        PrefabUtility.ReplacePrefab(_ghostSet, newPrefab, ReplacePrefabOptions.ConnectToPrefab);
 #endif
 
         if (!Application.isEditor)
         {
-            PlayerPrefs.SetInt("Set" + PlayerPrefs.GetInt("PrefabNo") + "Amount", ghostSet.transform.childCount);
+            PlayerPrefs.SetInt("Set" + PlayerPrefs.GetInt("PrefabNo") + "Amount", _ghostSet.transform.childCount);
 
-            for (int i = 0; i < ghostSet.transform.childCount; i++)
+            for (int i = 0; i < _ghostSet.transform.childCount; i++)
             {
-                Transform currentChild = ghostSet.transform.GetChild(i);
+                Transform currentChild = _ghostSet.transform.GetChild(i);
                 string objectName = currentChild.name;
                 if (i != 0)
                     objectName = objectName.Substring(0, objectName.Length - 7); //This line removes the word '(Clone)' from the object's name.
 
                 PlayerPrefs.SetString("Set" + PlayerPrefs.GetInt("PrefabNo") + "Object" + (i + 1), objectName);
-                PlayerPrefs.SetFloat("Set" + PlayerPrefs.GetInt("PrefabNo") + "Object" + (i + 1) + "X", ghostSet.transform.GetChild(i).position.x);
-                PlayerPrefs.SetFloat("Set" + PlayerPrefs.GetInt("PrefabNo") + "Object" + (i + 1) + "Y", ghostSet.transform.GetChild(i).position.y - 2.2088f);
+                PlayerPrefs.SetFloat("Set" + PlayerPrefs.GetInt("PrefabNo") + "Object" + (i + 1) + "X", _ghostSet.transform.GetChild(i).position.x);
+                PlayerPrefs.SetFloat("Set" + PlayerPrefs.GetInt("PrefabNo") + "Object" + (i + 1) + "Y", _ghostSet.transform.GetChild(i).position.y - 2.2088f);
+                PlayerPrefs.SetFloat("Set" + PlayerPrefs.GetInt("PrefabNo") + "Object" + (i + 1) + "Size", _ghostSet.transform.GetChild(i).localScale.y);
+                PlayerPrefs.SetFloat("Set" + PlayerPrefs.GetInt("PrefabNo") + "Object" + (i + 1) + "Rotation", _ghostSet.transform.GetChild(i).localEulerAngles.z);
             }
         }
 
         PlayerPrefs.SetInt("PrefabNo", PlayerPrefs.GetInt("PrefabNo") + 1);
-        ghostSet.SetActive(false);
+        _ghostSet.SetActive(false);
         controller.Unfreeze();
         SceneManager.LoadScene(0);
     }

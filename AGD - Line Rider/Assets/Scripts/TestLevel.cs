@@ -8,24 +8,25 @@ public class TestLevel : MonoBehaviour {
     public GameObject[] objectsToToggle;
     public GameObject failureScreen;
     public GameObject ghost;
+    public GameObject advancedMenu;
 
-    GameObject camera;
-    GameObject topWall;
-    GameObject bottomWall;
-    GameObject bluePrint;
-    GameObject playButton;
-    GameObject trashcan;
-    GameObject scrollBar;
+    GameObject _camera;
+    GameObject _topWall;
+    GameObject _bottomWall;
+    GameObject _bluePrint;
+    GameObject _playButton;
+    GameObject _trashcan;
+    GameObject _scrollBar;
 
 	// Use this for initialization
 	void Start () {
-        camera = GameObject.Find("Main Camera");
-        topWall = GameObject.Find("TopWall");
-        bottomWall = GameObject.Find("BottomWall");
-        bluePrint = GameObject.Find("Blueprint");
-        playButton = GameObject.Find("Play");
-        trashcan = GameObject.Find("Trashcan");
-        scrollBar = GameObject.Find("ScrollBar");
+        _camera = GameObject.Find("Main Camera");
+        _topWall = GameObject.Find("TopWall");
+        _bottomWall = GameObject.Find("BottomWall");
+        _bluePrint = GameObject.Find("Blueprint");
+        _playButton = GameObject.Find("Play");
+        _trashcan = GameObject.Find("Trashcan");
+        _scrollBar = GameObject.Find("ScrollBar");
     }
 	
 	// Update is called once per frame
@@ -43,18 +44,20 @@ public class TestLevel : MonoBehaviour {
         }
 
 
-        camera.transform.position = new Vector3(-53, 0, -10);
-        camera.GetComponent<Touch>().enabled = true;
-        camera.GetComponent<CameraController>().enabled = true;
+        _camera.transform.position = new Vector3(-53, 0, -10);
+        _camera.GetComponent<Touch>().enabled = true;
+        _camera.GetComponent<CameraController>().enabled = true;
 
-        topWall.GetComponent<WallMesh>().enabled = true;
-        bottomWall.GetComponent<WallMesh>().enabled = true;
+        _topWall.GetComponent<WallMesh>().enabled = true;
+        _bottomWall.GetComponent<WallMesh>().enabled = true;
 
-        bluePrint.transform.position = new Vector3(transform.position.x, transform.position.y, -15);
+        _bluePrint.transform.position = new Vector3(transform.position.x, transform.position.y, -15);
 
-        trashcan.SetActive(false);
-        scrollBar.SetActive(false);
-        playButton.transform.localPosition = new Vector2(321, 800);
+        _trashcan.SetActive(false);
+        _scrollBar.SetActive(false);
+        _playButton.transform.localPosition = new Vector2(321, 800);
+
+        advancedMenu.SetActive(false);
     }
 
     public void QuitTest()
@@ -73,19 +76,19 @@ public class TestLevel : MonoBehaviour {
             Destroy(trash[j]);
         }
 
-        camera.transform.position = new Vector3(0, 1, -10);
-        camera.GetComponent<Touch>().enabled = false;
-        camera.GetComponent<CameraController>().offset = Vector3.zero;
-        camera.GetComponent<CameraController>().enabled = false;
+        _camera.transform.position = new Vector3(0, 1, -10);
+        _camera.GetComponent<Touch>().enabled = false;
+        _camera.GetComponent<CameraController>().offset = Vector3.zero;
+        _camera.GetComponent<CameraController>().enabled = false;
 
-        topWall.GetComponent<WallMesh>().enabled = false;
-        bottomWall.GetComponent<WallMesh>().enabled = false;
+        _topWall.GetComponent<WallMesh>().enabled = false;
+        _bottomWall.GetComponent<WallMesh>().enabled = false;
 
-        bluePrint.transform.position = new Vector3(0, 2, 9);
+        _bluePrint.transform.position = new Vector3(0, 2, 9);
 
-        trashcan.SetActive(true);
-        scrollBar.SetActive(true);
-        playButton.transform.localPosition = new Vector2(321, 189);
+        _trashcan.SetActive(true);
+        _scrollBar.SetActive(true);
+        _playButton.transform.localPosition = new Vector2(321, 189);
 
         Destroy(ghost);
 

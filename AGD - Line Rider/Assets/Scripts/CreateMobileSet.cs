@@ -19,6 +19,8 @@ public class CreateMobileSet : MonoBehaviour {
                 newChild = Instantiate(Resources.Load("Sets/editorObjects/" + PlayerPrefs.GetString("Set" + setID + "Object" + i)), transform.position, Quaternion.identity) as GameObject;
                 newChild.transform.parent = gameObject.transform;
                 newChild.transform.localPosition = new Vector3(PlayerPrefs.GetFloat("Set" + setID + "Object" + i + "X"), PlayerPrefs.GetFloat("Set" + setID + "Object" + i + "Y"), 0);
+                newChild.transform.localScale = new Vector3(newChild.transform.localScale.x, PlayerPrefs.GetFloat("Set" + setID + "Object" + i + "Size"), 1);
+                newChild.transform.localEulerAngles = new Vector3(newChild.transform.localEulerAngles.x, newChild.transform.localEulerAngles.y, PlayerPrefs.GetFloat("Set" + setID + "Object" + i + "Rotation"));
             }
         }
 		

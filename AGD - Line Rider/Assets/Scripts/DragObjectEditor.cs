@@ -15,10 +15,13 @@ public class DragObjectEditor : MonoBehaviour {
 
     public GameObject placeholder;
 
-	// Use this for initialization
-	void Start () {
+    public string myName;
+    public string description;
+    public bool canBeScaled;
+    public bool canBeRotated;
 
-        //placeholder = GameObject.Find("Placeholder");
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -29,7 +32,8 @@ public class DragObjectEditor : MonoBehaviour {
 
     public void SpawnObject()
     {
-        GameObject ph = Instantiate(placeholder, transform.position, transform.rotation);
+        GameObject ph = Instantiate(placeholder, transform.position, Quaternion.Euler(Vector3.zero));
+        PlaceholderScript phScript = ph.GetComponent<PlaceholderScript>();
         ph.transform.position = Vector2.zero;
         ph.transform.localScale = relatedSize;
 
@@ -47,6 +51,11 @@ public class DragObjectEditor : MonoBehaviour {
         }
         ph.GetComponent<SpriteRenderer>().sprite = relatedSprite;
         ph.GetComponent<SpriteRenderer>().color = relatedColor;
-        ph.GetComponent<PlaceholderScript>().objectToSpawn = relatedPrefab;
+        phScript.objectToSpawn = relatedPrefab;
+
+        phScript.myName = myName;
+        phScript.description = description;
+        phScript.canBeScaled = canBeScaled;
+        phScript.canBeRotated = canBeRotated;
     }
 }
