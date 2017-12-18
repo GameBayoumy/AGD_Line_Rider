@@ -18,34 +18,21 @@ public class ShopManager : MonoBehaviour {
 
 	//Lists the prices of the alternate lines or line skins
 	private int[] alternateLineCost = new int[] { 0, 10, 20};
-
+	//This integer keeps track which lineSkin button is currently selected
 	private int selectedLineSkinIndex;
+	//This integer gets assigned a value of the lineSkin 
+	//that corresponds to the selectedLineSkinIndex in question
+	private int selectedLineSkinCheck;
 
 	// Use this for initialization
 	void Start () {
 
-		//This value within PlayerPrefs determines whether the product in question
-		//Has been bought (and therefore unlocked) or not
-		//0 means that it is locked, 1 means that it is unlocked
+		SetCurrency (GetCurrency () + 100);
 
-//		PlayerPrefs.SetInt("Line_1_Neon", 0);
-//		PlayerPrefs.SetInt("Line_2_Rope", 0);
-//		PlayerPrefs.SetInt("Line_3_Bubbles", 0);
-//
-//		PlayerPrefs.SetInt("Line_1_Neon", 1);
-//		PlayerPrefs.SetInt("Line_2_Rope", 1);
-//		PlayerPrefs.SetInt("Line_3_Bubbles", 1);
-//
-//
-//
-//
-//
-//		PlayerPrefs.SetInt ("Product_1_Key", 0);
-//		PlayerPrefs.GetInt ("Product_1_Key");
-//
-//		PlayerPrefs.SetInt ("Product_2_Key", 0);
-//		PlayerPrefs.GetInt ("Product_2_Key");
-	
+		PlayerPrefs.SetInt("UnlockedRope", 0);
+		PlayerPrefs.SetInt("UnlockedBubbles", 0);
+
+
 		// Add button onclick events to shop buttons
 		InitializeShop ();
 
@@ -100,26 +87,31 @@ public class ShopManager : MonoBehaviour {
 		//The selectedLineSkinIndex value is equal to the currentIndex value of the button in question
 		selectedLineSkinIndex = currentIndex;
 
+		//Checks which lineSkin refers to the selectedLineSkinIndex
+		//Assigns selectedLineSkinCheck which the value derived from the checked LineSkin
+		LineSkinChecker ();
+
 		//Change the content of the buy/equip button, depending on the state of the lineSkin
-		if (SaveManager.Instance.IsColorOwned (currentIndex)) {
+		//Because selectedLineSkinCheck gets a value assigned from the unlockedLineSkin, it's either 0 or 1
+		//If it's 0, the lineSkin has not been unlocked yet
+		//If it's 1, the lineSkin has already been unlocked
+		if (selectedLineSkinCheck == 1) {
 			//LineSkin is bought, therefore unlocked
 			lineSkinBuyEquip.text = "Equip"; 
 		} else {
 			//LineSkin has not been bought yet, therefore yet to be unlocked
 			lineSkinBuyEquip.text = "Buy: " + alternateLineCost[currentIndex].ToString();
-
-
 		}
-
-
 	}
 
 
 	public void OnLineSkinBuyEquip() { 
 		Debug.Log("Buy/Equip lineSkin");
 
+		LineSkinChecker ();
+
 		//Is the selected lineSkin bought, and therefore unlocked
-		if (SaveManager.Instance.IsColorOwned (selectedLineSkinIndex)) {
+		if (selectedLineSkinCheck == 1) {
 			//Equip the selected lineSkin
 			SetLineSkin (selectedLineSkinIndex);
 		} else {
@@ -127,19 +119,48 @@ public class ShopManager : MonoBehaviour {
 			Purchase();				
 		}
 	}
-
-
+		
 
 
 	public void Purchase(){
 		//Checks if currency is equal to or more than the price
-		//If it is, then the currentCurrency will have its value subtracted by the price
 		if (GetCurrency() >= alternateLineCost[selectedLineSkinIndex]) {
+			//If it is, then the currentCurrency will have its value subtracted by the price
 			SetCurrency((GetCurrency() - alternateLineCost[selectedLineSkinIndex]));
-			PlayerPrefs.SetInt ("Unlocked LineSkin", selectedLineSkinIndex, 1);
+			LineSkinUnlocker ();
+		}
+	}
+		
+	public void LineSkinUnlocker(){
+		//Checks to which lineSkin in question the selectedLineSkinIndex value relates to
+		//If the value is 0 then it refers to the Neon lineSkin, therefore that one will be unlocked
+		if (selectedLineSkinIndex == 0) {
+			PlayerPrefs.SetInt ("UnlockedNeon", 1);
+			Debug.Log ("You unlocked the Neon lineSkin!");
+		} else if (selectedLineSkinIndex == 1) {
+			PlayerPrefs.SetInt("UnlockedRope", 1);
+			Debug.Log ("You unlocked the Rope lineSkin!");
+		} else if (selectedLineSkinIndex == 2) {
+			PlayerPrefs.SetInt ("UnlockedBubbles", 1);
+			Debug.Log ("You unlocked the Bubbles lineSkin!");
 		}
 	}
 
+	public void LineSkinChecker(){
+		//Checks to which lineSkin in question the selectedLineSkinIndex value relates to
+		//If the value is 0 then it refers to the Neon lineSkin, 
+		//therefore the value from UnlockedNeon will be assigned to selectedLineSkinCheck
+		if (selectedLineSkinIndex == 0) {
+			selectedLineSkinCheck = PlayerPrefs.GetInt ("UnlockedNeon");
+			Debug.Log ("Neon lineSkin checked!");
+		} else if (selectedLineSkinIndex == 1) {
+			selectedLineSkinCheck = PlayerPrefs.GetInt("UnlockedRope");
+			Debug.Log ("Rope lineSkin checked!");
+		} else if (selectedLineSkinIndex == 2) {
+			selectedLineSkinCheck = PlayerPrefs.GetInt ("UnlockedBubbles");
+			Debug.Log ("Bubbles lineSkin checked!");
+		}
+	}
 
 	//Gets the current currency from the game
 	public int GetCurrency(){
