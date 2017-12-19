@@ -125,7 +125,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &26508560
 RectTransform:
   m_ObjectHideFlags: 0
@@ -134,7 +134,7 @@ RectTransform:
   m_GameObject: {fileID: 26508559}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 0.9999999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 312932201}
   m_RootOrder: 6
@@ -183,8 +183,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 1f60daeec063945f5a373152854af140, type: 3}
-        m_MethodName: 
+      - m_Target: {fileID: 1650939709}
+        m_MethodName: ReturnToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1028,8 +1028,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -51.074966, y: 6.875002}
+  m_SizeDelta: {x: -399.15, y: 13.75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &651324230
 MonoBehaviour:
@@ -1756,6 +1756,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1468552222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1468552224}
+  - component: {fileID: 1468552223}
+  m_Layer: 0
+  m_Name: LineSkinManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1468552223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1468552222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56f8a5569ab904b5d86c5fb24657feff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeLine: {fileID: 0}
+  lineSkins:
+  - {fileID: 2100000, guid: 9da39d2c358e12945b783f916084f7d1, type: 2}
+  - {fileID: 2100000, guid: 01ab129acc9d38e4d9fb27be6bf0c3e2, type: 2}
+  - {fileID: 2100000, guid: 135d9c9a6193e5d4ab6946643a78dbc5, type: 2}
+--- !u!4 &1468552224
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1468552222}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 563.5, y: 147, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1534930096
 GameObject:
   m_ObjectHideFlags: 0
@@ -2612,7 +2657,7 @@ GameObject:
   - component: {fileID: 1981401337}
   - component: {fileID: 1981401336}
   m_Layer: 5
-  m_Name: Text
+  m_Name: SkinBuyEquipText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2687,7 +2732,7 @@ GameObject:
   - component: {fileID: 2119850395}
   - component: {fileID: 2119850394}
   m_Layer: 5
-  m_Name: SkinBuySet
+  m_Name: SkinBuyEquipButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
