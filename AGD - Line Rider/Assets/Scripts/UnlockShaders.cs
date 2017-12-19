@@ -50,7 +50,7 @@ public class UnlockShaders : MonoBehaviour
 
     public void SelectShader()
     {
-        activeMaterial = possibleMaterials[PlayerPrefs.GetInt("ShaderID")];
+        activeMaterial = possibleMaterials[PlayerPrefs.GetInt("Activated LineSkin")];
     }
 
     public void RevealSkinUI()
