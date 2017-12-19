@@ -5,15 +5,23 @@ using UnityEngine.UI;
 
 public class LineSkinManager : MonoBehaviour {
 
-	public int lineID;
-	public string lineName;
-	Button _thisButton;
+	public static LineSkinManager Instance { 
+		set;
+		get;
+	}
+
+	public Material activeLine;
+	public Material[] lineSkins = new Material[3]; 
+
 
 	// Use this for initialization
 	void Start () {
 
-		_thisButton = GetComponent<Button>();
-		_thisButton.onClick.AddListener(ChangeLine);
+//		PlayerPrefs.SetInt("ShaderID", PlayerPrefs.GetInt("ShaderID"));
+
+		PlayerPrefs.SetInt("UnlockedNeon", 1);
+		PlayerPrefs.SetInt("UnlockedRope", PlayerPrefs.GetInt("UnlockedRope"));
+		PlayerPrefs.SetInt("UnlockedBubbles", PlayerPrefs.GetInt("UnlockedBubbles"));
 
 	}
 
@@ -22,22 +30,4 @@ public class LineSkinManager : MonoBehaviour {
 	void Update () {
 
 	}
-
-	void ChangeLine()
-	{
-		PlayerPrefs.SetInt("LineID", lineID);
-//		_shaderManager.SelectShader();
-	}
-
-	void OnEnable()
-	{
-		if (PlayerPrefs.GetInt(lineName) == 1)
-		{
-			gameObject.SetActive(true);
-		}
-		else {
-			gameObject.SetActive(false);
-		}
-	}
-
 }
