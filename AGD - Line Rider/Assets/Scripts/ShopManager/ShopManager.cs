@@ -13,7 +13,6 @@ public class ShopManager : MonoBehaviour {
 
 	public Text currentCurrencyText;
 	public Text lineSkinBuyEquip;
-
 	public Transform lineSkinPanel;
 
 	//Lists the prices of the alternate lines or line skins
@@ -67,10 +66,14 @@ public class ShopManager : MonoBehaviour {
 	}
 
 
-	private void SetLineSkin(int Index){
+	private void SetLineSkin(int index){
 	
 		//Change the appearance of the line
 
+
+		//LineSkinManager.Instance.activeLine = LineSkinManager.Instance.lineSkins [index];
+
+		PlayerPrefs.SetInt ("Activated LineSkin", index);
 
 		//Change buy/equip button text
 		lineSkinBuyEquip.text = "Current";
@@ -100,6 +103,7 @@ public class ShopManager : MonoBehaviour {
 			lineSkinBuyEquip.text = "Equip"; 
 		} else {
 			//LineSkin has not been bought yet, therefore yet to be unlocked
+			//The button will desplay the following message
 			lineSkinBuyEquip.text = "Buy: " + alternateLineCost[currentIndex].ToString();
 		}
 	}
@@ -128,6 +132,7 @@ public class ShopManager : MonoBehaviour {
 			//If it is, then the currentCurrency will have its value subtracted by the price
 			SetCurrency((GetCurrency() - alternateLineCost[selectedLineSkinIndex]));
 			LineSkinUnlocker ();
+			lineSkinBuyEquip.text = "Equip"; 
 		}
 	}
 		
@@ -172,6 +177,10 @@ public class ShopManager : MonoBehaviour {
 		PlayerPrefs.SetInt ("Player Currency", value);
 	}
 
+	public void ReturnToMenu(){
+		//Return to the start menu
+		SceneManager.LoadScene (0);
+	}
 
 
 
