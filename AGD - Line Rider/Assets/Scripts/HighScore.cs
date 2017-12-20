@@ -42,8 +42,8 @@ public class HighScore : MonoBehaviour {
 		resultText.text = timeScore.ToString ("Your Score: 0");
 
 		if(GameOverMenu.gameOverState == true && !checkedOnce){
-			if (PlayerPrefs.GetFloat ("Highscore") < timeScore) {
-				PlayerPrefs.SetFloat ("Highscore", timeScore);
+            if (EncryptedPlayerPrefs.GetFloat ("Highscore") < timeScore) {
+                EncryptedPlayerPrefs.SetFloat ("Highscore", timeScore);
 			}
             if (OnGameOver != null)
                 OnGameOver(timeScore, PlayerPrefs.GetInt("BallID"));

@@ -27,7 +27,7 @@ public class UnlockShaders : MonoBehaviour
         PlayerPrefs.SetInt("UnlockedBounce", PlayerPrefs.GetInt("UnlockedBounce"));
         PlayerPrefs.SetInt("UnlockedGravity", PlayerPrefs.GetInt("UnlockedGravity"));
         PlayerPrefs.SetInt("UnlockedWeightless", PlayerPrefs.GetInt("UnlockedWeightless"));
-        PlayerPrefs.SetInt("UnlockedSnail", PlayerPrefs.GetInt("UnlockedSnail"));
+        EncryptedPlayerPrefs.SetInt("UnlockedSnailEncrypted", EncryptedPlayerPrefs.GetInt("UnlockedSnailEncrypted"));
 
         SelectShader();
     }
@@ -83,6 +83,7 @@ public class UnlockShaders : MonoBehaviour
         PlayerPrefs.SetInt("UnlockedBounce", 0);
         PlayerPrefs.SetInt("UnlockedGravity", 0);
         PlayerPrefs.SetInt("UnlockedWeightless", 0);
-        PlayerPrefs.SetInt("UnlockedSnail", 0);
+        EncryptedPlayerPrefs.SetInt("UnlockedSnailEncrypted", 0);
+        EncryptedPlayerPrefs.SetInt("UnlockedSnail", 0);
     }
 }
