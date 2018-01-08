@@ -20,7 +20,7 @@ public class MainMenuButtons : MonoBehaviour {
 
 	public void StartShopMenu()
 	{
-		SceneManager.LoadScene (2);
+		SceneManager.LoadScene (4);
 	}
 
 	public void Quit()
