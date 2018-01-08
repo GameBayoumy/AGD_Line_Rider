@@ -16,7 +16,7 @@ public class PickUp : SpawnableGameObject {
             GameObject CurrencyHandler = GameObject.Find("CurrencyHandler");
             Currency currency = CurrencyHandler.GetComponent<Currency>();
             int newCurrency = currency.CurrencyPoints += 1;
-            PlayerPrefs.SetInt("Player Currency",newCurrency);
+            EncryptedPlayerPrefs.SetInt("Player Currency", newCurrency);
             gameObject.SetActive(false);
         }
     }

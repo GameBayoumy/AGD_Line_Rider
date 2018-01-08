@@ -100,7 +100,8 @@ public class EnemyEngagingFSM : FSMEngaging {
         _spawnTimer -= 1;
         if (_spawnTimer <= 20)
         {
-            Instantiate(enemyBlock, new Vector3(this.transform.position.x - 3f, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+            GameObject newBlock = Instantiate(enemyBlock, new Vector3(this.transform.position.x - 3f, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+            newBlock.tag = "Spawnables";
             _spawnTimer = 250;
         }
     }
@@ -145,7 +146,8 @@ public class EnemyEngagingFSM : FSMEngaging {
         _spawnBumperTimer -= 1;
         if (_spawnBumperTimer <= 20)
         {
-            Instantiate(enemyBumper, new Vector3(this.transform.position.x - 3f, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+            GameObject newBumper = Instantiate(enemyBumper, new Vector3(this.transform.position.x - 3f, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+            newBumper.tag = "Spawnables";
             _spawnBumperTimer = 100;
         }
     }
