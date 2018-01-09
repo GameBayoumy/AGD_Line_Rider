@@ -26,21 +26,20 @@ public class ShopManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		SetCurrency (GetCurrency () + 100);
-
-		PlayerPrefs.SetInt("UnlockedRope", 0);
-		PlayerPrefs.SetInt("UnlockedBubbles", 0);
-
+		//Commented these out because I might still want to use them to test the shop system
+//		SetCurrency (GetCurrency () + 100);
+//		PlayerPrefs.SetInt("UnlockedRope", 0);
+//		PlayerPrefs.SetInt("UnlockedBubbles", 0);
 
 		// Add button onclick events to shop buttons
 		InitializeShop ();
-
 	}
 
 	// Update is called once per frame
 	void Update () {
 		//Displays the current currency within the shop scene
 		currentCurrencyText.text = (GetCurrency().ToString()) + " Coins";
+		Debug.Log (currentCurrencyText.text = (GetCurrency().ToString()) + " Coins");
 	}
 
 
@@ -169,12 +168,13 @@ public class ShopManager : MonoBehaviour {
 
 	//Gets the current currency from the game
 	public int GetCurrency(){
-		return PlayerPrefs.GetInt ("Player Currency");
+		Debug.Log ("Value = " + EncryptedPlayerPrefs.GetInt ("Player Currency"));
+		return EncryptedPlayerPrefs.GetInt ("Player Currency");
 	}
 
 	//Updates the current currency from the game
 	public void SetCurrency(int value){
-		PlayerPrefs.SetInt ("Player Currency", value);
+		EncryptedPlayerPrefs.SetInt ("Player Currency", value);
 	}
 
 	public void ReturnToMenu(){
