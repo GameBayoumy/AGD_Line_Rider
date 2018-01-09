@@ -51,6 +51,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761b8f5b1552f244799496eda0743355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  easyAmount: 5
+  easySets: []
+  normalSets: []
+  hardSets: []
+  customSets: []
+  chosenSets: []
+  easyAmount: 8
   normalAmount: 5
   hardAmount: 2
+  customAmount: 0

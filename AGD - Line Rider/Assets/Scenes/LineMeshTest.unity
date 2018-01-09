@@ -3135,6 +3135,10 @@ Prefab:
       propertyPath: m_Name
       value: chasingEnemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1038336098041576, guid: d448018a2376d154888167988e413b0b, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d448018a2376d154888167988e413b0b, type: 2}
   m_IsPrefabParent: 0

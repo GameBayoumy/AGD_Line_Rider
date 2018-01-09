@@ -55,11 +55,11 @@ public class HighScore : MonoBehaviour {
             checkedOnce = false;
         }
 
-        if (timeScore < 150)
+        if (timeScore < 300)
         {
             currentDifficulty = 1; ;
         }
-        else if (timeScore >= 150 && timeScore < 299)
+        else if (timeScore >= 300 && timeScore < 600)
         {
             currentDifficulty = 2;
         }
