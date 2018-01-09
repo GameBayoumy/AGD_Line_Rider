@@ -39,6 +39,12 @@ public class PlaceholderScript : MonoBehaviour {
             _positionInLevel = transform.position;
             _objectCopy = Instantiate(objectToSpawn, transform.position, transform.rotation);
             _objectCopy.transform.parent = _finalSet.transform;
+
+            if (_objectCopy.name != "GameObjectLaser(Clone)")
+            {
+                _objectCopy.transform.localScale = new Vector2(_objectCopy.transform.localScale.x, transform.localScale.y);
+            }
+
             GetComponent<SpriteRenderer>().enabled = false;
             transform.position = new Vector2(-200, -200);
         }

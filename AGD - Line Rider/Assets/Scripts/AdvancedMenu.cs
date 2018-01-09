@@ -102,4 +102,10 @@ public class AdvancedMenu : MonoBehaviour {
         advancedMenu.SetActive(false);
     }
 
+    public void DestroySelected()
+    {
+        HideAdvancedMenu();
+        Destroy(_ph);
+    }
+
 }

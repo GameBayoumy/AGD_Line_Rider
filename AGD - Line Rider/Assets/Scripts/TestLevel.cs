@@ -81,6 +81,8 @@ public class TestLevel : MonoBehaviour {
         _camera.GetComponent<CameraController>().offset = Vector3.zero;
         _camera.GetComponent<CameraController>().enabled = false;
 
+        _topWall.transform.localPosition = new Vector2(1, 10.5f);
+        _bottomWall.transform.localPosition = new Vector2(1, -10.7f);
         _topWall.GetComponent<WallMesh>().enabled = false;
         _bottomWall.GetComponent<WallMesh>().enabled = false;
 
