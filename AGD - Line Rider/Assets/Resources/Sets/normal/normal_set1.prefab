@@ -315,7 +315,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverCall: {fileID: 0}
   gameOverCaller: {fileID: 0}
-  speed: 0.1
+  speed: 0.25
+  Player: {fileID: 0}
 --- !u!114 &114796279174558498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -330,6 +331,7 @@ MonoBehaviour:
   gameOverCall: {fileID: 0}
   gameOverCaller: {fileID: 0}
   speed: 0.1
+  Player: {fileID: 0}
 --- !u!114 &114959068209211630
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -344,6 +346,7 @@ MonoBehaviour:
   gameOverCall: {fileID: 0}
   gameOverCaller: {fileID: 0}
   speed: 0.1
+  Player: {fileID: 0}
 --- !u!212 &212146877133564294
 SpriteRenderer:
   m_ObjectHideFlags: 1
