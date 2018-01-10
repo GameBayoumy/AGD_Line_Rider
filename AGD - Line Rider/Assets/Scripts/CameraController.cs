@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour {
 
 	private void OnEnable()
 	{
-		Player = GameObject.FindGameObjectWithTag("Player");
+		Player = GameObject.Find("Player");
 		//Calls the GameController which hosts the GameOverMenu script
 		GameObject gameOverCaller = GameObject.Find("GameController");     
 		gameOverCall = gameOverCaller.GetComponent<GameOverMenu>();  

@@ -52,7 +52,9 @@ public class LineMeshGenerator: MonoBehaviour
     private void Awake()
     {
         // Create an object and mesh for the trail
-        GameObject trail = new GameObject("Trail", new[] { typeof(MeshRenderer), typeof(MeshFilter), typeof(PolygonCollider2D) });
+        GameObject trail = new GameObject("Trail", new[] { typeof(MeshRenderer), typeof(MeshFilter), typeof(PolygonCollider2D)});
+        trail.layer = LayerMask.NameToLayer("Line");
+        trail.tag = "Line";
         player = GameObject.Find("Player").GetComponent<Player>();
         shaderManager = GameObject.Find("ShaderManager").GetComponent<UnlockShaders>();
         transform.SetParent(trail.transform);
