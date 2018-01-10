@@ -13,7 +13,7 @@ public class UI_Manager : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        player = GameObject.Find("Player").GetComponent<Player>();
         uiSlider.maxValue = player.maxResource;        // Set max value in ui slider
         uiSlider.value = player.drawResource;          // Set current ui value to draw resource
     }
