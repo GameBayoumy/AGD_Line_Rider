@@ -144,7 +144,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1212136875354810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 38.452457, y: 0.5699923, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4480824629351432}
@@ -315,7 +315,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverCall: {fileID: 0}
   gameOverCaller: {fileID: 0}
-  speed: 0.1
+  speed: 0.25
+  Player: {fileID: 0}
 --- !u!114 &114796279174558498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -330,6 +331,7 @@ MonoBehaviour:
   gameOverCall: {fileID: 0}
   gameOverCaller: {fileID: 0}
   speed: 0.1
+  Player: {fileID: 0}
 --- !u!114 &114959068209211630
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -344,6 +346,7 @@ MonoBehaviour:
   gameOverCall: {fileID: 0}
   gameOverCaller: {fileID: 0}
   speed: 0.1
+  Player: {fileID: 0}
 --- !u!212 &212146877133564294
 SpriteRenderer:
   m_ObjectHideFlags: 1

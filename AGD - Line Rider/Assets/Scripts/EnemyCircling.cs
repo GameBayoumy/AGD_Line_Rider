@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class EnemyCircling : EnemyBasic {
 
+    [SerializeField]
     private float RotateSpeed = 4f;
+    [SerializeField]
     private float Radius = 2f;
     private Vector2 Offset;
 
