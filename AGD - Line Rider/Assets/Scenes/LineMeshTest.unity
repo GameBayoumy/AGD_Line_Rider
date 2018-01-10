@@ -2260,25 +2260,15 @@ Prefab:
       propertyPath: m_Name
       value: Canvas_HUD
       objectReference: {fileID: 0}
-    - target: {fileID: 224785654441915650, guid: e0a0c8f8b57d0994ba51325fd9aff3cf,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114093914619408082, guid: e0a0c8f8b57d0994ba51325fd9aff3cf,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114093914619408082, guid: e0a0c8f8b57d0994ba51325fd9aff3cf,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 964198272}
-    - target: {fileID: 114093914619408082, guid: e0a0c8f8b57d0994ba51325fd9aff3cf,
+    - target: {fileID: 224785654441915650, guid: e0a0c8f8b57d0994ba51325fd9aff3cf,
         type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Pause
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0a0c8f8b57d0994ba51325fd9aff3cf, type: 2}
