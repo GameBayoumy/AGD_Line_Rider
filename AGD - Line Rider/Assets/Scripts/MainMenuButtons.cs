@@ -10,7 +10,7 @@ public class MainMenuButtons : MonoBehaviour {
 
 	public void Start(){
 		//Showcases biggest highscore
-		highScoreText.text = "Highscore: " + ((int)PlayerPrefs.GetFloat ("Highscore")).ToString();
+		highScoreText.text = "Highscore: " + (PlayerPrefs.GetFloat ("Highscore")).ToString();
 	}
 
 	public void StartGame()
