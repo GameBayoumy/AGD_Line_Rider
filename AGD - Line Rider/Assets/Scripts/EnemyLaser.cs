@@ -15,6 +15,7 @@ public class EnemyLaser : MonoBehaviour {
     private Vector3 _currentLength;
     private bool _laserHit = false;
     private float _invertDirNumber = 1f;
+    public AudioClip LaserTouchSFX;
 
 	// Use this for initialization
 	void Start () {
@@ -80,6 +81,10 @@ public class EnemyLaser : MonoBehaviour {
             {
                 _currentLength = contactPoint;
             }
+        }
+
+        if(collision.gameObject.name == "Trail"){
+            SoundManager.PlaySFX(LaserTouchSFX, "SFX");
         }
     }
 
