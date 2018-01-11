@@ -217,8 +217,8 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: D:/SpaceLine/AGD - Line Rider/unlock.keystore
-  AndroidKeyaliasName: unlock
+  AndroidKeystoreName: 
+  AndroidKeyaliasName: 
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   androidEnableBanner: 1

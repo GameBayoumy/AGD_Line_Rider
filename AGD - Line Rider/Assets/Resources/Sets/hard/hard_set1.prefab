@@ -129,6 +129,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4360874119694256}
+  - component: {fileID: 114861569229933432}
   m_Layer: 0
   m_Name: hard_set1
   m_TagString: Untagged
@@ -628,6 +629,7 @@ MonoBehaviour:
   gameOverCall: {fileID: 0}
   gameOverCaller: {fileID: 0}
   speed: 0.1
+  Player: {fileID: 0}
 --- !u!114 &114271750145769302
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -681,6 +683,18 @@ MonoBehaviour:
   gameOverCall: {fileID: 0}
   gameOverCaller: {fileID: 0}
   speed: 0.1
+  Player: {fileID: 0}
+--- !u!114 &114861569229933432
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1680761178260648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed658a25f97e6024aa2e9213d96903ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114866710003123082
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -695,6 +709,7 @@ MonoBehaviour:
   gameOverCall: {fileID: 0}
   gameOverCaller: {fileID: 0}
   speed: 0.1
+  Player: {fileID: 0}
 --- !u!114 &114871107672557424
 MonoBehaviour:
   m_ObjectHideFlags: 1

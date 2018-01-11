@@ -49,6 +49,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4021869442600700}
+  - component: {fileID: 114533504830614640}
   m_Layer: 0
   m_Name: easy_set5
   m_TagString: Untagged
@@ -509,6 +510,17 @@ MonoBehaviour:
   invertDirection: 0
   laserStart: {fileID: 4796861751388620}
   laserEnd: {fileID: 4589593733245292}
+--- !u!114 &114533504830614640
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1283822365586902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed658a25f97e6024aa2e9213d96903ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212038510922354980
 SpriteRenderer:
   m_ObjectHideFlags: 1
