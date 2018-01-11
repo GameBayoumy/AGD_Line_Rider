@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4233644630910112}
+  - component: {fileID: 114522150578173698}
   m_Layer: 0
   m_Name: easy_set3
   m_TagString: Untagged
@@ -240,6 +241,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTime: 0.1
   bounceSFX: {fileID: 8300000, guid: 56d29afd9631728429b0781b0c394067, type: 3}
+--- !u!114 &114522150578173698
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1191048863643688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed658a25f97e6024aa2e9213d96903ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212085298968771166
 SpriteRenderer:
   m_ObjectHideFlags: 1
