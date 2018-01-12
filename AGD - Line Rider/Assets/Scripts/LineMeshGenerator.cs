@@ -174,6 +174,7 @@ public class LineMeshGenerator: MonoBehaviour
         // Only continue if there are at least two center positions in the collection
         if (centerPositions.Count < 2)
         {
+            Destroy(this.gameObject.transform.parent.gameObject);
             return;
         }
 
