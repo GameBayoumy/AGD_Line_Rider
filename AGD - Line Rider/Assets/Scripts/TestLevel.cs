@@ -9,6 +9,7 @@ public class TestLevel : MonoBehaviour {
     public GameObject failureScreen;
     public GameObject ghost;
     public GameObject advancedMenu;
+    public GameObject cameraButtons;
 
     GameObject _camera;
     GameObject _topWall;
@@ -56,7 +57,7 @@ public class TestLevel : MonoBehaviour {
         _trashcan.SetActive(false);
         _scrollBar.SetActive(false);
         _playButton.transform.localPosition = new Vector2(321, 800);
-
+        cameraButtons.SetActive(false);
         advancedMenu.SetActive(false);
     }
 
@@ -81,10 +82,14 @@ public class TestLevel : MonoBehaviour {
         _camera.GetComponent<CameraController>().offset = Vector3.zero;
         _camera.GetComponent<CameraController>().enabled = false;
 
+        _topWall.transform.localPosition = new Vector2(1, 10.5f);
+        _bottomWall.transform.localPosition = new Vector2(1, -10.7f);
         _topWall.GetComponent<WallMesh>().enabled = false;
         _bottomWall.GetComponent<WallMesh>().enabled = false;
 
         _bluePrint.transform.position = new Vector3(0, 2, 9);
+
+        cameraButtons.SetActive(true);
 
         _trashcan.SetActive(true);
         _scrollBar.SetActive(true);

@@ -28,6 +28,7 @@ public class PlaceholderScript : MonoBehaviour {
         originalCol = col;
         _testManager = GameObject.Find("Play").GetComponent<TestLevel>();
         _finalSet = GameObject.Find("CustomSet");
+        transform.position = new Vector2(Camera.main.transform.position.x, transform.position.y);
 	}
 	
 	// Update is called once per frame
@@ -39,6 +40,12 @@ public class PlaceholderScript : MonoBehaviour {
             _positionInLevel = transform.position;
             _objectCopy = Instantiate(objectToSpawn, transform.position, transform.rotation);
             _objectCopy.transform.parent = _finalSet.transform;
+
+            if (_objectCopy.name != "GameObjectLaser(Clone)")
+            {
+                _objectCopy.transform.localScale = new Vector2(_objectCopy.transform.localScale.x, transform.localScale.y);
+            }
+
             GetComponent<SpriteRenderer>().enabled = false;
             transform.position = new Vector2(-200, -200);
         }
@@ -56,15 +63,6 @@ public class PlaceholderScript : MonoBehaviour {
     void OnMouseDrag()
     {
         transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, 10));
-        
-        if (overlapping)
-        {
-            col = Color.red;
-        }
-        else
-        {
-            col = originalCol;
-        }
     }
 
     void OnMouseUp()
