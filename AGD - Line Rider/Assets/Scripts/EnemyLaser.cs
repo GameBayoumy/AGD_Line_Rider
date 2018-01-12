@@ -43,9 +43,9 @@ public class EnemyLaser : MonoBehaviour {
         else
         {
             if(!isHorizontal)
-                laserEnd.position = new Vector3(laserEnd.position.x, laserEnd.position.y - ((5 * _invertDirNumber) * Time.deltaTime), 0);
+                laserEnd.position = new Vector3(laserEnd.position.x, laserEnd.position.y - ((laserSpeed * _invertDirNumber) * Time.deltaTime), 0);
             else if (isHorizontal)
-                laserEnd.position = new Vector3(laserEnd.position.x - ((5 * _invertDirNumber) * Time.deltaTime), laserEnd.position.y, 0);
+                laserEnd.position = new Vector3(laserEnd.position.x - ((laserSpeed * _invertDirNumber) * Time.deltaTime), laserEnd.position.y, 0);
             laserEnd.localPosition = new Vector3(0, laserEnd.localPosition.y, 0);
         }
     }
