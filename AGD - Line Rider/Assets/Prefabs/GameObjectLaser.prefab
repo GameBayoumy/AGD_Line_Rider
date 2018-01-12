@@ -246,7 +246,7 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 1.5}
   m_EdgeRadius: 0
   m_Points:
   - {x: -1.6476126, y: 0.0015349388}
@@ -262,7 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8c7fa88be6754638be68528f8d14f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserSpeed: 1
+  laserSpeed: 10
   factor: 1
   isHorizontal: 0
   invertDirection: 0
