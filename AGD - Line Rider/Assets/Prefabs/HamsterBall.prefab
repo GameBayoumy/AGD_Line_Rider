@@ -37,7 +37,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4164472944647822}
   - component: {fileID: 212502919761104762}
-  m_Layer: 0
+  - component: {fileID: 58204010887315200}
+  m_Layer: 10
   m_Name: pCylinder1
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -144,6 +145,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &58204010887315200
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1238355915556210}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.09}
+  serializedVersion: 2
+  m_Radius: 1.25
 --- !u!58 &58685953635279724
 CircleCollider2D:
   m_ObjectHideFlags: 1
