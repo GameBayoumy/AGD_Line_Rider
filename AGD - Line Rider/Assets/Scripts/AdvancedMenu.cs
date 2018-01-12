@@ -42,6 +42,8 @@ public class AdvancedMenu : MonoBehaviour {
                     _phScript = hit.transform.gameObject.GetComponent<PlaceholderScript>();
                     UpdateAdvancedMenu();
                     advancedMenu.SetActive(true);
+                    sizeSlider.transform.position += new Vector3(0, 0.00001f, 0);
+                    rotationSlider.transform.position += new Vector3(0, 0.00001f, 0);
                 }
             }
         }
@@ -67,23 +69,23 @@ public class AdvancedMenu : MonoBehaviour {
 
         if (_phScript.canBeScaled)
         {
-            sizeSlider.transform.localPosition = new Vector2(-4, -45);
+            sizeSlider.transform.localPosition = new Vector3(-4, -45, 1);
             _lockScaling = false;
         }
         else
         {
-            sizeSlider.transform.localPosition = new Vector2(-400, -45);
+            sizeSlider.transform.localPosition = new Vector3(-400, -45, 1);
             _lockScaling = true;
         }
 
         if (_phScript.canBeRotated)
         {
-            rotationSlider.transform.localPosition = new Vector2(-4, -117);
+            rotationSlider.transform.localPosition = new Vector3(-4, -117, 1);
             _lockRotating = false;
         }
         else
         {
-            rotationSlider.transform.localPosition = new Vector2(-400, -117);
+            rotationSlider.transform.localPosition = new Vector3(-400, -117, 1);
             _lockRotating = true;
         }
 

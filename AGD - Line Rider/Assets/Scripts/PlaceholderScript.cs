@@ -28,6 +28,7 @@ public class PlaceholderScript : MonoBehaviour {
         originalCol = col;
         _testManager = GameObject.Find("Play").GetComponent<TestLevel>();
         _finalSet = GameObject.Find("CustomSet");
+        transform.position = new Vector2(Camera.main.transform.position.x, transform.position.y);
 	}
 	
 	// Update is called once per frame
@@ -62,15 +63,6 @@ public class PlaceholderScript : MonoBehaviour {
     void OnMouseDrag()
     {
         transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, 10));
-        
-        if (overlapping)
-        {
-            col = Color.red;
-        }
-        else
-        {
-            col = originalCol;
-        }
     }
 
     void OnMouseUp()
