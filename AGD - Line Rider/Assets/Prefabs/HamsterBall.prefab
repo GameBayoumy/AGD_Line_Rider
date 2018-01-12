@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 114540354070369654}
   - component: {fileID: 58685953635279724}
   - component: {fileID: 212438460915091200}
-  - component: {fileID: 50994277685709074}
+  - component: {fileID: 50890159914792646}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -116,16 +116,16 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.2
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!50 &50994277685709074
+--- !u!50 &50890159914792646
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
