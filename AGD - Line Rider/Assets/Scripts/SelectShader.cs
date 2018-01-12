@@ -26,7 +26,7 @@ public class SelectShader : MonoBehaviour {
 
     void ChangeShader()
     {
-        PlayerPrefs.SetInt("ShaderID", shaderID);
+		PlayerPrefs.SetInt("Activated LineSkin", shaderID);
         _shaderManager.SelectShader();
     }
 

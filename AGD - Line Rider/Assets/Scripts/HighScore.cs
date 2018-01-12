@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class HighScore : MonoBehaviour {
 
-	public float timeScore;
+	public int timeScore;
     public int currentDifficulty;
 	public Text timerText;
 	public Text resultText;
@@ -37,7 +37,7 @@ public class HighScore : MonoBehaviour {
 //				rb.AddForce(0, jumpPower, 0);
 //			}
 
-		timeScore = playerPosition.transform.position.x;
+		timeScore = (int)playerPosition.transform.position.x;
 		timerText.text = timeScore.ToString("Score: 0");
 		resultText.text = timeScore.ToString ("Your Score: 0");
 
