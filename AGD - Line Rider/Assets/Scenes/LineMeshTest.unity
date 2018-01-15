@@ -1382,6 +1382,21 @@ Prefab:
       propertyPath: touch
       value: 
       objectReference: {fileID: 1511892462}
+    - target: {fileID: 50319938290675734, guid: 666cec9d2f28c34478b25eedc041f440,
+        type: 2}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50822349637486446, guid: 666cec9d2f28c34478b25eedc041f440,
+        type: 2}
+      propertyPath: m_GravityScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114540354070369654, guid: 666cec9d2f28c34478b25eedc041f440,
+        type: 2}
+      propertyPath: speed
+      value: 2000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 666cec9d2f28c34478b25eedc041f440, type: 2}
   m_IsPrefabParent: 0
