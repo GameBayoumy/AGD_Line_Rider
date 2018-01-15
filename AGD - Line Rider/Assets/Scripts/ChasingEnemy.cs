@@ -29,7 +29,9 @@ public class ChasingEnemy : EnemyBasic {
 
             if (distance > 1f)
             {
-                transform.position = Vector2.MoveTowards(transform.position, playerPos.position, speed);
+				if (Time.timeScale == 1) {
+					transform.position = Vector2.MoveTowards (transform.position, playerPos.position, speed);
+				}
             }
         }
 
