@@ -141,21 +141,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1015503039053336, guid: 666cec9d2f28c34478b25eedc041f440,
     type: 2}
   m_PrefabInternal: {fileID: 1192824378}
---- !u!114 &175487720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 175487716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b08297b6619b94eacafac78c7b0b1b75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 100
-  maxResource: 20
-  drawResource: 0
-  touch: {fileID: 1511892462}
 --- !u!1 &243790671
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,26 +251,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4701531688667844, guid: 666cec9d2f28c34478b25eedc041f440,
     type: 2}
   m_PrefabInternal: {fileID: 1192824378}
---- !u!50 &339368996
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 339368991}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 1
-  m_AngularDrag: 1
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!224 &422690748 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224490476129143566, guid: 6edd9939eb1714e2b8d09dbf808d3676,
@@ -1412,33 +1377,7 @@ Prefab:
       propertyPath: touch
       value: 
       objectReference: {fileID: 1511892462}
-    - target: {fileID: 50822349637486446, guid: 666cec9d2f28c34478b25eedc041f440,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 50822349637486446, guid: 666cec9d2f28c34478b25eedc041f440,
-        type: 2}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114540354070369654, guid: 666cec9d2f28c34478b25eedc041f440,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 50822349637486446, guid: 666cec9d2f28c34478b25eedc041f440,
-        type: 2}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 50822349637486446, guid: 666cec9d2f28c34478b25eedc041f440,
-        type: 2}
-      propertyPath: m_GravityScale
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 50964889979609632, guid: 666cec9d2f28c34478b25eedc041f440, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 666cec9d2f28c34478b25eedc041f440, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1201351399
