@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 316773dce2f154767ae067b847824579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTime: 0.1
   bounceSFX: {fileID: 0}
+  scaleSize: 1.05
 --- !u!212 &212539894755714786
 SpriteRenderer:
   m_ObjectHideFlags: 1
