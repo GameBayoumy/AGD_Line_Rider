@@ -37,7 +37,8 @@ public class HighScore : MonoBehaviour {
 //				rb.AddForce(0, jumpPower, 0);
 //			}
 
-		timeScore = (int)playerPosition.transform.position.x;
+		//Displays the Highscore as an integer value that is ALWAYS a positive value
+		timeScore = (int)(Mathf.Abs(playerPosition.transform.position.x));
 		timerText.text = timeScore.ToString("Score: 0");
 		resultText.text = timeScore.ToString ("Your Score: 0");
 
