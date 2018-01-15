@@ -14,7 +14,6 @@ public class Bumper : MonoBehaviour {
         {
             SoundManager.PlaySFXRandomized(bounceSFX, "SFX");
             transform.localScale = new Vector3(transform.localScale.x * scaleSize, transform.localScale.y * scaleSize, transform.localScale.z * 1.0f);
-            hit = true;
         }
     }
 
@@ -24,7 +23,6 @@ public class Bumper : MonoBehaviour {
         {
             SoundManager.PlaySFXRandomized(bounceSFX, "SFX");
             transform.localScale = new Vector3(transform.localScale.x / scaleSize, transform.localScale.y / scaleSize, transform.localScale.z / 1.0f);
-            hit = true;
         }
     }
 }
