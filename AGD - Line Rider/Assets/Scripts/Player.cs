@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
 		Vector2 movement = new Vector2(moveHorizontal, moveVertical);
 		rb2d.AddForce(movement * speed);
 
-		if (rb2d.velocity.x > 10)
+		if (rb2d.velocity.x > 2)
 		{
 			rb2d.velocity = rb2d.velocity.normalized * 10;
 		}
