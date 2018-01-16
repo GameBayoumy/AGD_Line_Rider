@@ -51,6 +51,11 @@ public class PlaceholderScript : MonoBehaviour {
                 _objectCopy.transform.localEulerAngles = new Vector3(0, 0, -180);
             }
 
+            if (_objectCopy.name == "HorizontalLaser(Clone)")
+            {
+                _objectCopy.transform.localEulerAngles -= new Vector3(0, 0, 90);
+            }
+
             GetComponent<SpriteRenderer>().enabled = false;
             transform.position = new Vector2(-200, -200);
         }
