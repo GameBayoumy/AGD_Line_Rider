@@ -82,7 +82,7 @@ public class CompleteTest : MonoBehaviour {
 
     public void CreateDuplicate()
     {
-        _ghostSet = Instantiate(_customSet, Vector3.zero, Quaternion.identity);
+        _ghostSet = Instantiate(_customSet, new Vector2(0, -2.47f), Quaternion.identity);
         _setEnd = _ghostSet.transform.Find("set_end").gameObject;
         _ghostSet.SetActive(false);
         _ghostSet.gameObject.name = "GhostSet";
