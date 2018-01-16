@@ -206,7 +206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4243857442250728}
   m_Layer: 0
-  m_Name: custom_set8
+  m_Name: hard_set5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

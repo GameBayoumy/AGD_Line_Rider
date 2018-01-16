@@ -983,6 +983,16 @@ Prefab:
     - target: {fileID: 114499700057879468, guid: 2e5935c286e3c2649b1ba872f8069f2e,
         type: 2}
       propertyPath: easyAmount
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114499700057879468, guid: 2e5935c286e3c2649b1ba872f8069f2e,
+        type: 2}
+      propertyPath: normalAmount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114499700057879468, guid: 2e5935c286e3c2649b1ba872f8069f2e,
+        type: 2}
+      propertyPath: hardAmount
       value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
