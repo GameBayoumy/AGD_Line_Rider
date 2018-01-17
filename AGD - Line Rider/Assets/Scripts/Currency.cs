@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Currency : MonoBehaviour {
 
@@ -10,12 +11,7 @@ public class Currency : MonoBehaviour {
     //Currency currency = CurrencyHandler.GetComponent<Currency>();
     //PlayerPrefs.SetInt("Player Currency", currency.CurrencyPoints + 1);
 
-
-	// Use this for initialization
-	//void Start () {
- //       CurrencyPoints = PlayerPrefs.GetInt("Player Currency");
- //       PlayerPrefs.SetInt("Player Currency", CurrencyPoints);
-	//}
+	public Text currentCurrencyText;
 
 
     void Start()
@@ -28,12 +24,14 @@ public class Currency : MonoBehaviour {
         EncryptedPlayerPrefs.keys[3] = "tHat2epr";
         EncryptedPlayerPrefs.keys[4] = "jaw3eDAs";
 
-
         CurrencyPoints = EncryptedPlayerPrefs.GetInt("Player Currency");
         EncryptedPlayerPrefs.SetInt("Player Currency", CurrencyPoints);
        // Debug.Log(EncryptedPlayerPrefs.GetInt("Player Currency", -1));
     }
 
-
-
+	void Update()
+	{
+		//Displays the current currency within the shop scene
+		currentCurrencyText.text = (EncryptedPlayerPrefs.GetInt ("Player Currency").ToString());
+	}
 }
