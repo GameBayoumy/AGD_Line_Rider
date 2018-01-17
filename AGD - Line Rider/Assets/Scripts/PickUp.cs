@@ -8,10 +8,9 @@ public class PickUp : SpawnableGameObject {
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+		if (collision.gameObject.name == "pCylinder1")
         {
             //Add score
-
             SoundManager.PlaySFXRandomized(pickupSound, "SFX");
             GameObject CurrencyHandler = GameObject.Find("CurrencyHandler");
             Currency currency = CurrencyHandler.GetComponent<Currency>();
