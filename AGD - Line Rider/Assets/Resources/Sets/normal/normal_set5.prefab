@@ -186,7 +186,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4179026247811278}
   - component: {fileID: 114140257554067120}
-  - component: {fileID: 114345758618428492}
   m_Layer: 0
   m_Name: normal_set5
   m_TagString: Untagged
@@ -664,18 +663,6 @@ MonoBehaviour:
   laserStart: {fileID: 4537687681572654}
   laserEnd: {fileID: 4305279553550088}
   LaserTouchSFX: {fileID: 8300000, guid: 7208c3ff072944f7da8f525d7a7f9ca9, type: 3}
---- !u!114 &114345758618428492
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1832145784577632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be7c7c163778bc242baad5ce28c46818, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  beginPoint: {fileID: 1716336086788296, guid: cb74f2708e75f74429f57ff5a3af5cb3, type: 2}
 --- !u!114 &114813579980432726
 MonoBehaviour:
   m_ObjectHideFlags: 1

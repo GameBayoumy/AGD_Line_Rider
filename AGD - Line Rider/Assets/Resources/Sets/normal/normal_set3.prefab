@@ -90,8 +90,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4283666180833006}
   - component: {fileID: 114230518557851232}
-  - component: {fileID: 114228200499019870}
-  - component: {fileID: 114702815555081298}
   m_Layer: 0
   m_Name: normal_set3
   m_TagString: Untagged
@@ -293,17 +291,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114228200499019870
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1971107446115000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed658a25f97e6024aa2e9213d96903ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114230518557851232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -330,18 +317,6 @@ MonoBehaviour:
   gameOverCaller: {fileID: 0}
   RotateSpeed: 3
   Radius: 5
---- !u!114 &114702815555081298
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1971107446115000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be7c7c163778bc242baad5ce28c46818, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  beginPoint: {fileID: 1716336086788296, guid: cb74f2708e75f74429f57ff5a3af5cb3, type: 2}
 --- !u!212 &212014082712420606
 SpriteRenderer:
   m_ObjectHideFlags: 1

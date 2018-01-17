@@ -160,7 +160,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4138318395520080}
-  - component: {fileID: 114754039654393158}
   - component: {fileID: 114250780759848316}
   m_Layer: 0
   m_Name: hard_set14
@@ -333,7 +332,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1481749773234620}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.4427855, y: -5.225302, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4832484963610450}
@@ -474,7 +473,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1532001290778846}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 47.436745, y: 2.47, z: 0}
+  m_LocalPosition: {x: 57.818565, y: -0.5998237, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4138318395520080}
@@ -487,7 +486,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1188277722850800}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.328179, y: 7.9998236, z: 0}
+  m_LocalPosition: {x: 19.71, y: 4.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 4119263981609906}
@@ -501,7 +500,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1390028139352310}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.436747, y: 7.802175, z: 0}
+  m_LocalPosition: {x: 27.818565, y: 4.7323513, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 4086040049013132}
@@ -919,18 +918,6 @@ MonoBehaviour:
   laserStart: {fileID: 4390356901349170}
   laserEnd: {fileID: 4778221240123464}
   LaserTouchSFX: {fileID: 8300000, guid: 7208c3ff072944f7da8f525d7a7f9ca9, type: 3}
---- !u!114 &114754039654393158
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1481749773234620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be7c7c163778bc242baad5ce28c46818, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  beginPoint: {fileID: 1716336086788296, guid: cb74f2708e75f74429f57ff5a3af5cb3, type: 2}
 --- !u!198 &198081041479620360
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -37,8 +37,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4547408121079264}
   - component: {fileID: 114029550285776098}
-  - component: {fileID: 114025186171529674}
-  - component: {fileID: 114725828021981896}
   m_Layer: 0
   m_Name: normal_set4
   m_TagString: Untagged
@@ -871,17 +869,6 @@ EdgeCollider2D:
   m_Points:
   - {x: -1.6476126, y: 0.0015349388}
   - {x: 1.5257158, y: 0.000025749207}
---- !u!114 &114025186171529674
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1136296287536730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed658a25f97e6024aa2e9213d96903ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114029550285776098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -929,18 +916,6 @@ MonoBehaviour:
   laserStart: {fileID: 4304767285796910}
   laserEnd: {fileID: 4843348242248466}
   LaserTouchSFX: {fileID: 8300000, guid: 7208c3ff072944f7da8f525d7a7f9ca9, type: 3}
---- !u!114 &114725828021981896
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1136296287536730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be7c7c163778bc242baad5ce28c46818, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  beginPoint: {fileID: 1716336086788296, guid: cb74f2708e75f74429f57ff5a3af5cb3, type: 2}
 --- !u!114 &114838394965640406
 MonoBehaviour:
   m_ObjectHideFlags: 1

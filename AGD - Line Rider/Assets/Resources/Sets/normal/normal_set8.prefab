@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4728993281971330}
   - component: {fileID: 114708776796397604}
-  - component: {fileID: 114504235393361932}
   m_Layer: 0
   m_Name: normal_set8
   m_TagString: Untagged
@@ -614,18 +613,6 @@ MonoBehaviour:
   splittingSFX: {fileID: 8300000, guid: 44bf1194efc696a46a51dff09f75aad6, type: 3}
   gameOverCall: {fileID: 0}
   gameOverCaller: {fileID: 0}
---- !u!114 &114504235393361932
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1161584127263166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be7c7c163778bc242baad5ce28c46818, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  beginPoint: {fileID: 1716336086788296, guid: cb74f2708e75f74429f57ff5a3af5cb3, type: 2}
 --- !u!114 &114685560098743082
 MonoBehaviour:
   m_ObjectHideFlags: 1

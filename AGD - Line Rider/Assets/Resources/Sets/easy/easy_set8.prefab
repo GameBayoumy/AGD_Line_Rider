@@ -34,10 +34,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4827592401128530}
-  - component: {fileID: 114411581161533530}
   - component: {fileID: 114812487012500348}
-  - component: {fileID: 114726706099992896}
-  - component: {fileID: 114745859199458888}
   m_Layer: 0
   m_Name: easy_set8
   m_TagString: Untagged
@@ -317,18 +314,6 @@ MonoBehaviour:
   splittingSFX: {fileID: 8300000, guid: 44bf1194efc696a46a51dff09f75aad6, type: 3}
   gameOverCall: {fileID: 0}
   gameOverCaller: {fileID: 0}
---- !u!114 &114411581161533530
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1240208430688426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be7c7c163778bc242baad5ce28c46818, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  beginPoint: {fileID: 1716336086788296, guid: cb74f2708e75f74429f57ff5a3af5cb3, type: 2}
 --- !u!114 &114631534804931840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -350,29 +335,6 @@ MonoBehaviour:
   splittingSFX: {fileID: 8300000, guid: 44bf1194efc696a46a51dff09f75aad6, type: 3}
   gameOverCall: {fileID: 0}
   gameOverCaller: {fileID: 0}
---- !u!114 &114726706099992896
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1240208430688426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed658a25f97e6024aa2e9213d96903ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114745859199458888
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1240208430688426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be7c7c163778bc242baad5ce28c46818, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  beginPoint: {fileID: 0}
 --- !u!114 &114812487012500348
 MonoBehaviour:
   m_ObjectHideFlags: 1

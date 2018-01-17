@@ -156,8 +156,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4814623295235068}
   - component: {fileID: 114876758785804240}
-  - component: {fileID: 114123434781496186}
-  - component: {fileID: 114694311555753684}
   m_Layer: 0
   m_Name: normal_set2
   m_TagString: Untagged
@@ -412,17 +410,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114123434781496186
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1847609302335656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed658a25f97e6024aa2e9213d96903ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114200669747704998
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -461,18 +448,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupSound: {fileID: 8300000, guid: 1627a9ef44446994c99f5fb5eb812e24, type: 3}
---- !u!114 &114694311555753684
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1847609302335656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be7c7c163778bc242baad5ce28c46818, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  beginPoint: {fileID: 1716336086788296, guid: cb74f2708e75f74429f57ff5a3af5cb3, type: 2}
 --- !u!114 &114876758785804240
 MonoBehaviour:
   m_ObjectHideFlags: 1
