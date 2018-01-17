@@ -69,14 +69,6 @@ public class SetObjectPools : MonoBehaviour {
 
     }
 
-    void Update()
-    {
-        //if (Input.GetKeyDown(KeyCode.F))
-        //{
-        //    chosenSets = hardSets;
-        //}
-    }
-
     public GameObject GetPooledSet()
     {
         int i = Random.Range(0, chosenSets.Count);

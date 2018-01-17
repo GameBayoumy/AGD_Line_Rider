@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class UnlockShaders : MonoBehaviour
 {
-
     public Material activeMaterial;
     public Material[] possibleMaterials;
     public GameObject skinUI;
@@ -35,12 +34,10 @@ public class UnlockShaders : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.G))
         {
             ResetAllProgress();
         }
-
     }
 
     public void UnlockShader(string shaderKey)

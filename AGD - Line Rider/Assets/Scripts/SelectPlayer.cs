@@ -10,16 +10,6 @@ public class SelectPlayer : MonoBehaviour {
     public float ballSpeed;
     public float ballBounce;
 
-	// Use this for initialization
-	void Start () {
-
-    }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     public void ChangeBall()
     {
         PlayerPrefs.SetInt("BallID", ballID);

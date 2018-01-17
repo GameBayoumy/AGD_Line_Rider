@@ -33,14 +33,5 @@ public class scroll : MonoBehaviour
 
 
         transform.position = new Vector3(Player.transform.position.x, transform.position.y, transform.position.z);
-
-
-
-        //scrollSpeed = scrollScale * Player.GetComponent<Rigidbody2D>().velocity.x * Time.time;
-
-
-        //if (Player.GetComponent<Rigidbody2D>().velocity.x == 0){
-        //    scrollSpeed = 0.01f;
-        //}
     }
 }

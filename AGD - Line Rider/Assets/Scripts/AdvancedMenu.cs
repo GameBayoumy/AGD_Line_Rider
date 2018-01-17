@@ -17,11 +17,6 @@ public class AdvancedMenu : MonoBehaviour {
     private bool _lockScaling;
     private bool _lockRotating;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-
     // Update is called once per frame
     void Update()
     {

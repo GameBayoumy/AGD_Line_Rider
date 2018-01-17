@@ -30,13 +30,6 @@ public class HighScore : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-//			var move = new Vector3(Input.GetAxis("Horizontal"), 0 , 0);
-//			transform.position += move * movementSpeed * Time.deltaTime;
-//			if (Input.GetButtonDown("Jump"))
-//			{
-//				rb.AddForce(0, jumpPower, 0);
-//			}
-
 		//Displays the Highscore as an integer value that is ALWAYS a positive value
 		timeScore = (int)(Mathf.Abs(playerPosition.transform.position.x));
 		timerText.text = timeScore.ToString("Score: 0");

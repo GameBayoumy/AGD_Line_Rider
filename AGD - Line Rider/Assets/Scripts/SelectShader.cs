@@ -18,11 +18,6 @@ public class SelectShader : MonoBehaviour {
         _shaderManager = GameObject.Find("ShaderManager").GetComponent<UnlockShaders>();
             
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     void ChangeShader()
     {
