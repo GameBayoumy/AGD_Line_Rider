@@ -11,14 +11,23 @@ public class ChasingEnemy : EnemyBasic {
     private bool hasPassed;
     private bool shouldStop;
 	// Use this for initialization
+
+
 	protected override void Awake() {
         playerPos = GameObject.FindWithTag("Player").transform;
         base.Awake();
            Player = GameObject.Find("Player");
 	}
-	
-	// Update is called once per frame
-	protected override void Update () {
+
+    protected override void Reset()
+    {
+        hasPassed = false;
+        shouldStop = false;
+
+        base.Reset();
+    }
+    // Update is called once per frame
+    protected override void Update () {
 
         PlayerPosition = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z); //puts the playerposition into a vector3
 
