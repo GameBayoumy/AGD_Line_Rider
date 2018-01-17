@@ -455,6 +455,18 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: RevealSkinUI
       objectReference: {fileID: 0}
+    - target: {fileID: 1296023635641086, guid: ff39b077fc1584c5ea04a7bc6d3aeb82, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787311753475896, guid: ff39b077fc1584c5ea04a7bc6d3aeb82, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1956578804733428, guid: ff39b077fc1584c5ea04a7bc6d3aeb82, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff39b077fc1584c5ea04a7bc6d3aeb82, type: 2}
   m_IsPrefabParent: 0
