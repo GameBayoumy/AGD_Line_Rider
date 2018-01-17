@@ -11,12 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LineMeshTest.unity
     guid: 586d908f808723b4098fe47f2f40da89
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SetEditor.unity
     guid: ee91e6574173acc4c873abbce2b684c2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CustomGameTest.unity
     guid: 3a53bcf6a1ab2a0419a4fc381f054769
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Scene_ShopMenu.unity
     guid: 10b2d0ac41f364e91a1081b382e15a8c
