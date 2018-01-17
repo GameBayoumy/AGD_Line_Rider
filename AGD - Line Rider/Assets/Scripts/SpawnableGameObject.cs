@@ -15,6 +15,11 @@ public class SpawnableGameObject : MonoBehaviour {
         DisableGameObject();
 		
 	}
+
+    protected virtual void Reset()
+    {
+
+    }
     protected virtual void DisableGameObject()
     {
             if (transform.position.x < deletePoint.transform.position.x)
