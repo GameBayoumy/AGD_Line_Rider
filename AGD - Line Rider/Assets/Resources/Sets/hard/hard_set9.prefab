@@ -329,7 +329,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4353456694502178}
   m_Layer: 0
-  m_Name: custom_set10
+  m_Name: hard_set9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
