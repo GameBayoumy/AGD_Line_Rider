@@ -56,7 +56,7 @@ MonoBehaviour:
   hardSets: []
   customSets: []
   chosenSets: []
-  easyAmount: 12
-  normalAmount: 17
-  hardAmount: 14
+  easyAmount: 13
+  normalAmount: 18
+  hardAmount: 17
   customAmount: 0
