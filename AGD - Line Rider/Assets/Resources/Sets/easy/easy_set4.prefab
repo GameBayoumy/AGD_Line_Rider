@@ -71,6 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4739534220802332}
   - component: {fileID: 114472583836236716}
+  - component: {fileID: 114253405811300368}
   m_Layer: 0
   m_Name: easy_set4
   m_TagString: Untagged
@@ -328,6 +329,18 @@ MonoBehaviour:
   laserStart: {fileID: 4893475943013456}
   laserEnd: {fileID: 4438815032863956}
   LaserTouchSFX: {fileID: 8300000, guid: 7208c3ff072944f7da8f525d7a7f9ca9, type: 3}
+--- !u!114 &114253405811300368
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1366870176405504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be7c7c163778bc242baad5ce28c46818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beginPoint: {fileID: 1716336086788296, guid: cb74f2708e75f74429f57ff5a3af5cb3, type: 2}
 --- !u!114 &114472583836236716
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -185,6 +185,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4470394580095314}
+  - component: {fileID: 114647706893377138}
+  - component: {fileID: 114087153610281454}
   m_Layer: 0
   m_Name: hard_set6
   m_TagString: Untagged
@@ -1815,6 +1817,17 @@ MonoBehaviour:
   splittingSFX: {fileID: 8300000, guid: 44bf1194efc696a46a51dff09f75aad6, type: 3}
   gameOverCall: {fileID: 0}
   gameOverCaller: {fileID: 0}
+--- !u!114 &114087153610281454
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1261298491050486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed658a25f97e6024aa2e9213d96903ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114120506694466614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1924,6 +1937,18 @@ MonoBehaviour:
   splittingSFX: {fileID: 8300000, guid: 44bf1194efc696a46a51dff09f75aad6, type: 3}
   gameOverCall: {fileID: 0}
   gameOverCaller: {fileID: 0}
+--- !u!114 &114647706893377138
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1261298491050486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be7c7c163778bc242baad5ce28c46818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beginPoint: {fileID: 1716336086788296, guid: cb74f2708e75f74429f57ff5a3af5cb3, type: 2}
 --- !u!114 &114729385971303414
 MonoBehaviour:
   m_ObjectHideFlags: 1

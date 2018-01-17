@@ -213,6 +213,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4528864213058838}
+  - component: {fileID: 114549337988157506}
+  - component: {fileID: 114929260653017248}
   m_Layer: 0
   m_Name: hard_set13
   m_TagString: Untagged
@@ -1048,6 +1050,18 @@ MonoBehaviour:
   gameOverCaller: {fileID: 0}
   speed: 0.25
   Player: {fileID: 0}
+--- !u!114 &114549337988157506
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1539777118264166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be7c7c163778bc242baad5ce28c46818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beginPoint: {fileID: 1716336086788296, guid: cb74f2708e75f74429f57ff5a3af5cb3, type: 2}
 --- !u!114 &114577057692392754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1119,6 +1133,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupSound: {fileID: 8300000, guid: 1627a9ef44446994c99f5fb5eb812e24, type: 3}
+--- !u!114 &114929260653017248
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1539777118264166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed658a25f97e6024aa2e9213d96903ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212026064022414280
 SpriteRenderer:
   m_ObjectHideFlags: 1

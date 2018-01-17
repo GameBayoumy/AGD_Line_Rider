@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreateBeginPoint : MonoBehaviour {
+public class CreateBeginPoint : MonoBehaviour
+{
 
-    public float beginPos = 100;
-    public float endPos;
+    public GameObject beginPoint;
+    float beginPos;
 
     void Awake()
     {
@@ -17,25 +18,8 @@ public class CreateBeginPoint : MonoBehaviour {
             }
         }
 
-        endPos = transform.GetChild(0).transform.localPosition.x;
-    }
-
-	// Use this for initialization
-	void Start () {
-        AdjustAllPositions();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    void AdjustAllPositions()
-    {
-        float finalPos = (endPos + beginPos) / 2;
-        foreach (Transform child in transform)
-        {
-            child.transform.localPosition += new Vector3(finalPos, 0, 0);
-        }
+        GameObject thePoint = Instantiate(beginPoint, transform.position, transform.rotation) as GameObject;
+        thePoint.transform.parent = transform;
+        thePoint.transform.localPosition = new Vector3(beginPos, 0, 0);
     }
 }
