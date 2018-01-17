@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChasingEnemy : EnemyBasic {
 
-    public float speed = 0.25f;
+    float speed = 0.20f;
     protected Transform playerPos;
     private Vector3 PlayerPosition;
     public GameObject Player;
