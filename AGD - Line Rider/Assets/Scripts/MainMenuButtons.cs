@@ -37,4 +37,8 @@ public class MainMenuButtons : MonoBehaviour {
     {
         SceneManager.LoadScene(3);
     }
+
+	public void StartTutorialMenu(){
+		SceneManager.LoadScene (5);
+	}
 }
