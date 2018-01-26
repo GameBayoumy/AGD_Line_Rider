@@ -41,4 +41,21 @@ public class MainMenuButtons : MonoBehaviour {
 	public void StartTutorialMenu(){
 		SceneManager.LoadScene (5);
 	}
+
+	//THIS IS RESERVED FOR THE TUTORIAL LEVELS
+	public void StartTutorialLevel_1(){
+		SceneManager.LoadScene (6);
+	}
+
+	public void StartTutorialLevel_2(){
+		SceneManager.LoadScene (7);
+	}
+
+	public void StartTutorialLevel_3(){
+		SceneManager.LoadScene (8);
+	}
+
+	public void StartMenuReturn(){
+		SceneManager.LoadScene (0);
+	}
 }

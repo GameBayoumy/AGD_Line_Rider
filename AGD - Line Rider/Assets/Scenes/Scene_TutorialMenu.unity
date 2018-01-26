@@ -574,7 +574,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 312932202}
-        m_MethodName: StartCustomGame
+        m_MethodName: StartTutorialLevel_1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -696,7 +696,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 312932202}
-        m_MethodName: StartCustomGame
+        m_MethodName: StartMenuReturn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -818,7 +818,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 312932202}
-        m_MethodName: StartCustomGame
+        m_MethodName: StartTutorialLevel_2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1153,7 +1153,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 312932202}
-        m_MethodName: StartCustomGame
+        m_MethodName: StartTutorialLevel_3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

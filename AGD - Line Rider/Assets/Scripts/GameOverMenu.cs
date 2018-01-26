@@ -90,6 +90,11 @@ public class GameOverMenu : MonoBehaviour {
 		SceneManager.LoadScene("Scene_StartMenu");
 	}
 
+	public void TutorialMenu(){
+		Resume ();
+		SceneManager.LoadScene ("Scene_TutorialMenu");
+	}
+
 	public void Quit()
 	{			
 		Resume ();

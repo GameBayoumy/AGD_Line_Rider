@@ -20,3 +20,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene_ShopMenu.unity
     guid: 10b2d0ac41f364e91a1081b382e15a8c
+  - enabled: 1
+    path: Assets/Scenes/Scene_TutorialMenu.unity
+    guid: 69d57d7c19c4b43d8bf81c6e7d192917
+  - enabled: 1
+    path: Assets/Scenes/Scene_TutorialLevel_1.unity
+    guid: cf7aee0ae50034c9d8e4bbf39b2463f8
+  - enabled: 1
+    path: Assets/Scenes/Scene_TutorialLevel_2.unity
+    guid: b97d7d6470f8144789b798e209a1e0de
+  - enabled: 1
+    path: Assets/Scenes/Scene_TutorialLevel_3.unity
+    guid: 5be327d3028bf4fa9a99e9c3563c7fce
