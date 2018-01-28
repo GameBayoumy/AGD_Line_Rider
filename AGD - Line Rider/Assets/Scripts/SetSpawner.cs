@@ -126,6 +126,7 @@ public class SetSpawner : MonoBehaviour {
 
     void SpawnSet()
     {
+        GameObject.Find("SetObjectPooler").GetComponent<RandomSeed>().activeSeed++;
         _canSpawn = false;
         GameObject set = _objectPool.GetPooledSet();
         // Remove this code when the object pool does NOT return null.

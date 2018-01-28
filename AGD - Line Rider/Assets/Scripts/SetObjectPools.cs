@@ -16,23 +16,8 @@ public class SetObjectPools : MonoBehaviour {
     public int hardAmount;
     public int customAmount;
 
-    public bool useCustomSeed;
-    public int currentSeed;
-    public int customSeed;
-
     // Use this for initialization
     void Start () {
-
-        if (useCustomSeed)
-        {
-            Random.InitState(customSeed);
-            currentSeed = customSeed;
-        }
-        else
-        {
-            currentSeed = Random.Range(0, 1000000);
-            Random.InitState(currentSeed);
-        }
 
         easySets = new List<GameObject>();
         normalSets = new List<GameObject>();
