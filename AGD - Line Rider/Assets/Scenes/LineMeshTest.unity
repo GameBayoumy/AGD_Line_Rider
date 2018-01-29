@@ -1232,7 +1232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf30e97064cd8ec438ef8955471770aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useCustomSeed: 1
+  useCustomSeed: 0
   originalSeed: 0
   customSeed: 0
   activeSeed: 0
