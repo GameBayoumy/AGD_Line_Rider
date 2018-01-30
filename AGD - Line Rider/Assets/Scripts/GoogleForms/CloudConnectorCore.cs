@@ -230,7 +230,7 @@ public static class CloudConnectorCore
 			objTypeName.Add(parsed.Substring(0, parsed.IndexOf(TYPE_END)));
 			jsonData.Add(parsed.Substring(parsed.IndexOf(TYPE_END) + TYPE_END.Length));
 			returnType = QueryType.getTable;
-            GameObject.Find("DemoBoy").GetComponent<TestList>().myString = jsonData[0];
+            GameObject.Find("DataManager").GetComponent<GSFU_Demo_Runtime>().myString = jsonData[0];
         }
 		
 		// Response for GetAllTables()

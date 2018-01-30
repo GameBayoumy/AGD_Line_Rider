@@ -8,6 +8,8 @@ public class UploadToForm : MonoBehaviour {
     public GameObject username;
 
     private string myName;
+    float number = 6;
+    float secondNumber = 11;
 
     [SerializeField]
     private string BASE_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdF9tmmJAgZqfH_mcwbFaxQaaVdGoCThT36seg1iMl5HrdUsQ/formResponse";
@@ -26,7 +28,7 @@ public class UploadToForm : MonoBehaviour {
     public void Send()
     {
         myName = username.GetComponent<InputField>().text;
-        StartCoroutine(Post(myName, "Zero", "Random"));
+        StartCoroutine(Post(myName, number.ToString(), secondNumber.ToString()));
     }
 
 	// Use this for initialization
