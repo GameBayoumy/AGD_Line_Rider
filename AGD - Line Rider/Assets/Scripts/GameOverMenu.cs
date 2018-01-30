@@ -14,6 +14,7 @@ public class GameOverMenu : MonoBehaviour {
 	public Transform controls;
 	public Transform background;
     public Transform testManager;
+    public GameObject uploadUI;
 
 	public static bool gameOverState;
 
@@ -95,6 +96,16 @@ public class GameOverMenu : MonoBehaviour {
 		Resume ();
 		Application.Quit();
 	}
+
+    public void RevealUploadUI()
+    {
+        uploadUI.SetActive(true);
+    }
+
+    public void HideUploadUI()
+    {
+        uploadUI.SetActive(false);
+    }
 
     public static void SetGameOverState(bool value)
     {

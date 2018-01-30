@@ -7,10 +7,12 @@ using UnityEngine.SceneManagement;
 public class MainMenuButtons : MonoBehaviour {
 
 	public Text highScoreText;
+    public Text victoryText;
 
 	public void Start(){
 		//Showcases biggest highscore
 		highScoreText.text = "Highscore: " + (PlayerPrefs.GetFloat ("Highscore")).ToString();
+        victoryText.text = "Players defeated: " + PlayerPrefs.GetInt("PlayersDefeated");
 	}
 
 	public void StartGame()
@@ -36,5 +38,10 @@ public class MainMenuButtons : MonoBehaviour {
     public void StartCustomGame()
     {
         SceneManager.LoadScene(3);
+    }
+
+    public void StartOnlineMode()
+    {
+        SceneManager.LoadScene(5);
     }
 }

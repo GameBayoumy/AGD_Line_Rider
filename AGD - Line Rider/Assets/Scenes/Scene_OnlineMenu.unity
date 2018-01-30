@@ -254,7 +254,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 312932202}
+      - m_Target: {fileID: 0}
         m_MethodName: StartShopMenu
         m_Mode: 1
         m_Arguments:
@@ -311,7 +311,6 @@ GameObject:
   - component: {fileID: 312932200}
   - component: {fileID: 312932199}
   - component: {fileID: 312932198}
-  - component: {fileID: 312932202}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -402,18 +401,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &312932202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 312932197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 231404878884a4ff0907368bd3b5fb65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highScoreText: {fileID: 668991213}
 --- !u!1 &580867487
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,6 +597,12 @@ MonoBehaviour:
   allNames: []
   allScores: []
   allSeeds: []
+  button: {fileID: 1527912373225278, guid: e29e25bdeea39b148a51f7bc94567d03, type: 2}
+  allPositions:
+  - {x: -118, y: 50}
+  - {x: 118, y: 50}
+  - {x: -118, y: -65}
+  - {x: 118, y: -65}
 --- !u!4 &707778137
 Transform:
   m_ObjectHideFlags: 0
@@ -819,7 +812,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 312932202}
+      - m_Target: {fileID: 0}
         m_MethodName: StartCustomGame
         m_Mode: 1
         m_Arguments:
@@ -1089,7 +1082,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 312932202}
+      - m_Target: {fileID: 0}
         m_MethodName: StartEditor
         m_Mode: 1
         m_Arguments:
@@ -1321,7 +1314,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 312932202}
+      - m_Target: {fileID: 0}
         m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
@@ -1442,7 +1435,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 312932202}
+      - m_Target: {fileID: 0}
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
@@ -1556,6 +1549,48 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1964585299}
+--- !u!1001 &1967885529
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4110669484647234, guid: 7ed7a9d189cd330449c3736f97cf3f8d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110669484647234, guid: 7ed7a9d189cd330449c3736f97cf3f8d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110669484647234, guid: 7ed7a9d189cd330449c3736f97cf3f8d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110669484647234, guid: 7ed7a9d189cd330449c3736f97cf3f8d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110669484647234, guid: 7ed7a9d189cd330449c3736f97cf3f8d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110669484647234, guid: 7ed7a9d189cd330449c3736f97cf3f8d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110669484647234, guid: 7ed7a9d189cd330449c3736f97cf3f8d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110669484647234, guid: 7ed7a9d189cd330449c3736f97cf3f8d, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 7ed7a9d189cd330449c3736f97cf3f8d, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &2122295288
 GameObject:
   m_ObjectHideFlags: 0

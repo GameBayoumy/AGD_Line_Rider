@@ -12,8 +12,12 @@ public class GSFU_Demo_Runtime : MonoBehaviour
     public string[] allScores;
     public string[] allSeeds;
 
+    public GameObject button;
+    public Vector2[] allPositions;
+
     bool madeArray;
     bool filledLists;
+    bool placedButtons;
 
     void OnEnable()
 	{
@@ -70,6 +74,27 @@ public class GSFU_Demo_Runtime : MonoBehaviour
             }
 
             filledLists = true;
+        }
+
+        if (filledLists && !placedButtons)
+        {
+            int index = 0;
+
+            for (int i = 0; i < allNames.Length; i++)
+            {
+                GameObject newButton = Instantiate(button, transform.position, transform.rotation);
+                StartOnlineChallenge online = newButton.GetComponent<StartOnlineChallenge>();
+                newButton.name = allNames[i];
+                online.id = i;
+                online.playername = allNames[i];
+                online.score = float.Parse(allScores[i]);
+                online.seed = int.Parse(allSeeds[i]);
+                newButton.transform.parent = GameObject.Find("Canvas").transform;
+                newButton.transform.localPosition = allPositions[index];
+                index++;
+            }
+
+            placedButtons = true;
         }
     }
 	

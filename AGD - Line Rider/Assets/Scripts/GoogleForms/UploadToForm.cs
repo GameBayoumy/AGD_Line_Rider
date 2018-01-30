@@ -8,8 +8,10 @@ public class UploadToForm : MonoBehaviour {
     public GameObject username;
 
     private string myName;
-    float number = 6;
-    float secondNumber = 11;
+    float finalScore;
+    float finalSeed;
+    HighScore controller;
+    RandomSeed poolSeed;
 
     [SerializeField]
     private string BASE_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdF9tmmJAgZqfH_mcwbFaxQaaVdGoCThT36seg1iMl5HrdUsQ/formResponse";
@@ -28,16 +30,20 @@ public class UploadToForm : MonoBehaviour {
     public void Send()
     {
         myName = username.GetComponent<InputField>().text;
-        StartCoroutine(Post(myName, number.ToString(), secondNumber.ToString()));
+        StartCoroutine(Post(myName, finalScore.ToString(), finalSeed.ToString()));
     }
 
 	// Use this for initialization
 	void Start () {
-		
+        controller = GameObject.Find("GameController").GetComponent<HighScore>();
+        poolSeed = GameObject.Find("SetObjectPooler").GetComponent<RandomSeed>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+        finalScore = controller.timeScore;
+        finalSeed = poolSeed.originalSeed;
 		
 	}
 }

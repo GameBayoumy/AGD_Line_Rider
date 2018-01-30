@@ -12,17 +12,28 @@ public class RandomSeed : MonoBehaviour {
     // Use this for initialization
     void Awake () {
 
-        if (useCustomSeed)
+        if (GameObject.Find("OnlineCheck") != null)
         {
-            originalSeed = customSeed;
-            Random.InitState(customSeed);
-            activeSeed = customSeed;
+            useCustomSeed = true;
+            originalSeed = PlayerPrefs.GetInt("TargetSeed");
+            Random.InitState(originalSeed);
+            activeSeed = originalSeed;
         }
+
         else
         {
-            originalSeed = Random.Range(0, 5000000);
-            activeSeed = originalSeed;
-            Random.InitState(activeSeed);
+            if (useCustomSeed)
+            {
+                originalSeed = customSeed;
+                Random.InitState(customSeed);
+                activeSeed = customSeed;
+            }
+            else
+            {
+                originalSeed = Random.Range(0, 5000000);
+                activeSeed = originalSeed;
+                Random.InitState(activeSeed);
+            }
         }
     }
 	

@@ -20,3 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene_ShopMenu.unity
     guid: 10b2d0ac41f364e91a1081b382e15a8c
+  - enabled: 1
+    path: Assets/Scenes/Scene_OnlineMenu.unity
+    guid: c271e610bf20d2e41974354acfdfc7ae
+  - enabled: 1
+    path: Assets/Scenes/OnlineChallenge.unity
+    guid: 632a3d01f1959bf4ab1f132c5575d424

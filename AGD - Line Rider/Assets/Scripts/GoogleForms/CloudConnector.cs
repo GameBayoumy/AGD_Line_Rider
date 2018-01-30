@@ -8,7 +8,7 @@ public class CloudConnector : MonoBehaviour
 {
 	// -- Complete the following fields. --
 	private string webServiceUrl = "https://script.google.com/macros/s/AKfycbzLoVOKIGcM9zD2xeVIS6Prf54TdMc8HqYDwmZecxzOnmkqnjk/exec";
-	private string spreadsheetId = "1aIziUum2UNr1B2ECMvRHsj1Pa-Zo3IFiCmMlyuGje3s"; // If this is a fixed value could also be setup on the webservice to save POST request size.
+	private string spreadsheetId = "1H75DwNayXedT2kZUFsFzKLdVoSW_SKCSzcUW7-UJBx0"; // If this is a fixed value could also be setup on the webservice to save POST request size.
 	private string servicePassword = "sheeter";
 	private float timeOutLimit = 30f;
 	public bool usePOST = true;
