@@ -1,8 +1,0 @@
-Mobile Solution
-
-- About 20 empty custom sets are made in the project.
-- Each of these custom sets has a script that contains an ID.
-- When you save a custom set, all objects and positions of that set are stored in the PlayerPrefs.
-- For example: Set1Object1 can be "ChasingEnemy", which means a chasing enemy is spawned.
-- Set1Object1X and Set1Object1Y contain the local position of this object.
-- Whenever the first set is spawned, it checks the PlayerPrefs for all the objects it needs to spawn and positions it needs to set.
