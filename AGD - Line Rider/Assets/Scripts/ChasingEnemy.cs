@@ -5,38 +5,37 @@ using UnityEngine;
 public class ChasingEnemy : EnemyBasic {
 
     public float speed = 0.25f;
-    protected Transform playerPos;
-    private Vector3 PlayerPosition;
-    public GameObject Player;
     private bool hasPassed;
     private bool shouldStop;
-	// Use this for initialization
-	protected override void Awake() {
-        playerPos = GameObject.FindWithTag("Player").transform;
-        base.Awake();
-           Player = GameObject.Find("Player");
-	}
 	
-	// Update is called once per frame
-	protected override void Update () {
+    // Use this for initialization
+	protected override void Awake() {
+        base.Awake();
+	}
 
-        PlayerPosition = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z); //puts the playerposition into a vector3
+    protected override void Movement()
+    {
+        base.Movement();
 
-        if (((this.transform.position.x - Player.transform.position.x) < -15f) || hasPassed == true && shouldStop == false)
+        if (((this.transform.position.x - player.transform.position.x) < -15f) || hasPassed == true && shouldStop == false)
         {
             hasPassed = true;
-            float distance = Vector2.Distance(playerPos.position, transform.position);
+            float distance = Vector2.Distance(player.position, transform.position);
 
             if (distance > 1f)
             {
-                transform.position = Vector2.MoveTowards(transform.position, playerPos.position, speed);
+                transform.position = Vector2.MoveTowards(transform.position, player.position, speed);
             }
         }
 
-        if(((this.transform.position.x - Player.transform.position.x) < -15f) && hasPassed == false){
+        if (((this.transform.position.x - player.transform.position.x) < -15f) && hasPassed == false)
+        {
             shouldStop = true;
         }
+    }
 
-        base.Update();
-	}
+    protected override void OnCollisionEnter2D(Collision2D collision)
+    {
+        base.OnCollisionEnter2D(collision);
+    }
 }

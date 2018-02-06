@@ -6,27 +6,23 @@ public class EnemySinus : EnemyBasic {
 
     private int SinusMovement = -20;
 
-   
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
-        this.GetComponent<Rigidbody2D>().AddForce(new Vector2(-2, SinusMovement));
-		
-	}
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    // Use this for initialization
+    protected override void Awake()
     {
-        SinusMovement *= -1;
-
-        if (collision.gameObject.tag == "Player")
-        {
-            GameOverMenu.SetGameOverState(true);
-        }
-
+        base.Awake();
     }
 
+    protected override void Movement()
+    {
+        base.Movement();
+
+        this.GetComponent<Rigidbody2D>().AddForce(new Vector2(-2, SinusMovement));
+    }
+
+    protected override void OnCollisionEnter2D(Collision2D collision)
+    {
+        base.OnCollisionEnter2D(collision);
+
+        SinusMovement *= -1;
+    }
 }

@@ -3,30 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EnemyBasic : SpawnableGameObject {
+public class EnemyBasic : MonoBehaviour{
 
     //These are essential for calling the GameOverMenu script
     public GameOverMenu gameOverCall;
-    public GameObject gameOverCaller;
+    public Transform player;
 
-
-    protected override void Awake()
+    protected virtual void Awake()
     {
         //Calls the GameController which hosts the GameOverMenu script
         GameObject gameOverCaller = GameObject.Find("GameController");
         gameOverCall = gameOverCaller.GetComponent<GameOverMenu>();
-        base.Awake();
+    }
+
+    protected virtual void Update()
+    {
+        Movement();
+    }
+
+    protected virtual void Movement()
+    {
 
     }
-    protected override void Update() { base.Update(); }
-    protected override void DisableGameObject() { base.DisableGameObject(); }
 
+    protected virtual void DisableGameObject()
+    {
 
-	private void OnCollisionEnter2D(Collision2D collision)
+    }
+
+	protected virtual void OnCollisionEnter2D(Collision2D collision)
 	{   
 		if (collision.gameObject.tag == "Player")
 		{
-//			SceneManager.LoadScene("LineMeshTest");
 			GameOverMenu.SetGameOverState(true);
 		}
 	}
