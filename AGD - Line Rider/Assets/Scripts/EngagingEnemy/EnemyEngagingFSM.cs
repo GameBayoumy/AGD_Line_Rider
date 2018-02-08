@@ -15,6 +15,7 @@ public class EnemyEngagingFSM : FSMEngaging {
     public GameObject player;
     public GameObject enemyBlock;
     public GameObject enemyBumper;
+    public float speedRotation = 10F;
    
     public int green;
     public int blue;
@@ -27,8 +28,7 @@ public class EnemyEngagingFSM : FSMEngaging {
     private float _spawnTimer;
     private float _spawnBumperTimer;
     private float _launchTimer = 20f;
-    private float _speedRotation = 10F;
-
+    private State currentState;
 
     protected override void Awake()
     {
@@ -37,10 +37,33 @@ public class EnemyEngagingFSM : FSMEngaging {
         player = GameObject.Find("Player");
     }
 
+    protected void Start()
+    {
+        SetState(new GreenState(this.gameObject));
+    }
+
     protected override void Initialize()
     {
         //Sets the starting state to None
         curState = FSMState.None; 
+    }
+
+    public void SetState(State state)
+    {
+        if (currentState != null)
+            currentState.OnStateExit();
+
+        currentState = state;
+
+        if (currentState != null)
+            currentState.OnStateEnter();
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+
+        currentState.Tick();
     }
 
     //switch between the different states
@@ -73,17 +96,17 @@ public class EnemyEngagingFSM : FSMEngaging {
         //currently how different states are switched
         if (stateTimer > green)
         {
-            curState = FSMState.Green;
+            SetState(new GreenState(this.gameObject));
         }
 
         if (stateTimer > blue)
         {
-            curState = FSMState.Blue;
+            SetState(new BlueState(this.gameObject));
         }
 
         if (stateTimer > red)
         {
-            curState = FSMState.Red;
+            SetState(new RedState(this.gameObject));
         }
     }
 
