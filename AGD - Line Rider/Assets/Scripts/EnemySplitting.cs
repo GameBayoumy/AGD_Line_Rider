@@ -7,9 +7,19 @@ public class EnemySplitting : MonoBehaviour {
     public GameObject Player;
     public GameObject EnemySplittingSmallUp;
     public GameObject EnemySplittingSmallDown;
-    public GameObject Up;
+    public GameObject Up; /*!< Ja deze gaat up */
     public GameObject Down;
     public AudioClip splittingSFX;
+
+    /*! \mainpage Overview
+ *
+ * \section intro_sec Introduction
+ *
+ * This is the documentation of Hamstars project. On this page you will find all the documentation you need to work on this project.
+ *
+ * \section install_sec Work in progress
+ * There are still feautures to be added.
+ */
 
     private Vector3 PlayerPosition;
     bool SpawnAllowed = true;
@@ -17,6 +27,10 @@ public class EnemySplitting : MonoBehaviour {
 
     public GameOverMenu gameOverCall;
     public GameObject gameOverCaller;
+
+    ///
+    /// ... text ...
+    ///
 
     void Awake()
     {
@@ -44,9 +58,18 @@ public class EnemySplitting : MonoBehaviour {
             Destroy(gameObject);
         }
 
+        //adds force to make the transition more fluent
+
+        ///
+        /// ... text dwdwdw...
+        ///
+
+        /**
+        * Deze enemy kan zeer mooi splitsen en ja het werkt.
+        */
         if (spawned == true)
         {
-           //adds force to make the transition more fluent 
+          
            Up.GetComponent<Rigidbody2D>().AddForce(new Vector2(-60, 40));
            Down.GetComponent<Rigidbody2D>().AddForce(new Vector2(-60, -40));
         }
